@@ -1,15 +1,27 @@
 package cn.com.ttg.entity;
 
+import java.util.List;
+
 /**
- * 分页信息
+ * 分页信息 带有数据信息
+ * 
  * @author leon
- *
+ * 
  */
-public class Page {
+public class Page<T> {
 	private int totalnum;
 	private int totalpage;
 	private int pagesize;
 	private int page;
+	private List<T> list;
+
+	public List<T> getList() {
+		return list;
+	}
+
+	public void setList(List<T> list) {
+		this.list = list;
+	}
 
 	public int getTotalnum() {
 		return totalnum;

@@ -4,17 +4,17 @@ import cn.com.ttg.util.HttpRequest;
 import cn.com.ttg.util.Md5Util;
 
 /**
- *  参数工具 防止硬编码
+ * 参数工具 防止硬编码
+ * 
  * @author leon
- *
+ * 
  */
 public class ParaUtil {
 
 	public static String appkeyValue = "10304";
 	public static String appSecretValue = "f4bafa4d96624d85ad5746202f253597";
 	public static String cardTestNo = "6225887899991234";
-	
-	
+
 	public static String appkey = "appkey";
 	public static String sign = "sign";
 	public static String timestamp = "timestamp";
@@ -25,7 +25,7 @@ public class ParaUtil {
 	public static String county = "county";
 	public static String clsid = "clsid";
 	public static String pid = "pid";
-	
+
 	public static String bankid = "bankid";
 	public static String shopid = "shopid";
 	public static String couid = "couid";
@@ -39,8 +39,11 @@ public class ParaUtil {
 	public static String state = "state";
 	public static String shopcolumn = "shopcolumn";
 	public static String coucolumn = "coucolumn";
+	/**
+	 * 时间格式为：2012-08-09 06:12:01
+	 */
 	public static String updatetime = "updatetime";
-	
+
 	public static String mobile = "mobile";
 	public static String card = "card";
 	public static String orderid = "orderid";
@@ -50,25 +53,30 @@ public class ParaUtil {
 	public static String svcid = "svcid";
 	public static String ptype = "ptype";
 	public static String amount = "amount";
-	
-	
+
+	public static String svccolumn = "svccolumn";
+	public static String brcolumn = "brcolumn";
+	public static String impcolumn = "impcolumn";
+
 	/**
 	 * sign=md5(appkey+timestamp+appsecret)
+	 * 
 	 * @return
 	 */
 	public static String getSign(String timestamp) {
-		String sign = Md5Util.MD5(appkeyValue+timestamp+appSecretValue);
-		System.out.println("sign="+sign);
+		String sign = Md5Util.MD5(appkeyValue + timestamp + appSecretValue);
+		System.out.println("sign=" + sign);
 		return sign;
 	}
-	
+
 	/**
 	 * 获取服务器的是时间戳timestamp
+	 * 
 	 * @return
 	 */
-	public static String getTimestamp(){
+	public static String getTimestamp() {
 		String timeStamp = HttpRequest.sendGet("http://openapi.ttg.cn/", "");
-		System.out.println("timeStamp="+timeStamp);
+		System.out.println("timeStamp=" + timeStamp);
 		return timeStamp;
 	}
 

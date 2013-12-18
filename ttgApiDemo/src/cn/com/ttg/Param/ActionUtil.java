@@ -15,4 +15,8 @@ public class ActionUtil {
 	public static String addCouponAction = "addcoupon";
 	public static String getCouponBranchAction = "getcouponbranch";
 	public static String chargePointsAction = "chargepoints";
+	public static String getVipCardAction = "getvipcard";
+	public static String getShopBranchAction = "getshopbranch";
+	public static String shopImpressionAction = "shopimpression";
+	public static String getShopCouponAction = "getshopcoupon";
 }

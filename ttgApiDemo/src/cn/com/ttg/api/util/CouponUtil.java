@@ -11,6 +11,7 @@ import cn.com.ttg.Param.Param;
 import cn.com.ttg.Param.UrlUtil;
 import cn.com.ttg.entity.Coupon;
 import cn.com.ttg.entity.CouponBackLog;
+import cn.com.ttg.entity.Page;
 import cn.com.ttg.util.HttpRequest;
 
 public class CouponUtil {
@@ -20,9 +21,9 @@ public class CouponUtil {
 	 * 
 	 * @param p
 	 *            Param 类型 封装后的参数
-	 * @return
+	 * @return 带有分页信息
 	 */
-	public List<Coupon> Coupon(Param p) {
+	public Page<Coupon> Coupon(Param p) {
 		// 获取 服务器返回的json格式的字符串
 		String json = HttpRequest.sendGet(UrlUtil.url, p.toString());
 		System.out.println(json);
@@ -31,10 +32,11 @@ public class CouponUtil {
 		JSONObject data = jo.getJSONObject("data");
 		JSONObject page = data.getJSONObject("page");
 		JSONArray list = data.getJSONArray("list");
+		Page<Coupon> pages = (Page<Coupon>) page.toBean(page, Page.class);
 		Coupon[] coupons = (Coupon[]) list.toArray(list, Coupon.class);
 		List<Coupon> couponList = Arrays.asList(coupons);
-		// TODO 返回分页问题
-		return couponList;
+		pages.setList(couponList);
+		return pages;
 	}
 
 	/**
@@ -57,7 +59,9 @@ public class CouponUtil {
 
 	/**
 	 * 获取优惠券/会员卡关联的分店
-	 * @param p  Param 类型 封装后的参数
+	 * 
+	 * @param p
+	 *            Param 类型 封装后的参数
 	 * @return
 	 */
 	public List<Coupon> getcouponbranch(Param p) {
@@ -73,10 +77,11 @@ public class CouponUtil {
 	}
 
 	/**
-	 * 优惠券回调通知
-	 * post 发送 优惠卷 绑定/使用信息  json格式
-	 * @param couponBackLog 优惠卷 绑定/使用信息bean
-	 * @param p 
+	 * 优惠券回调通知 post 发送 优惠卷 绑定/使用信息 json格式
+	 * 
+	 * @param couponBackLog
+	 *            优惠卷 绑定/使用信息bean
+	 * @param p
 	 */
 	public void postcallback(CouponBackLog couponBackLog, Param p) {
 		JSONObject data = JSONObject.fromObject(couponBackLog);

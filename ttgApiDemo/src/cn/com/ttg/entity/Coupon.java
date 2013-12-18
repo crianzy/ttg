@@ -57,6 +57,9 @@ public class Coupon {
 	private String discount;
 	private int range;
 	private int r;
+	//-------------------------
+	//-------------------------
+	
 	public int getShopid() {
 		return shopid;
 	}

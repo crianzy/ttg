@@ -22,10 +22,11 @@ public class Pointsutil {
 		String json = HttpRequest.sendGet(UrlUtil.url, p.toString());
 		System.out.println(json);
 		JSONObject jo = JSONObject.fromObject(json);
-		JSONArray data = jo.getJSONArray("data");
-		Points points = (Points) data.getJSONObject(0).toBean(
-				data.getJSONObject(0), Points.class);
-		return points;
+		return null;
+		// JSONArray data = jo.getJSONArray("data");
+		// Points points = (Points) data.getJSONObject(0).toBean(
+		// data.getJSONObject(0), Points.class);
+		// return points;
 	}
 
 	public static void main(String[] args) {
