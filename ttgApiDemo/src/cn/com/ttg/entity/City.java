@@ -2,6 +2,11 @@ package cn.com.ttg.entity;
 
 import java.util.List;
 
+/**
+ *  省 市 乡镇 的信息
+ * @author leon
+ *
+ */
 public class City {
 	private List<String> province;
 	private List<String> city;

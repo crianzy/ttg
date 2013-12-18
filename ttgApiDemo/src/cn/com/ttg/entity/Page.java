@@ -1,5 +1,10 @@
 package cn.com.ttg.entity;
 
+/**
+ * 分页信息
+ * @author leon
+ *
+ */
 public class Page {
 	private int totalnum;
 	private int totalpage;

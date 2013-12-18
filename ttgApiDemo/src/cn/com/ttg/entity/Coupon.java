@@ -3,7 +3,11 @@ package cn.com.ttg.entity;
 import java.util.Date;
 
 
-
+/**
+ * 优惠券信息
+ * @author leon
+ *
+ */
 public class Coupon {
 	private int shopid;
 	private String shopname;

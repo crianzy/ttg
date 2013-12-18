@@ -14,6 +14,12 @@ import cn.com.ttg.util.HttpRequest;
 
 public class BankUtil {
 
+	/**
+	 * 返回所有的银行数据
+	 * 
+	 * @param p
+	 * @return
+	 */
 	public static List<Bank> getBank(Param p) {
 
 		// 获取 服务器返回的json格式的字符串

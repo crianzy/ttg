@@ -14,6 +14,12 @@ import cn.com.ttg.util.HttpRequest;
 
 public class ClazzUtil {
 
+	/**
+	 * 获取相应的商户分类数据
+	 * 
+	 * @param p
+	 * @return 返回数组格式
+	 */
 	public static Clazz[] getClazzArray(Param p) {
 		// 获取 服务器返回的json格式的字符串
 		String json = HttpRequest.sendGet(UrlUtil.url, p.toString());
@@ -26,6 +32,12 @@ public class ClazzUtil {
 		return clazzarray;
 	}
 
+	/**
+	 * 获取相应的商户分类数据
+	 * 
+	 * @param p
+	 * @return 返回list 格式
+	 */
 	public static List<Clazz> getClazzList(Param p) {
 		// 获取 服务器返回的json格式的字符串
 		String json = HttpRequest.sendGet(UrlUtil.url, p.toString());

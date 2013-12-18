@@ -3,6 +3,11 @@ package cn.com.ttg.Param;
 import cn.com.ttg.util.HttpRequest;
 import cn.com.ttg.util.Md5Util;
 
+/**
+ *  参数工具 防止硬编码
+ * @author leon
+ *
+ */
 public class ParaUtil {
 
 	public static String appkeyValue = "10304";

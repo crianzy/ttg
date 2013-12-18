@@ -1,5 +1,10 @@
 package cn.com.ttg.Param;
 
+/**
+ * action 参数名称  防止硬编码
+ * @author leon
+ *
+ */
 public class ActionUtil {
 	
 	public static String checkCardonNoAction = "checkcardno";

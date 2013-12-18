@@ -2,6 +2,11 @@ package cn.com.ttg.entity;
 
 import java.util.Date;
 
+/**
+ * 积分信息
+ * @author leon
+ *
+ */
 public class Points {
 	private int pid;
 	private int tradetype;

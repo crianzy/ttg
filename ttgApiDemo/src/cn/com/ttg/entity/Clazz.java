@@ -1,5 +1,10 @@
 package cn.com.ttg.entity;
 
+/**
+ * 商户信息
+ * @author leon
+ *
+ */
 public class Clazz {
 	private int clsid;
 	private String clsname;

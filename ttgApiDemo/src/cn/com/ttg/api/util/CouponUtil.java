@@ -14,7 +14,15 @@ import cn.com.ttg.entity.CouponBackLog;
 import cn.com.ttg.util.HttpRequest;
 
 public class CouponUtil {
-	public static List<Coupon> Coupon(Param p) {
+
+	/**
+	 * 获取所有的优惠卷的数据
+	 * 
+	 * @param p
+	 *            Param 类型 封装后的参数
+	 * @return
+	 */
+	public List<Coupon> Coupon(Param p) {
 		// 获取 服务器返回的json格式的字符串
 		String json = HttpRequest.sendGet(UrlUtil.url, p.toString());
 		System.out.println(json);
@@ -29,7 +37,14 @@ public class CouponUtil {
 		return couponList;
 	}
 
-	public static CouponBackLog addCoupon(Param p) {
+	/**
+	 * 添加优惠卷 到银行卡
+	 * 
+	 * @param p
+	 *            包含有银行卡相关数据 Param 类型 封装后的参数
+	 * @return
+	 */
+	public CouponBackLog addCoupon(Param p) {
 		// 获取 服务器返回的json格式的字符串
 		String json = HttpRequest.sendGet(UrlUtil.url, p.toString());
 		System.out.println(json);
@@ -40,7 +55,12 @@ public class CouponUtil {
 		return addCouponBackLog;
 	}
 
-	public static List<Coupon> getcouponbranch(Param p) {
+	/**
+	 * 获取优惠券/会员卡关联的分店
+	 * @param p  Param 类型 封装后的参数
+	 * @return
+	 */
+	public List<Coupon> getcouponbranch(Param p) {
 		// 获取 服务器返回的json格式的字符串
 		String json = HttpRequest.sendGet(UrlUtil.url, p.toString());
 		System.out.println(json);
@@ -52,7 +72,13 @@ public class CouponUtil {
 		return couponList;
 	}
 
-	public static void postcallback(CouponBackLog couponBackLog, Param p) {
+	/**
+	 * 优惠券回调通知
+	 * post 发送 优惠卷 绑定/使用信息  json格式
+	 * @param couponBackLog 优惠卷 绑定/使用信息bean
+	 * @param p 
+	 */
+	public void postcallback(CouponBackLog couponBackLog, Param p) {
 		JSONObject data = JSONObject.fromObject(couponBackLog);
 		JSONObject json = new JSONObject();
 		p.remove(ParaUtil.appkey);
@@ -64,15 +90,15 @@ public class CouponUtil {
 		// System.out.println(HttpRequest.sendJsonPost(
 		// "http://localhost:8080/ttgApiDemo/",
 		// p.toString() + "data="+data.toString()));
-		System.out.println(HttpRequest.sendJsonPost(
-				UrlUtil.url,
-				p.toString() + "data="+data.toString()));
+		System.out.println(HttpRequest.sendJsonPost(UrlUtil.url, p.toString()
+				+ "data=" + data.toString()));
 		// System.out.println(HttpRequest.sendPost("http://localhost:8080/ttgApiDemo/",
 		// "a=1"));
 	}
 
 	public static void main(String[] args) {
 		Param p = new Param();
+		CouponUtil couponUtil = new CouponUtil();
 		// p.put(ParaUtil.action, ActionUtil.getCouponAction);
 		// p.put(ParaUtil.state, "1");
 		// p.put(ParaUtil.clsid, "1");
@@ -111,6 +137,6 @@ public class CouponUtil {
 		couponBackLog.setCou_bankno("6225887800001111");
 		couponBackLog.setCou_mobile("13800138999");
 		couponBackLog.setUvcid(111);
-		postcallback(couponBackLog, p);
+		couponUtil.postcallback(couponBackLog, p);
 	}
 }

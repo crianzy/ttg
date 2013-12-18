@@ -11,10 +11,8 @@ import cn.com.ttg.util.HttpRequest;
 public class CityUtil {
 
 	/**
-	 * 
-	 * @param province  省份
-	 * @param city		  城市
-	 * @param county	  乡县
+	 * 获取相应的省份 城市 信息
+	 * @param p  封装后的参数
 	 * @return
 	 */
 	public static City getCity(Param p) {

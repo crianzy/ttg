@@ -2,6 +2,11 @@ package cn.com.ttg.entity;
 
 import java.util.Date;
 
+/**
+ * 优惠券 使用 添加 的log 信息
+ * @author leon
+ *
+ */
 public class CouponBackLog {
 
 	private int unid;
