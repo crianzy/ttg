@@ -53,11 +53,22 @@ public class CouponUtil {
 	}
 
 	public static void postcallback(CouponBackLog couponBackLog, Param p) {
-		JSONObject json = JSONObject.fromObject(couponBackLog);
+		JSONObject data = JSONObject.fromObject(couponBackLog);
+		JSONObject json = new JSONObject();
 		p.remove(ParaUtil.appkey);
-		System.out.println(p.toString() + json.toString());
-		System.out.println(HttpRequest.sendJsonPost(UrlUtil.url, p.toString(),
-				json.toString()));
+		json.element(ParaUtil.timestamp, p.get(ParaUtil.timestamp));
+		json.element(ParaUtil.sign, p.get(ParaUtil.sign));
+		// json.element(ParaUtil.appkey, p.get(ParaUtil.appkey));
+		json.element("data", data);
+		System.out.println(json.toString());
+		// System.out.println(HttpRequest.sendJsonPost(
+		// "http://localhost:8080/ttgApiDemo/",
+		// p.toString() + "data="+data.toString()));
+		System.out.println(HttpRequest.sendJsonPost(
+				UrlUtil.url,
+				p.toString() + "data="+data.toString()));
+		// System.out.println(HttpRequest.sendPost("http://localhost:8080/ttgApiDemo/",
+		// "a=1"));
 	}
 
 	public static void main(String[] args) {
@@ -79,7 +90,7 @@ public class CouponUtil {
 		// p.put(ParaUtil.action, ActionUtil.getCouponBranchAction);
 		// p.put(ParaUtil.couid, "111519");
 		// getcouponbranch(p);
-		//TODO  post json请求没有搞定
+		// TODO post json请求没有搞定
 		CouponBackLog couponBackLog = new CouponBackLog();
 		couponBackLog.setUnid(123);
 		couponBackLog.setRatio(.01);
