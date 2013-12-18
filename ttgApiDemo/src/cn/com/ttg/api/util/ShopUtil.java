@@ -5,19 +5,21 @@ import java.util.List;
 
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
+import cn.com.ttg.Json.JsonUtil;
 import cn.com.ttg.Param.ActionUtil;
 import cn.com.ttg.Param.ParaUtil;
 import cn.com.ttg.Param.Param;
 import cn.com.ttg.Param.UrlUtil;
 import cn.com.ttg.entity.Count;
-import cn.com.ttg.entity.Coupon;
 import cn.com.ttg.entity.Impression;
 import cn.com.ttg.entity.ImpressionCount;
 import cn.com.ttg.entity.Page;
+import cn.com.ttg.entity.Picture;
 import cn.com.ttg.entity.Shop;
 import cn.com.ttg.entity.ShopCoupon;
 import cn.com.ttg.util.HttpRequest;
 
+@SuppressWarnings("static-access")
 public class ShopUtil {
 
 	/**
@@ -26,10 +28,11 @@ public class ShopUtil {
 	 * @param p
 	 * @return
 	 */
+	@SuppressWarnings("unchecked")
 	public Page<Shop> getShopBranch(Param p) {
 		String json = HttpRequest.sendGet(UrlUtil.url, p.toString());
 		System.out.println(json);
-		JSONObject jo = JSONObject.fromObject(json);
+		JSONObject jo = JsonUtil.formStringToJson(json);
 		JSONObject data = jo.getJSONObject("data");
 		JSONObject pageJson = data.getJSONObject("pages");
 		Page<Shop> page = (Page<Shop>) pageJson.toBean(pageJson, Page.class);
@@ -47,11 +50,12 @@ public class ShopUtil {
 	 * @param p
 	 * @return
 	 */
-	public ImpressionCount shopImpression(Param p) {
-		ImpressionCount impressionCount = new ImpressionCount();
+	@SuppressWarnings("unchecked")
+	public ImpressionCount<Impression> shopImpression(Param p) {
+		ImpressionCount<Impression> impressionCount = new ImpressionCount<Impression>();
 		String json = HttpRequest.sendGet(UrlUtil.url, p.toString());
 		System.out.println("jsonString = " + json);
-		JSONObject jo = JSONObject.fromObject(json);
+		JSONObject jo = JsonUtil.formStringToJson(json);
 		JSONObject data = jo.getJSONObject("data");
 		JSONArray count = data.getJSONArray("count");
 		JSONObject pages = data.getJSONObject("pages");
@@ -70,19 +74,28 @@ public class ShopUtil {
 		return impressionCount;
 	}
 
+	@SuppressWarnings("unchecked")
 	public Page<ShopCoupon> getShopCoupon(Param p) {
 		String json = HttpRequest.sendGet(UrlUtil.url, p.toString());
 		System.out.println("jsonString = " + json);
-		JSONObject jo = JSONObject.fromObject(json);
+		JSONObject jo = JsonUtil.formStringToJson(json);
 		JSONObject data = jo.getJSONObject("data");
 		JSONObject pages = data.getJSONObject("pages");
 		JSONArray list = data.getJSONArray("list");
-		Page<ShopCoupon> page = (Page) pages.toBean(pages, Page.class);
+		Page<ShopCoupon> page = (Page<ShopCoupon>) pages.toBean(pages, Page.class);
 		ShopCoupon[] coupons = (ShopCoupon[]) list.toArray(list,
 				ShopCoupon.class);
 		List<ShopCoupon> couponList = Arrays.asList(coupons);
 		page.setList(couponList);
 		return page;
+	}
+	
+	public List<Picture> getshopimage(Param p){
+		String json = HttpRequest.sendGet(UrlUtil.url, p.toString());
+		System.out.println("jsonString = " + json);
+		JSONObject jo = JsonUtil.formStringToJson(json);
+		JSONObject data = jo.getJSONObject("data");
+		return null;
 	}
 
 	public static void main(String[] args) {
@@ -100,6 +113,7 @@ public class ShopUtil {
 		// shopUtil.shopImpression(p);
 		p.put(ParaUtil.action, ActionUtil.getShopCouponAction);
 		p.put(ParaUtil.shopid, "100068");
+		//p.remove(ParaUtil.appkey);
 		p.put(ParaUtil.brcolumn, "abcdefghijklmn");
 		shopUtil.getShopCoupon(p);
 

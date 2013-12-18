@@ -9,8 +9,6 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
 
-import net.sf.json.JSONObject;
-
 public class HttpRequest {
 	/**
 	 * 向指定URL发送GET方法的请求

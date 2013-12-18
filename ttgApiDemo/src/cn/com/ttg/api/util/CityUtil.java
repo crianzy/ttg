@@ -1,6 +1,7 @@
 package cn.com.ttg.api.util;
 
 import net.sf.json.JSONObject;
+import cn.com.ttg.Json.JsonUtil;
 import cn.com.ttg.Param.ActionUtil;
 import cn.com.ttg.Param.ParaUtil;
 import cn.com.ttg.Param.Param;
@@ -8,6 +9,7 @@ import cn.com.ttg.Param.UrlUtil;
 import cn.com.ttg.entity.City;
 import cn.com.ttg.util.HttpRequest;
 
+@SuppressWarnings("static-access")
 public class CityUtil {
 
 	/**
@@ -32,7 +34,7 @@ public class CityUtil {
 		String json = HttpRequest.sendGet(UrlUtil.url, p.toString());
 		System.out.println(json);
 		//将字符串解析为JSONObject 
-		JSONObject jo = JSONObject.fromObject(json);
+		JSONObject jo = JsonUtil.formStringToJson(json);
 		JSONObject data = jo.getJSONObject("data");
 		//从data 中解析除City 装载道 City bean 中
 		City citytemp = (City) data.toBean(data, City.class);

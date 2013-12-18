@@ -1,7 +1,7 @@
 package cn.com.ttg.api.util;
 
-import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
+import cn.com.ttg.Json.JsonUtil;
 import cn.com.ttg.Param.ActionUtil;
 import cn.com.ttg.Param.ParaUtil;
 import cn.com.ttg.Param.Param;
@@ -16,12 +16,13 @@ public class Pointsutil {
 	 * 
 	 * @param p
 	 *            Param 类型 封装后的参数
-	 * @return
+	 * @returns
 	 */
 	public Points chargepoints(Param p) {
 		String json = HttpRequest.sendGet(UrlUtil.url, p.toString());
 		System.out.println(json);
-		JSONObject jo = JSONObject.fromObject(json);
+		//TODO 积分没有搞定
+		//		JSONObject jo = JsonUtil.formStringToJson(json);
 		return null;
 		// JSONArray data = jo.getJSONArray("data");
 		// Points points = (Points) data.getJSONObject(0).toBean(

@@ -5,6 +5,7 @@ import java.util.List;
 
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
+import cn.com.ttg.Json.JsonUtil;
 import cn.com.ttg.Param.ActionUtil;
 import cn.com.ttg.Param.ParaUtil;
 import cn.com.ttg.Param.Param;
@@ -12,6 +13,7 @@ import cn.com.ttg.Param.UrlUtil;
 import cn.com.ttg.entity.Clazz;
 import cn.com.ttg.util.HttpRequest;
 
+@SuppressWarnings("static-access")
 public class ClazzUtil {
 
 	/**
@@ -24,7 +26,7 @@ public class ClazzUtil {
 		// 获取 服务器返回的json格式的字符串
 		String json = HttpRequest.sendGet(UrlUtil.url, p.toString());
 		System.out.println(json);
-		JSONObject jo = JSONObject.fromObject(json);
+		JSONObject jo = JsonUtil.formStringToJson(json);
 		JSONArray data = jo.getJSONArray("data");
 		// clazzLsit = data.toList(data, Clazz.class);
 		Clazz[] clazzarray = (Clazz[]) data.toArray(data, Clazz.class);
@@ -42,7 +44,7 @@ public class ClazzUtil {
 		// 获取 服务器返回的json格式的字符串
 		String json = HttpRequest.sendGet(UrlUtil.url, p.toString());
 		System.out.println(json);
-		JSONObject jo = JSONObject.fromObject(json);
+		JSONObject jo = JsonUtil.formStringToJson(json);
 		JSONArray data = jo.getJSONArray("data");
 		Clazz[] clazzarray = (Clazz[]) data.toArray(data, Clazz.class);
 		// System.out.println("getClsname ="+clazzarray[1].getClsname());

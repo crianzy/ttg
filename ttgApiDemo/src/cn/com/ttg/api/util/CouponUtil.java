@@ -6,6 +6,7 @@ import java.util.List;
 
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
+import cn.com.ttg.Json.JsonUtil;
 import cn.com.ttg.Param.ParaUtil;
 import cn.com.ttg.Param.Param;
 import cn.com.ttg.Param.UrlUtil;
@@ -14,6 +15,7 @@ import cn.com.ttg.entity.CouponBackLog;
 import cn.com.ttg.entity.Page;
 import cn.com.ttg.util.HttpRequest;
 
+@SuppressWarnings("static-access")
 public class CouponUtil {
 
 	/**
@@ -23,12 +25,13 @@ public class CouponUtil {
 	 *            Param 类型 封装后的参数
 	 * @return 带有分页信息
 	 */
+	@SuppressWarnings("unchecked")
 	public Page<Coupon> Coupon(Param p) {
 		// 获取 服务器返回的json格式的字符串
 		String json = HttpRequest.sendGet(UrlUtil.url, p.toString());
 		System.out.println(json);
 		// 解析json
-		JSONObject jo = JSONObject.fromObject(json);
+		JSONObject jo = JsonUtil.formStringToJson(json);
 		JSONObject data = jo.getJSONObject("data");
 		JSONObject page = data.getJSONObject("page");
 		JSONArray list = data.getJSONArray("list");
@@ -50,7 +53,7 @@ public class CouponUtil {
 		// 获取 服务器返回的json格式的字符串
 		String json = HttpRequest.sendGet(UrlUtil.url, p.toString());
 		System.out.println(json);
-		JSONObject jo = JSONObject.fromObject(json);
+		JSONObject jo = JsonUtil.formStringToJson(json);
 		JSONArray data = jo.getJSONArray("data");
 		CouponBackLog addCouponBackLog = (CouponBackLog) data.getJSONObject(0)
 				.toBean(data.getJSONObject(0), CouponBackLog.class);
@@ -68,7 +71,7 @@ public class CouponUtil {
 		// 获取 服务器返回的json格式的字符串
 		String json = HttpRequest.sendGet(UrlUtil.url, p.toString());
 		System.out.println(json);
-		JSONObject jo = JSONObject.fromObject(json);
+		JSONObject jo = JsonUtil.formStringToJson(json);
 		JSONArray data = jo.getJSONArray("data");
 		// data.getJSONObject(0).toBean(data.getJSONObject(0), Coupon.class);
 		Coupon[] coupons = (Coupon[]) data.toArray(data, Coupon.class);
