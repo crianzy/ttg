@@ -1,6 +1,5 @@
 package cn.com.ttg.Json;
 
-import net.sf.json.JSONObject;
 
 
 public class JsonDataObject {

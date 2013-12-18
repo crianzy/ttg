@@ -13,7 +13,7 @@ public class ParaUtil {
 
 	public static String appkeyValue = "10304";
 	public static String appSecretValue = "f4bafa4d96624d85ad5746202f253597";
-	public static String cardTestNo = "6225887899991234";
+	public static String cardTestNo = "6227002022081063435";
 
 	public static String appkey = "appkey";
 	public static String sign = "sign";
@@ -57,6 +57,21 @@ public class ParaUtil {
 	public static String svccolumn = "svccolumn";
 	public static String brcolumn = "brcolumn";
 	public static String impcolumn = "impcolumn";
+	public static String comcolumn = "comcolumn";
+	public static String uvccolumn = "uvccolumn";
+
+	public static String coupons = "coupons";
+	public static String vipcards = "vipcards";
+	public static String comments = "comments";
+	public static String branchstore = "branchstore";
+	public static String impressions = "impressions";
+
+	public static String used = "used";
+	public static String usestime = "usestime";
+	public static String useetime = "useetime";
+	public static String addstime = "addstime";
+	public static String addetime = "addetime";
+	public static String uid = "uid";
 
 	/**
 	 * sign=md5(appkey+timestamp+appsecret)

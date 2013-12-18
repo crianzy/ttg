@@ -1,6 +1,6 @@
 package cn.com.ttg.entity;
 
-public class Picture {
+public class ShopImage {
 
 	private int picid;
 	private String picurl;

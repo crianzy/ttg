@@ -1,7 +1,5 @@
 package cn.com.ttg.api.util;
 
-import net.sf.json.JSONObject;
-import cn.com.ttg.Json.JsonUtil;
 import cn.com.ttg.Param.ActionUtil;
 import cn.com.ttg.Param.ParaUtil;
 import cn.com.ttg.Param.Param;

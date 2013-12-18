@@ -1,7 +1,5 @@
 package cn.com.ttg.Json;
 
-import net.sf.ezmorph.bean.MorphDynaBean;
-import net.sf.json.JSONObject;
 import cn.com.ttg.entity.City;
 
 public class CityDataObject extends JsonDataObject{
@@ -17,7 +15,7 @@ public class CityDataObject extends JsonDataObject{
 	@Override
 	public void setData(Object data) {
 		super.setData(data);
-		MorphDynaBean jo = (MorphDynaBean) data;
+		//MorphDynaBean jo = (MorphDynaBean) data;
 		//this.city = jo.
 	}
 	

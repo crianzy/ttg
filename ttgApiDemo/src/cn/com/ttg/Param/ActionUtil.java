@@ -20,4 +20,9 @@ public class ActionUtil {
 	public static String shopImpressionAction = "shopimpression";
 	public static String getShopCouponAction = "getshopcoupon";
 	public static String getShopImageAction = "getshopimage";
+	public static String getShopCommentAction = "getshopcomment";
+	public static String shopInfoAction = "shopinfo";
+	public static String addVipCardAction = "addvipcard";
+	public static String userVipCardAction = "uservipcard";
+	public static String getUserCouponAction = "getusercoupon";
 }
