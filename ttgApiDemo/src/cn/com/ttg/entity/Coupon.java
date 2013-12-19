@@ -1,5 +1,6 @@
 package cn.com.ttg.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -8,7 +9,8 @@ import java.util.Date;
  * @author leon
  * 
  */
-public class Coupon {
+public class Coupon  implements Serializable{
+	private static final long serialVersionUID = -6586453070577566996L;
 	private Integer shopid;
 	private String shopname;
 	private String bname;

@@ -1,8 +1,10 @@
 package cn.com.ttg.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class ShopComment {
+public class ShopComment implements Serializable {
+	private static final long serialVersionUID = 5452753103006190183L;
 	private Integer comid;
 	private String comcontent;
 	private Date comtime;

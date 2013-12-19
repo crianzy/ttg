@@ -1,13 +1,16 @@
 package cn.com.ttg.entity;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
- *  省 市 乡镇 的信息
+ * 省 市 乡镇 的信息
+ * 
  * @author leon
- *
+ * 
  */
-public class City {
+public class City implements Serializable {
+	private static final long serialVersionUID = -4605865742983702971L;
 	private List<String> province;
 	private List<String> city;
 	private List<String> countsy;

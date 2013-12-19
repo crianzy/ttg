@@ -1,9 +1,11 @@
 package cn.com.ttg.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class SimpleCoupon {
+public class SimpleCoupon implements Serializable {
 
+	private static final long serialVersionUID = -7760687314955516056L;
 	private Integer couid;
 	private String couname;
 	private Integer coubranchs;

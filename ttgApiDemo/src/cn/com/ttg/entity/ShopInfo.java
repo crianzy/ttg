@@ -1,7 +1,10 @@
 package cn.com.ttg.entity;
 
-public class ShopInfo {
+import java.io.Serializable;
 
+public class ShopInfo implements Serializable {
+
+	private static final long serialVersionUID = 5864818855828814823L;
 	private Shop shop;
 	private Coupon[] coupons;
 	private VipCard[] vipcards;

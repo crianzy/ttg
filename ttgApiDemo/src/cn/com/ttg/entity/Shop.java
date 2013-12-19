@@ -1,7 +1,10 @@
 package cn.com.ttg.entity;
 
-public class Shop {
+import java.io.Serializable;
 
+public class Shop implements Serializable {
+
+	private static final long serialVersionUID = -474498841375605449L;
 	private Integer shopid;
 	private String shopname;
 	private String bname;

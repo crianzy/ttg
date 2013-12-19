@@ -1,9 +1,6 @@
 package cn.com.ttg.entity;
 
 import java.util.Date;
-import java.util.List;
-
-import net.sf.json.JSONArray;
 
 public class VipCard {
 

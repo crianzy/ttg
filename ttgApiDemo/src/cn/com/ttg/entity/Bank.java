@@ -1,12 +1,16 @@
 package cn.com.ttg.entity;
 
+import java.io.Serializable;
+
 /**
  * 银行的信息
  * 
  * @author leon
  * 
  */
-public class Bank {
+public class Bank implements Serializable{
+	private static final long serialVersionUID = -3915964909271955407L;
+	
 	private Integer bankid;
 	private String bankname;
 	private String banklogo;

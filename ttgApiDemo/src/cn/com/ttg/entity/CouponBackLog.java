@@ -1,5 +1,6 @@
 package cn.com.ttg.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -8,8 +9,9 @@ import java.util.Date;
  * @author leon
  * 
  */
-public class CouponBackLog {
+public class CouponBackLog implements Serializable {
 
+	private static final long serialVersionUID = 1752634930595532341L;
 	private Integer unid;
 	private Double ratio;
 	private Date addtime;

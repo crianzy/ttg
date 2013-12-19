@@ -1,5 +1,6 @@
 package cn.com.ttg.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -8,8 +9,9 @@ import java.util.Date;
  * @author leon
  * 
  */
-public class Impression {
+public class Impression implements Serializable {
 
+	private static final long serialVersionUID = 7034441582026866925L;
 	private Integer impid;
 	private String impression;
 	private Date imptime;

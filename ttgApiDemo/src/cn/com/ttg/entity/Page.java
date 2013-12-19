@@ -1,5 +1,6 @@
 package cn.com.ttg.entity;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -8,7 +9,8 @@ import java.util.List;
  * @author leon
  * 
  */
-public class Page<T> {
+public class Page<T> implements Serializable {
+	private static final long serialVersionUID = 2415403900631168605L;
 	private int totalnum;
 	private int totalpage;
 	private int pagesize;

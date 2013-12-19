@@ -1,7 +1,10 @@
 package cn.com.ttg.entity;
 
-public class ShopImage {
+import java.io.Serializable;
 
+public class ShopImage implements Serializable {
+
+	private static final long serialVersionUID = -8723180798059896573L;
 	private Integer picid;
 	private String picurl;
 	private String picname;

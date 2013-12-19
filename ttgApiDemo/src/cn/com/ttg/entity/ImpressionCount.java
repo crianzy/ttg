@@ -1,9 +1,11 @@
 package cn.com.ttg.entity;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class ImpressionCount<T> {
+public class ImpressionCount<T> implements Serializable {
 
+	private static final long serialVersionUID = 7420263202369186899L;
 	private List<Count> counts;
 	private Page<T> page;
 	private List<T> list;

@@ -1,5 +1,6 @@
 package cn.com.ttg.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -8,7 +9,8 @@ import java.util.Date;
  * @author leon
  * 
  */
-public class Points {
+public class Points implements Serializable {
+	private static final long serialVersionUID = 7858331294879857599L;
 	private Integer pid;
 	private Integer tradetype;
 	private String cou_mobile;

@@ -1,6 +1,9 @@
 package cn.com.ttg.entity;
 
-public class VipLevel {
+import java.io.Serializable;
+
+public class VipLevel implements Serializable {
+	private static final long serialVersionUID = -3324662228048982933L;
 	private Integer seqid;
 	private String seqname;
 	private Double upgrade;

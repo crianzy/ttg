@@ -1,8 +1,10 @@
 package cn.com.ttg.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class VipUserCard {
+public class VipUserCard implements Serializable {
+	private static final long serialVersionUID = 8890371694833446425L;
 	private Integer uvcid;
 	private Integer vipcardnum;
 	private Integer vcamount;

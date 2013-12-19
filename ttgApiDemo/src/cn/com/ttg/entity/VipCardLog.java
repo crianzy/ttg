@@ -1,9 +1,11 @@
 package cn.com.ttg.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class VipCardLog {
+public class VipCardLog implements Serializable {
 
+	private static final long serialVersionUID = -2866538447996749000L;
 	// TODO int 可能要换 long
 	private Integer uvcid;
 	private Integer vipcardnum;

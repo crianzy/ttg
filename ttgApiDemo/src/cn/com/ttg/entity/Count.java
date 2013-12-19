@@ -1,13 +1,16 @@
 package cn.com.ttg.entity;
 
+import java.io.Serializable;
+
 /**
  * 评论统计相关
  * 
  * @author leon
  * 
  */
-public class Count {
+public class Count  implements Serializable{
 
+	private static final long serialVersionUID = 179863910951184014L;
 	/**
 	 * 相对应的描述
 	 */

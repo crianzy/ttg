@@ -1,12 +1,15 @@
 package cn.com.ttg.entity;
 
+import java.io.Serializable;
+
 /**
  * 商户信息
  * 
  * @author leon
  * 
  */
-public class Clazz {
+public class Clazz  implements Serializable{
+	private static final long serialVersionUID = -5852051567777913719L;
 	private Integer clsid;
 	private String clsname;
 	private Integer pid;

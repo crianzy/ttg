@@ -7,7 +7,7 @@ import cn.com.ttg.Param.UrlUtil;
 import cn.com.ttg.entity.Points;
 import cn.com.ttg.util.HttpRequest;
 
-public class Pointsutil {
+public class PointsUtil {
 
 	/**
 	 * 积分充值
@@ -30,7 +30,7 @@ public class Pointsutil {
 
 	public static void main(String[] args) {
 		Param p = new Param();
-		Pointsutil pointsUtil = new Pointsutil();
+		PointsUtil pointsUtil = new PointsUtil();
 		p.put(ParaUtil.action, ActionUtil.chargePointsAction);
 		p.put(ParaUtil.mobile, "13800138001");
 		p.put(ParaUtil.card, "6225888877779999");
