@@ -8,7 +8,14 @@ import net.sf.json.JSONObject;
 
 public class JsonUtil {
 
-	public static JSONObject SendGet(String url, Param p) {
+	/**
+	 * 向服务器发送 get请求 同时将 返回的数据转换成JsonObject 如果返回的信息有错有 这回抛出异常
+	 * 
+	 * @param url
+	 * @param p
+	 * @return
+	 */
+	public static JSONObject sendGet(String url, Param p) {
 		String json = HttpRequest.sendGet(UrlUtil.url, p.toString());
 		System.out.println("jsonString = " + json);
 		JSONObject jo = JSONObject.fromObject(json);
@@ -17,10 +24,15 @@ public class JsonUtil {
 			String msg = jo.getString("msg");
 			throw new CustomException(msg);
 		}
-		JSONObject data = jo.getJSONObject("data");
-		return data;
+		return jo;
 	}
 
+	/**
+	 * 将String 转换成 Json 格式的数据 JSONObject
+	 * 
+	 * @param json
+	 * @return
+	 */
 	public static JSONObject formStringToJson(String json) {
 		JSONObject jo = JSONObject.fromObject(json);
 		int errcode = jo.getInt("errcode");

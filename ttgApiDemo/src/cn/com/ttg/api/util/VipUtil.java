@@ -10,20 +10,23 @@ import cn.com.ttg.Param.ActionUtil;
 import cn.com.ttg.Param.ParaUtil;
 import cn.com.ttg.Param.Param;
 import cn.com.ttg.Param.UrlUtil;
-import cn.com.ttg.entity.Coupon;
 import cn.com.ttg.entity.Page;
+import cn.com.ttg.entity.Shop;
 import cn.com.ttg.entity.VipCard;
 import cn.com.ttg.entity.VipCardLog;
 import cn.com.ttg.entity.VipUserCard;
-import cn.com.ttg.util.HttpRequest;
 
+@SuppressWarnings("unchecked")
 public class VipUtil {
 
-	@SuppressWarnings("unchecked")
+	/**
+	 * 获取所有的会员卡数据
+	 * 
+	 * @param p
+	 * @return
+	 */
 	public Page<VipCard> getVipCard(Param p) {
-		String json = HttpRequest.sendGet(UrlUtil.url, p.toString());
-		System.out.println(json);
-		JSONObject jo = JsonUtil.formStringToJson(json);
+		JSONObject jo = JsonUtil.sendGet(UrlUtil.url, p);
 		JSONObject data = jo.getJSONObject("data");
 		JSONObject pages = data.getJSONObject("pages");
 		JSONArray list = data.getJSONArray("list");
@@ -35,23 +38,30 @@ public class VipUtil {
 		return page;
 	}
 
+	/**
+	 * 银行卡绑定 会员卡
+	 * 
+	 * @param p
+	 * @return
+	 */
 	public VipCardLog addVipCard(Param p) {
-		String json = HttpRequest.sendGet(UrlUtil.url, p.toString());
-		System.out.println(json);
-		JSONObject jo = JsonUtil.formStringToJson(json);
+		JSONObject jo = JsonUtil.sendGet(UrlUtil.url, p);
 		JSONArray data = jo.getJSONArray("data");
-		JSONObject jsvipcardLod = data.getJSONObject(0);
-		VipCardLog vipcardLod = (VipCardLog) JSONObject.toBean(jsvipcardLod,
+		JSONObject jsvipcardLog = data.getJSONObject(0);
+		VipCardLog vipcardLog = (VipCardLog) JSONObject.toBean(jsvipcardLog,
 				VipCardLog.class);
 
-		return vipcardLod;
+		return vipcardLog;
 	}
 
-	@SuppressWarnings("unchecked")
+	/**
+	 * 用户会员卡 查询 （查询与绑定的会员卡）
+	 * 
+	 * @param p
+	 * @return 返回绑定的日子信息
+	 */
 	public Page<VipUserCard> userVipVard(Param p) {
-		String json = HttpRequest.sendGet(UrlUtil.url, p.toString());
-		System.out.println(json);
-		JSONObject jo = JsonUtil.formStringToJson(json);
+		JSONObject jo = JsonUtil.sendGet(UrlUtil.url, p);
 		JSONObject data = jo.getJSONObject("data");
 		JSONObject pages = data.getJSONObject("pages");
 		JSONArray list = data.getJSONArray("list");
@@ -66,9 +76,8 @@ public class VipUtil {
 
 	}
 
-	public List<Coupon> getcouponbranch(Param p) {
-		return new CouponUtil().getcouponbranch(p);
-
+	public List<Shop> getCouponBranch(Param p) {
+		return new CouponUtil().getCouponBranch(p);
 	}
 
 	public static void main(String[] args) {

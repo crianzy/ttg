@@ -13,31 +13,11 @@ public class City implements Serializable {
 	private static final long serialVersionUID = -4605865742983702971L;
 	private List<String> province;
 	private List<String> city;
-	private List<String> countsy;
+	private List<String> county;
 	private List<String> area_name;
 
 	public City() {
 	}
-
-	// public City(String province, String city, String county) {
-	// getCity(province, city, county);
-	// }
-
-	// public void getCity(String province, String city, String county) {
-	// Param p = new Param();
-	// p.put(ParaUtil.action, ActionUtil.getCityAction);
-	// p.put(ParaUtil.province, province);
-	// p.put(ParaUtil.city, city);
-	// p.put(ParaUtil.county, county);
-	// String json = HttpRequest.sendGet(UrlUtil.url, p.toString());
-	// System.out.println(json);
-	// JSONObject jo = JSONObject.fromObject(json);
-	// JSONObject data = jo.getJSONObject("data");
-	// this = (City) data.toBean(data, City.class);
-	// System.out.println(this.getProvince());
-	// System.out.println(this.getCity());
-	// System.out.println(this.getCounty());
-	// }
 
 	public List<String> getProvince() {
 		return province;
@@ -55,12 +35,16 @@ public class City implements Serializable {
 		this.city = city;
 	}
 
-	public List<String> getCountsy() {
-		return countsy;
+	public List<String> getCounty() {
+		return county;
 	}
 
-	public void setCountsy(List<String> countsy) {
-		this.countsy = countsy;
+	public void setCounty(List<String> county) {
+		this.county = county;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
 	public List<String> getArea_name() {

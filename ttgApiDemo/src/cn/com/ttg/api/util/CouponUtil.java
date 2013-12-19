@@ -1,7 +1,6 @@
 package cn.com.ttg.api.util;
 
 import java.util.Arrays;
-import java.util.Date;
 import java.util.List;
 
 import net.sf.json.JSONArray;
@@ -14,9 +13,10 @@ import cn.com.ttg.Param.UrlUtil;
 import cn.com.ttg.entity.Coupon;
 import cn.com.ttg.entity.CouponBackLog;
 import cn.com.ttg.entity.Page;
+import cn.com.ttg.entity.Shop;
 import cn.com.ttg.util.HttpRequest;
 
-@SuppressWarnings("static-access")
+@SuppressWarnings("unchecked")
 public class CouponUtil {
 
 	/**
@@ -26,21 +26,16 @@ public class CouponUtil {
 	 *            Param 类型 封装后的参数
 	 * @return 带有分页信息
 	 */
-	@SuppressWarnings("unchecked")
 	public Page<Coupon> Coupon(Param p) {
-		// 获取 服务器返回的json格式的字符串
-		String json = HttpRequest.sendGet(UrlUtil.url, p.toString());
-		System.out.println(json);
-		// 解析json
-		JSONObject jo = JsonUtil.formStringToJson(json);
+		JSONObject jo = JsonUtil.sendGet(UrlUtil.url, p);
 		JSONObject data = jo.getJSONObject("data");
-		JSONObject page = data.getJSONObject("page");
+		JSONObject pages = data.getJSONObject("pages");
 		JSONArray list = data.getJSONArray("list");
-		Page<Coupon> pages = (Page<Coupon>) page.toBean(page, Page.class);
-		Coupon[] coupons = (Coupon[]) list.toArray(list, Coupon.class);
+		Page<Coupon> page = (Page<Coupon>) JSONObject.toBean(pages, Page.class);
+		Coupon[] coupons = (Coupon[]) JSONArray.toArray(list, Coupon.class);
 		List<Coupon> couponList = Arrays.asList(coupons);
-		pages.setList(couponList);
-		return pages;
+		page.setList(couponList);
+		return page;
 	}
 
 	/**
@@ -51,13 +46,10 @@ public class CouponUtil {
 	 * @return
 	 */
 	public CouponBackLog addCoupon(Param p) {
-		// 获取 服务器返回的json格式的字符串
-		String json = HttpRequest.sendGet(UrlUtil.url, p.toString());
-		System.out.println(json);
-		JSONObject jo = JsonUtil.formStringToJson(json);
+		JSONObject jo = JsonUtil.sendGet(UrlUtil.url, p);
 		JSONArray data = jo.getJSONArray("data");
-		CouponBackLog addCouponBackLog = (CouponBackLog) data.getJSONObject(0)
-				.toBean(data.getJSONObject(0), CouponBackLog.class);
+		CouponBackLog addCouponBackLog = (CouponBackLog) JSONObject.toBean(
+				data.getJSONObject(0), CouponBackLog.class);
 		return addCouponBackLog;
 	}
 
@@ -66,17 +58,13 @@ public class CouponUtil {
 	 * 
 	 * @param p
 	 *            Param 类型 封装后的参数
-	 * @return
+	 * @return List<Shop>
 	 */
-	public List<Coupon> getcouponbranch(Param p) {
-		// 获取 服务器返回的json格式的字符串
-		String json = HttpRequest.sendGet(UrlUtil.url, p.toString());
-		System.out.println(json);
-		JSONObject jo = JsonUtil.formStringToJson(json);
+	public List<Shop> getCouponBranch(Param p) {
+		JSONObject jo = JsonUtil.sendGet(UrlUtil.url, p);
 		JSONArray data = jo.getJSONArray("data");
-		// data.getJSONObject(0).toBean(data.getJSONObject(0), Coupon.class);
-		Coupon[] coupons = (Coupon[]) data.toArray(data, Coupon.class);
-		List<Coupon> couponList = Arrays.asList(coupons);
+		Shop[] ShopList = (Shop[]) JSONArray.toArray(data, Shop.class);
+		List<Shop> couponList = Arrays.asList(ShopList);
 		return couponList;
 	}
 
@@ -112,11 +100,8 @@ public class CouponUtil {
 	 * @param p
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
 	public Page<CouponBackLog> getUserCoupon(Param p) {
-		String json = HttpRequest.sendGet(UrlUtil.url, p.toString());
-		System.out.println(json);
-		JSONObject jo = JsonUtil.formStringToJson(json);
+		JSONObject jo = JsonUtil.sendGet(UrlUtil.url, p);
 		JSONObject data = jo.getJSONObject("data");
 		JSONObject pages = data.getJSONObject("pages");
 		JSONArray list = data.getJSONArray("list");
@@ -125,7 +110,6 @@ public class CouponUtil {
 		CouponBackLog[] couponBLogs = (CouponBackLog[]) JSONArray.toArray(list,
 				CouponBackLog.class);
 		page.setList(Arrays.asList(couponBLogs));
-
 		return page;
 
 	}
@@ -150,7 +134,6 @@ public class CouponUtil {
 		// p.put(ParaUtil.action, ActionUtil.getCouponBranchAction);
 		// p.put(ParaUtil.couid, "111519");
 		// getcouponbranch(p);
-		// TODO post json请求没有搞定
 		// CouponBackLog couponBackLog = new CouponBackLog();
 		// couponBackLog.setUnid(123);
 		// couponBackLog.setRatio(.01);

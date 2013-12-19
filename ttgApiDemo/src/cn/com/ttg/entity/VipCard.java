@@ -1,9 +1,12 @@
 package cn.com.ttg.entity;
 
+import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
-public class VipCard {
+public class VipCard implements Serializable {
 
+	private static final long serialVersionUID = -2859970741037733315L;
 	private Integer shopid;
 	private String shopname;
 	private String bname;
@@ -44,6 +47,16 @@ public class VipCard {
 	private Date updatetime;
 	private Double range;
 	private Integer r;
+
+	private List<VipLevel> levels;
+
+	public List<VipLevel> getLevels() {
+		return levels;
+	}
+
+	public void setLevels(List<VipLevel> levels) {
+		this.levels = levels;
+	}
 
 	public Integer getShopid() {
 		return shopid;
