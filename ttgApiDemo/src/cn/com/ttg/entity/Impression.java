@@ -4,34 +4,35 @@ import java.util.Date;
 
 /**
  * 用户的评论
+ * 
  * @author leon
- *
+ * 
  */
 public class Impression {
 
-	private int impid;
+	private Integer impid;
 	private String impression;
 	private Date imptime;
-	private int userid;
+	private Integer userid;
 	private String username;
 	private String sex;
 	private String headsml;
 	private String headmid;
 	private String headbig;
 	private String impcpp;
-	private int score;
-	private int score1;
-	private int score2;
-	private int score3;
-	private int score4;
-	private int score5;
-	private int r;
+	private Integer score;
+	private Integer score1;
+	private Integer score2;
+	private Integer score3;
+	private Integer score4;
+	private Integer score5;
+	private Integer r;
 
-	public int getImpid() {
+	public Integer getImpid() {
 		return impid;
 	}
 
-	public void setImpid(int impid) {
+	public void setImpid(Integer impid) {
 		this.impid = impid;
 	}
 
@@ -51,11 +52,11 @@ public class Impression {
 		this.imptime = imptime;
 	}
 
-	public int getUserid() {
+	public Integer getUserid() {
 		return userid;
 	}
 
-	public void setUserid(int userid) {
+	public void setUserid(Integer userid) {
 		this.userid = userid;
 	}
 
@@ -107,59 +108,59 @@ public class Impression {
 		this.impcpp = impcpp;
 	}
 
-	public int getScore() {
+	public Integer getScore() {
 		return score;
 	}
 
-	public void setScore(int score) {
+	public void setScore(Integer score) {
 		this.score = score;
 	}
 
-	public int getScore1() {
+	public Integer getScore1() {
 		return score1;
 	}
 
-	public void setScore1(int score1) {
+	public void setScore1(Integer score1) {
 		this.score1 = score1;
 	}
 
-	public int getScore2() {
+	public Integer getScore2() {
 		return score2;
 	}
 
-	public void setScore2(int score2) {
+	public void setScore2(Integer score2) {
 		this.score2 = score2;
 	}
 
-	public int getScore3() {
+	public Integer getScore3() {
 		return score3;
 	}
 
-	public void setScore3(int score3) {
+	public void setScore3(Integer score3) {
 		this.score3 = score3;
 	}
 
-	public int getScore4() {
+	public Integer getScore4() {
 		return score4;
 	}
 
-	public void setScore4(int score4) {
+	public void setScore4(Integer score4) {
 		this.score4 = score4;
 	}
 
-	public int getScore5() {
+	public Integer getScore5() {
 		return score5;
 	}
 
-	public void setScore5(int score5) {
+	public void setScore5(Integer score5) {
 		this.score5 = score5;
 	}
 
-	public int getR() {
+	public Integer getR() {
 		return r;
 	}
 
-	public void setR(int r) {
+	public void setR(Integer r) {
 		this.r = r;
 	}
 

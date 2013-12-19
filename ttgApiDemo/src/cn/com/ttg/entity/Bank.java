@@ -7,15 +7,15 @@ package cn.com.ttg.entity;
  * 
  */
 public class Bank {
-	private int bankid;
+	private Integer bankid;
 	private String bankname;
 	private String banklogo;
 
-	public int getBankid() {
+	public Integer getBankid() {
 		return bankid;
 	}
 
-	public void setBankid(int bankid) {
+	public void setBankid(Integer bankid) {
 		this.bankid = bankid;
 	}
 

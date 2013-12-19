@@ -4,33 +4,34 @@ import java.util.Date;
 
 /**
  * 积分信息
+ * 
  * @author leon
- *
+ * 
  */
 public class Points {
-	private int pid;
-	private int tradetype;
+	private Integer pid;
+	private Integer tradetype;
 	private String cou_mobile;
 	private String cou_bankno;
-	private int amount;
+	private Integer amount;
 	private String ptype;
-	private int union_orderid;
+	private Integer union_orderid;
 	private Date order_addtime;
 	private String union_notify_url;
 
-	public int getPid() {
+	public Integer getPid() {
 		return pid;
 	}
 
-	public void setPid(int pid) {
+	public void setPid(Integer pid) {
 		this.pid = pid;
 	}
 
-	public int getTradetype() {
+	public Integer getTradetype() {
 		return tradetype;
 	}
 
-	public void setTradetype(int tradetype) {
+	public void setTradetype(Integer tradetype) {
 		this.tradetype = tradetype;
 	}
 
@@ -50,11 +51,11 @@ public class Points {
 		this.cou_bankno = cou_bankno;
 	}
 
-	public int getAmount() {
+	public Integer getAmount() {
 		return amount;
 	}
 
-	public void setAmount(int amount) {
+	public void setAmount(Integer amount) {
 		this.amount = amount;
 	}
 
@@ -66,11 +67,11 @@ public class Points {
 		this.ptype = ptype;
 	}
 
-	public int getUnion_orderid() {
+	public Integer getUnion_orderid() {
 		return union_orderid;
 	}
 
-	public void setUnion_orderid(int union_orderid) {
+	public void setUnion_orderid(Integer union_orderid) {
 		this.union_orderid = union_orderid;
 	}
 

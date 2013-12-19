@@ -147,7 +147,7 @@ public class ShopUtil {
 	 * @param p
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "unused" })
 	public ShopInfo shopinfo(Param p) {
 		String json = HttpRequest.sendGet(UrlUtil.url, p.toString());
 		System.out.println("jsonString = " + json);
@@ -155,16 +155,14 @@ public class ShopUtil {
 		JSONObject data = jo.getJSONObject("data");
 		Shop shop = (Shop) JSONObject.toBean(data.getJSONArray("shop")
 				.getJSONObject(0), Shop.class);
-		
-		SimpleCoupon[] coupons = null;
+
+		Coupon[] coupons = null;
 		VipCard[] vipcards = null;
 		ShopComment[] comments = null;
 		Shop[] branchstore = null;
 		if (data.containsKey("coupons")) {
-			// coupons = (Coupon[]) JSONArray.toArray(
-			// data.getJSONArray("coupons"), Coupon.class);
-			JSONArray test = data.getJSONArray("coupons");
-			coupons = (SimpleCoupon[]) JSONArray.toArray(test, SimpleCoupon.class);
+			coupons = (Coupon[]) JSONArray.toArray(
+					data.getJSONArray("coupons"), Coupon.class);
 		}
 		if (data.containsKey("vipcards")) {
 			vipcards = (VipCard[]) JSONArray.toArray(
@@ -178,7 +176,7 @@ public class ShopUtil {
 			branchstore = (Shop[]) JSONArray.toArray(
 					data.getJSONArray("branchstore"), Shop.class);
 		}
-		// ImpressionCount 需要进行两次 count + Impression
+		// ImpressionCount 需要进行两次 count + Impression 这里没有page分页
 		Count[] counts = (Count[]) JSONArray.toArray(
 				data.getJSONObject("impression").getJSONArray("count"),
 				Count.class);

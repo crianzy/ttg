@@ -2,19 +2,20 @@ package cn.com.ttg.entity;
 
 /**
  * 商户信息
+ * 
  * @author leon
- *
+ * 
  */
 public class Clazz {
-	private int clsid;
+	private Integer clsid;
 	private String clsname;
-	private int pid;
+	private Integer pid;
 
-	public int getClsid() {
+	public Integer getClsid() {
 		return clsid;
 	}
 
-	public void setClsid(int clsid) {
+	public void setClsid(Integer clsid) {
 		this.clsid = clsid;
 	}
 
@@ -26,11 +27,11 @@ public class Clazz {
 		this.clsname = clsname;
 	}
 
-	public int getPid() {
+	public Integer getPid() {
 		return pid;
 	}
 
-	public void setPid(int pid) {
+	public void setPid(Integer pid) {
 		this.pid = pid;
 	}
 

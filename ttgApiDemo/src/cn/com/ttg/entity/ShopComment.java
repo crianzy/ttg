@@ -3,22 +3,22 @@ package cn.com.ttg.entity;
 import java.util.Date;
 
 public class ShopComment {
-	private int comid;
+	private Integer comid;
 	private String comcontent;
 	private Date comtime;
-	private int userid;
+	private Integer userid;
 	private String username;
 	private String sex;
 	private String headsml;
 	private String headmid;
 	private String headbig;
-	private int r;
+	private Integer r;
 
-	public int getComid() {
+	public Integer getComid() {
 		return comid;
 	}
 
-	public void setComid(int comid) {
+	public void setComid(Integer comid) {
 		this.comid = comid;
 	}
 
@@ -38,11 +38,11 @@ public class ShopComment {
 		this.comtime = comtime;
 	}
 
-	public int getUserid() {
+	public Integer getUserid() {
 		return userid;
 	}
 
-	public void setUserid(int userid) {
+	public void setUserid(Integer userid) {
 		this.userid = userid;
 	}
 
@@ -86,11 +86,11 @@ public class ShopComment {
 		this.headbig = headbig;
 	}
 
-	public int getR() {
+	public Integer getR() {
 		return r;
 	}
 
-	public void setR(int r) {
+	public void setR(Integer r) {
 		this.r = r;
 	}
 

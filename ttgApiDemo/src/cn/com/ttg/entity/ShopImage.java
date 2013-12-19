@@ -2,16 +2,16 @@ package cn.com.ttg.entity;
 
 public class ShopImage {
 
-	private int picid;
+	private Integer picid;
 	private String picurl;
 	private String picname;
 	private String piclink;
 
-	public int getPicid() {
+	public Integer getPicid() {
 		return picid;
 	}
 
-	public void setPicid(int picid) {
+	public void setPicid(Integer picid) {
 		this.picid = picid;
 	}
 

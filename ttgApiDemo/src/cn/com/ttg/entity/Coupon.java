@@ -2,14 +2,14 @@ package cn.com.ttg.entity;
 
 import java.util.Date;
 
-
 /**
  * 优惠券信息
+ * 
  * @author leon
- *
+ * 
  */
 public class Coupon {
-	private int shopid;
+	private Integer shopid;
 	private String shopname;
 	private String bname;
 	private String logo;
@@ -22,334 +22,427 @@ public class Coupon {
 	private String address;
 	private String openhours;
 	private String bus;
-	private double lng;
-	private double lat;
-	private int comments;
-	private int impressions;
-	private int coupons;
-	private int branchs;
-	private int clsid;
+	private Double lng;
+	private Double lat;
+	private Integer comments;
+	private Integer impressions;
+	private Integer coupons;
+	private Integer branchs;
+	private Integer clsid;
 	private String clsname;
 	private String support;
 	private String tags;
 	private String intro;
-	private int headid;
-	private int shopavg;
-	private int couid;
+	private Integer headid;
+	private Integer shopavg;
+	private Integer couid;
 	private String couname;
-	private int coubranchs;
+	private Integer coubranchs;
 	private String pic;
 	private Date effect;
 	private Date expired;
-	private int bankid;
+	private Integer bankid;
 	private String bankname;
 	private Date upDatetime;
-	private int actid;
-	private int nums;
-	private int coutype;
-	private int amount;
-	private int giftid;
+	private Integer actid;
+	private Integer nums;
+	private Integer coutype;
+	private Integer amount;
+	private Integer giftid;
 	private String giftinfo;
-	private int state;
-	private int cardtype;
-	private int minamount;
-	private int maxamount;
+	private Integer state;
+	private Integer cardtype;
+	private Integer minamount;
+	private Integer maxamount;
 	private String discount;
-	private int range;
-	private int r;
-	//-------------------------
-	//-------------------------
-	
-	public int getShopid() {
+	private Integer range;
+	private Integer r;
+
+	public Integer getShopid() {
 		return shopid;
 	}
-	public void setShopid(int shopid) {
+
+	public void setShopid(Integer shopid) {
 		this.shopid = shopid;
 	}
+
 	public String getShopname() {
 		return shopname;
 	}
+
 	public void setShopname(String shopname) {
 		this.shopname = shopname;
 	}
+
 	public String getBname() {
 		return bname;
 	}
+
 	public void setBname(String bname) {
 		this.bname = bname;
 	}
+
 	public String getLogo() {
 		return logo;
 	}
+
 	public void setLogo(String logo) {
 		this.logo = logo;
 	}
+
 	public String getLogo2() {
 		return logo2;
 	}
+
 	public void setLogo2(String logo2) {
 		this.logo2 = logo2;
 	}
+
 	public String getProvince() {
 		return province;
 	}
+
 	public void setProvince(String province) {
 		this.province = province;
 	}
+
 	public String getCity() {
 		return city;
 	}
+
 	public void setCity(String city) {
 		this.city = city;
 	}
+
 	public String getCounty() {
 		return county;
 	}
+
 	public void setCounty(String county) {
 		this.county = county;
 	}
+
 	public String getArea() {
 		return area;
 	}
+
 	public void setArea(String area) {
 		this.area = area;
 	}
+
 	public String getTel() {
 		return tel;
 	}
+
 	public void setTel(String tel) {
 		this.tel = tel;
 	}
+
 	public String getAddress() {
 		return address;
 	}
+
 	public void setAddress(String address) {
 		this.address = address;
 	}
+
 	public String getOpenhours() {
 		return openhours;
 	}
+
 	public void setOpenhours(String openhours) {
 		this.openhours = openhours;
 	}
+
 	public String getBus() {
 		return bus;
 	}
+
 	public void setBus(String bus) {
 		this.bus = bus;
 	}
-	public double getLng() {
+
+	public Double getLng() {
 		return lng;
 	}
-	public void setLng(double lng) {
+
+	public void setLng(Double lng) {
 		this.lng = lng;
 	}
-	public double getLat() {
+
+	public Double getLat() {
 		return lat;
 	}
-	public void setLat(double lat) {
+
+	public void setLat(Double lat) {
 		this.lat = lat;
 	}
-	public int getComments() {
+
+	public Integer getComments() {
 		return comments;
 	}
-	public void setComments(int comments) {
+
+	public void setComments(Integer comments) {
 		this.comments = comments;
 	}
-	public int getImpressions() {
+
+	public Integer getImpressions() {
 		return impressions;
 	}
-	public void setImpressions(int impressions) {
+
+	public void setImpressions(Integer impressions) {
 		this.impressions = impressions;
 	}
-	public int getCoupons() {
+
+	public Integer getCoupons() {
 		return coupons;
 	}
-	public void setCoupons(int coupons) {
+
+	public void setCoupons(Integer coupons) {
 		this.coupons = coupons;
 	}
-	public int getBranchs() {
+
+	public Integer getBranchs() {
 		return branchs;
 	}
-	public void setBranchs(int branchs) {
+
+	public void setBranchs(Integer branchs) {
 		this.branchs = branchs;
 	}
-	public int getClsid() {
+
+	public Integer getClsid() {
 		return clsid;
 	}
-	public void setClsid(int clsid) {
+
+	public void setClsid(Integer clsid) {
 		this.clsid = clsid;
 	}
+
 	public String getClsname() {
 		return clsname;
 	}
+
 	public void setClsname(String clsname) {
 		this.clsname = clsname;
 	}
+
 	public String getSupport() {
 		return support;
 	}
+
 	public void setSupport(String support) {
 		this.support = support;
 	}
+
 	public String getTags() {
 		return tags;
 	}
+
 	public void setTags(String tags) {
 		this.tags = tags;
 	}
+
 	public String getIntro() {
 		return intro;
 	}
+
 	public void setIntro(String intro) {
 		this.intro = intro;
 	}
-	public int getHeadid() {
+
+	public Integer getHeadid() {
 		return headid;
 	}
-	public void setHeadid(int headid) {
+
+	public void setHeadid(Integer headid) {
 		this.headid = headid;
 	}
-	public int getShopavg() {
+
+	public Integer getShopavg() {
 		return shopavg;
 	}
-	public void setShopavg(int shopavg) {
+
+	public void setShopavg(Integer shopavg) {
 		this.shopavg = shopavg;
 	}
-	public int getCouid() {
+
+	public Integer getCouid() {
 		return couid;
 	}
-	public void setCouid(int couid) {
+
+	public void setCouid(Integer couid) {
 		this.couid = couid;
 	}
+
 	public String getCouname() {
 		return couname;
 	}
+
 	public void setCouname(String couname) {
 		this.couname = couname;
 	}
-	public int getCoubranchs() {
+
+	public Integer getCoubranchs() {
 		return coubranchs;
 	}
-	public void setCoubranchs(int coubranchs) {
+
+	public void setCoubranchs(Integer coubranchs) {
 		this.coubranchs = coubranchs;
 	}
+
 	public String getPic() {
 		return pic;
 	}
+
 	public void setPic(String pic) {
 		this.pic = pic;
 	}
+
 	public Date getEffect() {
 		return effect;
 	}
+
 	public void setEffect(Date effect) {
 		this.effect = effect;
 	}
+
 	public Date getExpired() {
 		return expired;
 	}
+
 	public void setExpired(Date expired) {
 		this.expired = expired;
 	}
-	public int getBankid() {
+
+	public Integer getBankid() {
 		return bankid;
 	}
-	public void setBankid(int bankid) {
+
+	public void setBankid(Integer bankid) {
 		this.bankid = bankid;
 	}
+
 	public String getBankname() {
 		return bankname;
 	}
+
 	public void setBankname(String bankname) {
 		this.bankname = bankname;
 	}
+
 	public Date getUpDatetime() {
 		return upDatetime;
 	}
+
 	public void setUpDatetime(Date upDatetime) {
 		this.upDatetime = upDatetime;
 	}
-	public int getActid() {
+
+	public Integer getActid() {
 		return actid;
 	}
-	public void setActid(int actid) {
+
+	public void setActid(Integer actid) {
 		this.actid = actid;
 	}
-	public int getNums() {
+
+	public Integer getNums() {
 		return nums;
 	}
-	public void setNums(int nums) {
+
+	public void setNums(Integer nums) {
 		this.nums = nums;
 	}
-	public int getCoutype() {
+
+	public Integer getCoutype() {
 		return coutype;
 	}
-	public void setCoutype(int coutype) {
+
+	public void setCoutype(Integer coutype) {
 		this.coutype = coutype;
 	}
-	public int getAmount() {
+
+	public Integer getAmount() {
 		return amount;
 	}
-	public void setAmount(int amount) {
+
+	public void setAmount(Integer amount) {
 		this.amount = amount;
 	}
-	public int getGiftid() {
+
+	public Integer getGiftid() {
 		return giftid;
 	}
-	public void setGiftid(int giftid) {
+
+	public void setGiftid(Integer giftid) {
 		this.giftid = giftid;
 	}
+
 	public String getGiftinfo() {
 		return giftinfo;
 	}
+
 	public void setGiftinfo(String giftinfo) {
 		this.giftinfo = giftinfo;
 	}
-	public int getState() {
+
+	public Integer getState() {
 		return state;
 	}
-	public void setState(int state) {
+
+	public void setState(Integer state) {
 		this.state = state;
 	}
-	public int getCardtype() {
+
+	public Integer getCardtype() {
 		return cardtype;
 	}
-	public void setCardtype(int cardtype) {
+
+	public void setCardtype(Integer cardtype) {
 		this.cardtype = cardtype;
 	}
-	public int getMinamount() {
+
+	public Integer getMinamount() {
 		return minamount;
 	}
-	public void setMinamount(int minamount) {
+
+	public void setMinamount(Integer minamount) {
 		this.minamount = minamount;
 	}
-	public int getMaxamount() {
+
+	public Integer getMaxamount() {
 		return maxamount;
 	}
-	public void setMaxamount(int maxamount) {
+
+	public void setMaxamount(Integer maxamount) {
 		this.maxamount = maxamount;
 	}
+
 	public String getDiscount() {
 		return discount;
 	}
+
 	public void setDiscount(String discount) {
 		this.discount = discount;
 	}
-	public int getRange() {
+
+	public Integer getRange() {
 		return range;
 	}
-	public void setRange(int range) {
+
+	public void setRange(Integer range) {
 		this.range = range;
 	}
-	public int getR() {
+
+	public Integer getR() {
 		return r;
 	}
-	public void setR(int r) {
+
+	public void setR(Integer r) {
 		this.r = r;
 	}
-	
-	
-	
+
+	// -------------------------
+	// -------------------------
 
 }

@@ -7,7 +7,7 @@ import net.sf.json.JSONArray;
 
 public class VipCard {
 
-	private int shopid;
+	private Integer shopid;
 	private String shopname;
 	private String bname;
 	private String logo;
@@ -22,39 +22,37 @@ public class VipCard {
 	private String bus;
 	private String lng;
 	private String lat;
-	private int comments;
-	private int impressions;
-	private int coupons;
-	private int branchs;
-	private int clsid;
+	private Integer comments;
+	private Integer impressions;
+	private Integer coupons;
+	private Integer branchs;
+	private Integer clsid;
 	private String clsname;
 	private String support;
 	private String tags;
 	private String intro;
-	private int headid;
-	private int svcid;
-	private int levelsnum;
+	private Integer headid;
+	private Integer svcid;
+	private Integer levelsnum;
 	private String svcshopname;
 	private String svclogo;
-	private int allnum;
-	private int usednum;
-	private int blance;
+	private Integer allnum;
+	private Integer usednum;
+	private Integer blance;
 	private String recommend;
 	private String discount;
 	private Date stime;
 	private Date etime;
 	private Date lasttime;
 	private Date updatetime;
-	private double range;
-	private int r;
+	private Double range;
+	private Integer r;
 
-	private VipLevel[] levels;
-
-	public int getShopid() {
+	public Integer getShopid() {
 		return shopid;
 	}
 
-	public void setShopid(int shopid) {
+	public void setShopid(Integer shopid) {
 		this.shopid = shopid;
 	}
 
@@ -170,43 +168,43 @@ public class VipCard {
 		this.lat = lat;
 	}
 
-	public int getComments() {
+	public Integer getComments() {
 		return comments;
 	}
 
-	public void setComments(int comments) {
+	public void setComments(Integer comments) {
 		this.comments = comments;
 	}
 
-	public int getImpressions() {
+	public Integer getImpressions() {
 		return impressions;
 	}
 
-	public void setImpressions(int impressions) {
+	public void setImpressions(Integer impressions) {
 		this.impressions = impressions;
 	}
 
-	public int getCoupons() {
+	public Integer getCoupons() {
 		return coupons;
 	}
 
-	public void setCoupons(int coupons) {
+	public void setCoupons(Integer coupons) {
 		this.coupons = coupons;
 	}
 
-	public int getBranchs() {
+	public Integer getBranchs() {
 		return branchs;
 	}
 
-	public void setBranchs(int branchs) {
+	public void setBranchs(Integer branchs) {
 		this.branchs = branchs;
 	}
 
-	public int getClsid() {
+	public Integer getClsid() {
 		return clsid;
 	}
 
-	public void setClsid(int clsid) {
+	public void setClsid(Integer clsid) {
 		this.clsid = clsid;
 	}
 
@@ -242,27 +240,27 @@ public class VipCard {
 		this.intro = intro;
 	}
 
-	public int getHeadid() {
+	public Integer getHeadid() {
 		return headid;
 	}
 
-	public void setHeadid(int headid) {
+	public void setHeadid(Integer headid) {
 		this.headid = headid;
 	}
 
-	public int getSvcid() {
+	public Integer getSvcid() {
 		return svcid;
 	}
 
-	public void setSvcid(int svcid) {
+	public void setSvcid(Integer svcid) {
 		this.svcid = svcid;
 	}
 
-	public int getLevelsnum() {
+	public Integer getLevelsnum() {
 		return levelsnum;
 	}
 
-	public void setLevelsnum(int levelsnum) {
+	public void setLevelsnum(Integer levelsnum) {
 		this.levelsnum = levelsnum;
 	}
 
@@ -282,27 +280,27 @@ public class VipCard {
 		this.svclogo = svclogo;
 	}
 
-	public int getAllnum() {
+	public Integer getAllnum() {
 		return allnum;
 	}
 
-	public void setAllnum(int allnum) {
+	public void setAllnum(Integer allnum) {
 		this.allnum = allnum;
 	}
 
-	public int getUsednum() {
+	public Integer getUsednum() {
 		return usednum;
 	}
 
-	public void setUsednum(int usednum) {
+	public void setUsednum(Integer usednum) {
 		this.usednum = usednum;
 	}
 
-	public int getBlance() {
+	public Integer getBlance() {
 		return blance;
 	}
 
-	public void setBlance(int blance) {
+	public void setBlance(Integer blance) {
 		this.blance = blance;
 	}
 
@@ -354,28 +352,20 @@ public class VipCard {
 		this.updatetime = updatetime;
 	}
 
-	public double getRange() {
+	public Double getRange() {
 		return range;
 	}
 
-	public void setRange(double range) {
+	public void setRange(Double range) {
 		this.range = range;
 	}
 
-	public int getR() {
+	public Integer getR() {
 		return r;
 	}
 
-	public void setR(int r) {
+	public void setR(Integer r) {
 		this.r = r;
-	}
-
-	public VipLevel[] getLevels() {
-		return levels;
-	}
-
-	public void setLevels(VipLevel[] levels) {
-		this.levels = levels;
 	}
 
 }

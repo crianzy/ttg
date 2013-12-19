@@ -2,8 +2,9 @@ package cn.com.ttg.entity;
 
 /**
  * 评论统计相关
+ * 
  * @author leon
- *
+ * 
  */
 public class Count {
 
@@ -11,7 +12,7 @@ public class Count {
 	 * 相对应的描述
 	 */
 	private String imp;
-	private int score;
+	private Integer score;
 
 	public String getImp() {
 		return imp;
@@ -21,11 +22,11 @@ public class Count {
 		this.imp = imp;
 	}
 
-	public int getScore() {
+	public Integer getScore() {
 		return score;
 	}
 
-	public void setScore(int score) {
+	public void setScore(Integer score) {
 		this.score = score;
 	}
 

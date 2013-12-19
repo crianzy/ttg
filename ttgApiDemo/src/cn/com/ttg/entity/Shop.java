@@ -2,7 +2,7 @@ package cn.com.ttg.entity;
 
 public class Shop {
 
-	private int shopid;
+	private Integer shopid;
 	private String shopname;
 	private String bname;
 	private String logo;
@@ -17,22 +17,22 @@ public class Shop {
 	private String bus;
 	private String lng;
 	private String lat;
-	private int comments;
-	private int impressions;
-	private int coupons;
-	private int clsid;
+	private Integer comments;
+	private Integer impressions;
+	private Integer coupons;
+	private Integer clsid;
 	private String clsname;
 	private String support;
 	private String tags;
 	private String intro;
-	private int headid;
-	private int r;
+	private Integer headid;
+	private Integer r;
 
-	public int getShopid() {
+	public Integer getShopid() {
 		return shopid;
 	}
 
-	public void setShopid(int shopid) {
+	public void setShopid(Integer shopid) {
 		this.shopid = shopid;
 	}
 
@@ -148,35 +148,35 @@ public class Shop {
 		this.lat = lat;
 	}
 
-	public int getComments() {
+	public Integer getComments() {
 		return comments;
 	}
 
-	public void setComments(int comments) {
+	public void setComments(Integer comments) {
 		this.comments = comments;
 	}
 
-	public int getImpressions() {
+	public Integer getImpressions() {
 		return impressions;
 	}
 
-	public void setImpressions(int impressions) {
+	public void setImpressions(Integer impressions) {
 		this.impressions = impressions;
 	}
 
-	public int getCoupons() {
+	public Integer getCoupons() {
 		return coupons;
 	}
 
-	public void setCoupons(int coupons) {
+	public void setCoupons(Integer coupons) {
 		this.coupons = coupons;
 	}
 
-	public int getClsid() {
+	public Integer getClsid() {
 		return clsid;
 	}
 
-	public void setClsid(int clsid) {
+	public void setClsid(Integer clsid) {
 		this.clsid = clsid;
 	}
 
@@ -212,19 +212,19 @@ public class Shop {
 		this.intro = intro;
 	}
 
-	public int getHeadid() {
+	public Integer getHeadid() {
 		return headid;
 	}
 
-	public void setHeadid(int headid) {
+	public void setHeadid(Integer headid) {
 		this.headid = headid;
 	}
 
-	public int getR() {
+	public Integer getR() {
 		return r;
 	}
 
-	public void setR(int r) {
+	public void setR(Integer r) {
 		this.r = r;
 	}
 

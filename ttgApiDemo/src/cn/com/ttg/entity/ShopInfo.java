@@ -3,7 +3,7 @@ package cn.com.ttg.entity;
 public class ShopInfo {
 
 	private Shop shop;
-	private SimpleCoupon[] coupons;
+	private Coupon[] coupons;
 	private VipCard[] vipcards;
 	private ShopComment[] comments;
 	private Shop[] branchstore;
@@ -17,11 +17,11 @@ public class ShopInfo {
 		this.shop = shop;
 	}
 
-	public SimpleCoupon[] getCoupons() {
+	public Coupon[] getCoupons() {
 		return coupons;
 	}
 
-	public void setCoupons(SimpleCoupon[] coupons) {
+	public void setCoupons(Coupon[] coupons) {
 		this.coupons = coupons;
 	}
 

@@ -1,17 +1,17 @@
 package cn.com.ttg.entity;
 
 public class VipLevel {
-	private int seqid;
+	private Integer seqid;
 	private String seqname;
-	private double upgrade;
-	private int degrade;
+	private Double upgrade;
+	private Integer degrade;
 	private String seqdiscount;
 
-	public int getSeqid() {
+	public Integer getSeqid() {
 		return seqid;
 	}
 
-	public void setSeqid(int seqid) {
+	public void setSeqid(Integer seqid) {
 		this.seqid = seqid;
 	}
 
@@ -23,19 +23,19 @@ public class VipLevel {
 		this.seqname = seqname;
 	}
 
-	public double getUpgrade() {
+	public Double getUpgrade() {
 		return upgrade;
 	}
 
-	public void setUpgrade(double upgrade) {
+	public void setUpgrade(Double upgrade) {
 		this.upgrade = upgrade;
 	}
 
-	public int getDegrade() {
+	public Integer getDegrade() {
 		return degrade;
 	}
 
-	public void setDegrade(int degrade) {
+	public void setDegrade(Integer degrade) {
 		this.degrade = degrade;
 	}
 

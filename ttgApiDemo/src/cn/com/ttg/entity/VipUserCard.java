@@ -3,10 +3,10 @@ package cn.com.ttg.entity;
 import java.util.Date;
 
 public class VipUserCard {
-	private int uvcid;
-	private int vipcardnum;
-	private int vcamount;
-	private int state;
+	private Integer uvcid;
+	private Integer vipcardnum;
+	private Integer vcamount;
+	private Integer state;
 	private String cou_bankno;
 	private String union_orderid;
 	private String extra;
@@ -15,45 +15,45 @@ public class VipUserCard {
 	private Date lastusetime;
 	private String notify_url;
 	private String addtime;
-	private int shopid;
-	private int svcid;
+	private Integer shopid;
+	private Integer svcid;
 	private String shopname;
 	private String vclogo;
-	private int levelsnum;
+	private Integer levelsnum;
 	private Date stime;
 	private Date etime;
 	private Date updatetime;
-	private int r;
+	private Integer r;
 
-	public int getUvcid() {
+	public Integer getUvcid() {
 		return uvcid;
 	}
 
-	public void setUvcid(int uvcid) {
+	public void setUvcid(Integer uvcid) {
 		this.uvcid = uvcid;
 	}
 
-	public int getVipcardnum() {
+	public Integer getVipcardnum() {
 		return vipcardnum;
 	}
 
-	public void setVipcardnum(int vipcardnum) {
+	public void setVipcardnum(Integer vipcardnum) {
 		this.vipcardnum = vipcardnum;
 	}
 
-	public int getVcamount() {
+	public Integer getVcamount() {
 		return vcamount;
 	}
 
-	public void setVcamount(int vcamount) {
+	public void setVcamount(Integer vcamount) {
 		this.vcamount = vcamount;
 	}
 
-	public int getState() {
+	public Integer getState() {
 		return state;
 	}
 
-	public void setState(int state) {
+	public void setState(Integer state) {
 		this.state = state;
 	}
 
@@ -121,19 +121,19 @@ public class VipUserCard {
 		this.addtime = addtime;
 	}
 
-	public int getShopid() {
+	public Integer getShopid() {
 		return shopid;
 	}
 
-	public void setShopid(int shopid) {
+	public void setShopid(Integer shopid) {
 		this.shopid = shopid;
 	}
 
-	public int getSvcid() {
+	public Integer getSvcid() {
 		return svcid;
 	}
 
-	public void setSvcid(int svcid) {
+	public void setSvcid(Integer svcid) {
 		this.svcid = svcid;
 	}
 
@@ -153,11 +153,11 @@ public class VipUserCard {
 		this.vclogo = vclogo;
 	}
 
-	public int getLevelsnum() {
+	public Integer getLevelsnum() {
 		return levelsnum;
 	}
 
-	public void setLevelsnum(int levelsnum) {
+	public void setLevelsnum(Integer levelsnum) {
 		this.levelsnum = levelsnum;
 	}
 
@@ -185,11 +185,11 @@ public class VipUserCard {
 		this.updatetime = updatetime;
 	}
 
-	public int getR() {
+	public Integer getR() {
 		return r;
 	}
 
-	public void setR(int r) {
+	public void setR(Integer r) {
 		this.r = r;
 	}
 

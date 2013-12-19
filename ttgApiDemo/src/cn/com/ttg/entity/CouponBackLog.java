@@ -4,46 +4,48 @@ import java.util.Date;
 
 /**
  * 优惠券 使用 添加 的log 信息
+ * 
  * @author leon
- *
+ * 
  */
 public class CouponBackLog {
 
-	private int unid;
-	private double ratio;
+	private Integer unid;
+	private Double ratio;
 	private Date addtime;
-	private double settle;
-	private int settle_state;
+	private Double settle;
+	private Integer settle_state;
 	private String order_id;
-	private double order_money;
-	private int order_points;
+	private Double order_money;
+	private Integer order_points;
 	private Date order_addtime;
 	private Date order_endtime;
-	private int order_state;
+	private Integer order_state;
 	private String union_notify_url;
 	private String union_extra;
 	private String union_extra2;
-	private int useshopid;
+	private Integer useshopid;
 	private String union_orderid;
 	private String cou_bdstate;
 	private String cou_bank;
 	private String cou_bankno;
 	private String cou_mobile;
-	private int uvcid;
+	private Integer uvcid;
+	private Integer r;
 
-	public int getUnid() {
+	public Integer getUnid() {
 		return unid;
 	}
 
-	public void setUnid(int unid) {
+	public void setUnid(Integer unid) {
 		this.unid = unid;
 	}
 
-	public double getRatio() {
+	public Double getRatio() {
 		return ratio;
 	}
 
-	public void setRatio(double ratio) {
+	public void setRatio(Double ratio) {
 		this.ratio = ratio;
 	}
 
@@ -55,12 +57,20 @@ public class CouponBackLog {
 		this.addtime = addtime;
 	}
 
-	public double getSettle() {
+	public Double getSettle() {
 		return settle;
 	}
 
-	public void setSettle(double settle) {
+	public void setSettle(Double settle) {
 		this.settle = settle;
+	}
+
+	public Integer getSettle_state() {
+		return settle_state;
+	}
+
+	public void setSettle_state(Integer settle_state) {
+		this.settle_state = settle_state;
 	}
 
 	public String getOrder_id() {
@@ -71,12 +81,20 @@ public class CouponBackLog {
 		this.order_id = order_id;
 	}
 
-	public double getOrder_money() {
+	public Double getOrder_money() {
 		return order_money;
 	}
 
-	public void setOrder_money(double order_money) {
+	public void setOrder_money(Double order_money) {
 		this.order_money = order_money;
+	}
+
+	public Integer getOrder_points() {
+		return order_points;
+	}
+
+	public void setOrder_points(Integer order_points) {
+		this.order_points = order_points;
 	}
 
 	public Date getOrder_addtime() {
@@ -95,11 +113,11 @@ public class CouponBackLog {
 		this.order_endtime = order_endtime;
 	}
 
-	public int getOrder_state() {
+	public Integer getOrder_state() {
 		return order_state;
 	}
 
-	public void setOrder_state(int order_state) {
+	public void setOrder_state(Integer order_state) {
 		this.order_state = order_state;
 	}
 
@@ -125,6 +143,14 @@ public class CouponBackLog {
 
 	public void setUnion_extra2(String union_extra2) {
 		this.union_extra2 = union_extra2;
+	}
+
+	public Integer getUseshopid() {
+		return useshopid;
+	}
+
+	public void setUseshopid(Integer useshopid) {
+		this.useshopid = useshopid;
 	}
 
 	public String getUnion_orderid() {
@@ -167,36 +193,20 @@ public class CouponBackLog {
 		this.cou_mobile = cou_mobile;
 	}
 
-	public int getUvcid() {
+	public Integer getUvcid() {
 		return uvcid;
 	}
 
-	public void setUvcid(int uvcid) {
+	public void setUvcid(Integer uvcid) {
 		this.uvcid = uvcid;
 	}
 
-	public int getSettle_state() {
-		return settle_state;
+	public Integer getR() {
+		return r;
 	}
 
-	public void setSettle_state(int settle_state) {
-		this.settle_state = settle_state;
-	}
-
-	public int getOrder_points() {
-		return order_points;
-	}
-
-	public void setOrder_points(int order_points) {
-		this.order_points = order_points;
-	}
-
-	public int getUseshopid() {
-		return useshopid;
-	}
-
-	public void setUseshopid(int useshopid) {
-		this.useshopid = useshopid;
+	public void setR(Integer r) {
+		this.r = r;
 	}
 
 }

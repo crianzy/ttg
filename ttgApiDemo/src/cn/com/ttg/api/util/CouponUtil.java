@@ -7,6 +7,7 @@ import java.util.List;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import cn.com.ttg.Json.JsonUtil;
+import cn.com.ttg.Param.ActionUtil;
 import cn.com.ttg.Param.ParaUtil;
 import cn.com.ttg.Param.Param;
 import cn.com.ttg.Param.UrlUtil;
@@ -86,6 +87,7 @@ public class CouponUtil {
 	 *            优惠卷 绑定/使用信息bean
 	 * @param p
 	 */
+	// TODO 关于 call bank post json 没有搞定
 	public void postcallback(CouponBackLog couponBackLog, Param p) {
 		JSONObject data = JSONObject.fromObject(couponBackLog);
 		JSONObject json = new JSONObject();
@@ -102,6 +104,30 @@ public class CouponUtil {
 				+ "data=" + data.toString()));
 		// System.out.println(HttpRequest.sendPost("http://localhost:8080/ttgApiDemo/",
 		// "a=1"));
+	}
+
+	/**
+	 * 获取用户下载的优惠券
+	 * 
+	 * @param p
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	public Page<CouponBackLog> getUserCoupon(Param p) {
+		String json = HttpRequest.sendGet(UrlUtil.url, p.toString());
+		System.out.println(json);
+		JSONObject jo = JsonUtil.formStringToJson(json);
+		JSONObject data = jo.getJSONObject("data");
+		JSONObject pages = data.getJSONObject("pages");
+		JSONArray list = data.getJSONArray("list");
+		Page<CouponBackLog> page = (Page<CouponBackLog>) JSONObject.toBean(
+				pages, Page.class);
+		CouponBackLog[] couponBLogs = (CouponBackLog[]) JSONArray.toArray(list,
+				CouponBackLog.class);
+		page.setList(Arrays.asList(couponBLogs));
+
+		return page;
+
 	}
 
 	public static void main(String[] args) {
@@ -125,26 +151,33 @@ public class CouponUtil {
 		// p.put(ParaUtil.couid, "111519");
 		// getcouponbranch(p);
 		// TODO post json请求没有搞定
-		CouponBackLog couponBackLog = new CouponBackLog();
-		couponBackLog.setUnid(123);
-		couponBackLog.setRatio(.01);
-		couponBackLog.setAddtime(new Date());
-		couponBackLog.setSettle(1.02);
-		couponBackLog.setSettle_state(1);
-		couponBackLog.setOrder_id("10144");
-		couponBackLog.setOrder_money(100.26);
-		couponBackLog.setOrder_points(0);
-		couponBackLog.setOrder_addtime(new Date());
-		couponBackLog.setOrder_endtime(new Date());
-		couponBackLog.setOrder_state(1);
-		couponBackLog.setUnion_notify_url("http://www.abc.com");
-		couponBackLog.setUseshopid(10000);
-		couponBackLog.setUnion_orderid("13418058677227874");
-		couponBackLog.setCou_bdstate("00");
-		couponBackLog.setCou_bank("招商银行");
-		couponBackLog.setCou_bankno("6225887800001111");
-		couponBackLog.setCou_mobile("13800138999");
-		couponBackLog.setUvcid(111);
-		couponUtil.postcallback(couponBackLog, p);
+		// CouponBackLog couponBackLog = new CouponBackLog();
+		// couponBackLog.setUnid(123);
+		// couponBackLog.setRatio(.01);
+		// couponBackLog.setAddtime(new Date());
+		// couponBackLog.setSettle(1.02);
+		// couponBackLog.setSettle_state(1);
+		// couponBackLog.setOrder_id("10144");
+		// couponBackLog.setOrder_money(100.26);
+		// couponBackLog.setOrder_points(0);
+		// couponBackLog.setOrder_addtime(new Date());
+		// couponBackLog.setOrder_endtime(new Date());
+		// couponBackLog.setOrder_state(1);
+		// couponBackLog.setUnion_notify_url("http://www.abc.com");
+		// couponBackLog.setUseshopid(10000);
+		// couponBackLog.setUnion_orderid("13418058677227874");
+		// couponBackLog.setCou_bdstate("00");
+		// couponBackLog.setCou_bank("招商银行");
+		// couponBackLog.setCou_bankno("6225887800001111");
+		// couponBackLog.setCou_mobile("13800138999");
+		// couponBackLog.setUvcid(111);
+		// couponUtil.postcallback(couponBackLog, p);
+
+		p.put(ParaUtil.action, ActionUtil.getUserCouponAction);
+		// p.put(ParaUtil.usestime, "2012-3-1");
+		// p.put(ParaUtil.useetime, "2012-4-1");
+		// p.put(ParaUtil.coucolumn, "abcefghijkl");
+		couponUtil.getUserCoupon(p);
+
 	}
 }
