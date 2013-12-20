@@ -3,6 +3,11 @@ package cn.com.ttg.entity;
 import java.io.Serializable;
 import java.util.Date;
 
+/**
+ * 商户的优惠 信息
+ * @author leon
+ *
+ */
 public class ShopCoupon implements Serializable {
 
 	private static final long serialVersionUID = 5209741039208843751L;

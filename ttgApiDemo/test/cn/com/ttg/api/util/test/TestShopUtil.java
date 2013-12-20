@@ -1,7 +1,5 @@
 package cn.com.ttg.api.util.test;
 
-import static org.junit.Assert.fail;
-
 import org.junit.Test;
 
 import cn.com.ttg.Param.ActionUtil;

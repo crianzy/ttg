@@ -9,7 +9,7 @@ import java.util.Date;
  * @author leon
  * 
  */
-public class Coupon  implements Serializable{
+public class Coupon implements Serializable {
 	private static final long serialVersionUID = -6586453070577566996L;
 	private Integer shopid;
 	private String shopname;
@@ -59,6 +59,8 @@ public class Coupon  implements Serializable{
 	private String discount;
 	private Integer range;
 	private Integer r;
+
+	private Date updatetime;
 
 	public Integer getShopid() {
 		return shopid;
@@ -198,6 +200,14 @@ public class Coupon  implements Serializable{
 
 	public Integer getCoupons() {
 		return coupons;
+	}
+
+	public Date getUpdatetime() {
+		return updatetime;
+	}
+
+	public void setUpdatetime(Date updatetime) {
+		this.updatetime = updatetime;
 	}
 
 	public void setCoupons(Integer coupons) {

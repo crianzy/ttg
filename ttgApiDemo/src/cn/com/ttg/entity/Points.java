@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * 积分信息
+ * 积分充值信息
  * 
  * @author leon
  * 

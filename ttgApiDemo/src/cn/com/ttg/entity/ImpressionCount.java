@@ -3,6 +3,13 @@ package cn.com.ttg.entity;
 import java.io.Serializable;
 import java.util.List;
 
+/**
+ * 商户口碑 数据 List<Count> counts， Page<T> page， List<T> list
+ * 
+ * @author leon
+ * 
+ * @param <T>
+ */
 public class ImpressionCount<T> implements Serializable {
 
 	private static final long serialVersionUID = 7420263202369186899L;

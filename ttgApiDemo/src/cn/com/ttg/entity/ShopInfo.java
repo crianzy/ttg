@@ -2,6 +2,11 @@ package cn.com.ttg.entity;
 
 import java.io.Serializable;
 
+/**
+ * 商户的信息
+ * @author leon
+ *
+ */
 public class ShopInfo implements Serializable {
 
 	private static final long serialVersionUID = 5864818855828814823L;

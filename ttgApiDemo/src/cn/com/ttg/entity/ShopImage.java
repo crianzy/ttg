@@ -2,6 +2,11 @@ package cn.com.ttg.entity;
 
 import java.io.Serializable;
 
+/**
+ * 商户的图片信息
+ * @author leon
+ *
+ */
 public class ShopImage implements Serializable {
 
 	private static final long serialVersionUID = -8723180798059896573L;

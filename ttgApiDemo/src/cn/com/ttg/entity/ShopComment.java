@@ -3,6 +3,11 @@ package cn.com.ttg.entity;
 import java.io.Serializable;
 import java.util.Date;
 
+/**
+ * 针对商户的评论信息
+ * @author leon
+ *
+ */
 public class ShopComment implements Serializable {
 	private static final long serialVersionUID = 5452753103006190183L;
 	private Integer comid;

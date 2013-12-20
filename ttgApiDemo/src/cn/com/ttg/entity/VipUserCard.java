@@ -3,6 +3,12 @@ package cn.com.ttg.entity;
 import java.io.Serializable;
 import java.util.Date;
 
+/**
+ * 已绑定的会员卡的信息
+ * 带有部分用户信息 和 会员卡数据
+ * @author leon
+ *
+ */
 public class VipUserCard implements Serializable {
 	private static final long serialVersionUID = 8890371694833446425L;
 	private Integer uvcid;

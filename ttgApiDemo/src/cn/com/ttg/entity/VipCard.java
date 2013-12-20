@@ -4,6 +4,11 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * 会员卡信息
+ * @author leon
+ *
+ */
 public class VipCard implements Serializable {
 
 	private static final long serialVersionUID = -2859970741037733315L;
@@ -47,6 +52,8 @@ public class VipCard implements Serializable {
 	private Date updatetime;
 	private Double range;
 	private Integer r;
+	
+	
 
 	private List<VipLevel> levels;
 

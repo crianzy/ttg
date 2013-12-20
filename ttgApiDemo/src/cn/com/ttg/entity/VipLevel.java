@@ -2,6 +2,11 @@ package cn.com.ttg.entity;
 
 import java.io.Serializable;
 
+/**
+ * vip 卡的等级
+ * @author leon
+ *
+ */
 public class VipLevel implements Serializable {
 	private static final long serialVersionUID = -3324662228048982933L;
 	private Integer seqid;

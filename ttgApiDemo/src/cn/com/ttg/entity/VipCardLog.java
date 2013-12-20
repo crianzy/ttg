@@ -3,6 +3,11 @@ package cn.com.ttg.entity;
 import java.io.Serializable;
 import java.util.Date;
 
+/**
+ * 会员卡 绑定 信息 log 信息
+ * @author leon
+ *
+ */
 public class VipCardLog implements Serializable {
 
 	private static final long serialVersionUID = -2866538447996749000L;
