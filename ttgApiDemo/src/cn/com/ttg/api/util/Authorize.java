@@ -9,6 +9,11 @@ import cn.com.ttg.Param.UrlUtil;
 
 public class Authorize {
 
+	/**
+	 * 授权验证
+	 * @param p
+	 * @return
+	 */
 	public static boolean checkAuthorize(Param p) {
 		JSONObject jo = JsonUtil.sendGet(UrlUtil.url, p);
 		return jo.getInt("ret") == 0;
@@ -21,7 +26,7 @@ public class Authorize {
 	 * @return
 	 */
 	public static String checkCardno(Param p) {
-		p.put(ParaUtil.action, ActionUtil.checkCardonNoAction);
+		p.put(ParaUtil.action, ActionUtil.checkCardNoAction);
 		JSONObject jo = JsonUtil.sendGet(UrlUtil.url, p);
 		int result = jo.getJSONArray("data").getJSONObject(0).getInt("result");
 		return Notify.banktypeList.get(result - 1);
@@ -36,7 +41,7 @@ public class Authorize {
 	public static String checkCardno(String cardNo) {
 		Param p = new Param();
 		p.put(ParaUtil.cardno, cardNo);
-		p.put(ParaUtil.action, ActionUtil.checkCardonNoAction);
+		p.put(ParaUtil.action, ActionUtil.checkCardNoAction);
 		JSONObject jo = JsonUtil.sendGet(UrlUtil.url, p);
 		int result = jo.getJSONArray("data").getJSONObject(0).getInt("result");
 		return Notify.banktypeList.get(result - 1);

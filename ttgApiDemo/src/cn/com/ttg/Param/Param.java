@@ -4,6 +4,8 @@ import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Set;
 
+import cn.com.ttg.Param.check.ParamCheck;
+
 /**
  * 封装的参数 继承 HashMap
  * 
@@ -15,6 +17,7 @@ public class Param extends HashMap<String, String> {
 	private static final long serialVersionUID = 3530303875200578968L;
 
 	private String timestamp = ParaUtil.getTimestamp();
+	private ParamCheck paramCheck;
 
 	public Param() {
 		addAuthorize();
@@ -30,10 +33,17 @@ public class Param extends HashMap<String, String> {
 	}
 
 	/**
-	 * 将封装的 好的 转换成 整除的url 参数
+	 * 将封装的 好的 转换成 正常的url 参数 
+	 * 同时进行必须参数验证
 	 */
 	@Override
 	public String toString() {
+		if (this.get(ParaUtil.action) != null) {
+			paramCheck = ActionUtil.actionCheckClassMap.get(this
+					.get(ParaUtil.action));
+			paramCheck.setParam(this);
+			paramCheck.checkParam();
+		}
 		StringBuffer paraString = new StringBuffer();
 		Set<String> paraSet = this.keySet();
 		for (String key : paraSet) {
@@ -42,6 +52,7 @@ public class Param extends HashMap<String, String> {
 		String s1 = paraString.toString();
 		String s2 = null;
 		try {
+			// 转换成utf-8 的格式
 			s2 = new String(s1.getBytes(), "utf-8");
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
@@ -52,6 +63,14 @@ public class Param extends HashMap<String, String> {
 	public static void main(String[] args) {
 		Param p = new Param();
 		System.out.println(p);
+	}
+
+	// public void setParamCheck(ParamCheck paramCheck) {
+	// this.paramCheck = paramCheck;
+	// }
+
+	public String getTimestamp() {
+		return timestamp;
 	}
 
 }

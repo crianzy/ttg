@@ -1,5 +1,7 @@
 package cn.com.ttg.api.util.test;
 
+import org.junit.Test;
+
 import cn.com.ttg.Param.ActionUtil;
 import cn.com.ttg.Param.ParaUtil;
 import cn.com.ttg.Param.Param;
@@ -10,6 +12,7 @@ public class TestPoints {
 	Param p = new Param();
 	PointsUtil pointsUtil = new PointsUtil();
 
+	@Test
 	public void testChargePoints(Param p) {
 		p.put(ParaUtil.action, ActionUtil.chargePointsAction);
 		p.put(ParaUtil.mobile, "13800138001");

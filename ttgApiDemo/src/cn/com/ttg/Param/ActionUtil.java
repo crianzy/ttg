@@ -1,5 +1,28 @@
 package cn.com.ttg.Param;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import cn.com.ttg.Param.check.AddCouponActionCheck;
+import cn.com.ttg.Param.check.AddVipCardActionCheck;
+import cn.com.ttg.Param.check.ChargePointsActionCheck;
+import cn.com.ttg.Param.check.CheckCardNoActionCheck;
+import cn.com.ttg.Param.check.GetBankActionCheck;
+import cn.com.ttg.Param.check.GetCityActionCheck;
+import cn.com.ttg.Param.check.GetClazzActionCheck;
+import cn.com.ttg.Param.check.GetCouponActionCheck;
+import cn.com.ttg.Param.check.GetCouponBranchActionCheck;
+import cn.com.ttg.Param.check.GetShopCommentActionCheck;
+import cn.com.ttg.Param.check.GetShopCouponActionCheck;
+import cn.com.ttg.Param.check.GetShopImageActionCheck;
+import cn.com.ttg.Param.check.GetShopbranchActionCheck;
+import cn.com.ttg.Param.check.GetUserCouponActionCheck;
+import cn.com.ttg.Param.check.GetVipCardActionCheck;
+import cn.com.ttg.Param.check.ParamCheck;
+import cn.com.ttg.Param.check.ShopImpressionActionCheck;
+import cn.com.ttg.Param.check.ShopInfoActionCheck;
+import cn.com.ttg.Param.check.UserVipCardActionCheck;
+
 /**
  * action 参数名称 防止硬编码
  * 
@@ -11,7 +34,7 @@ public class ActionUtil {
 	/**
 	 * 验证银行卡号
 	 */
-	public static String checkCardonNoAction = "checkcardno";
+	public static String checkCardNoAction = "checkcardno";
 	/**
 	 * 全国省份城市区县数据
 	 */
@@ -86,4 +109,28 @@ public class ActionUtil {
 	 * 优惠券/会员卡关联的分店
 	 */
 	public static String getUserCouponAction = "getusercoupon";
+	
+	public static Map<String,ParamCheck> actionCheckClassMap = new HashMap<String,ParamCheck>();
+	
+	static{
+		actionCheckClassMap.put(checkCardNoAction, new CheckCardNoActionCheck());
+		actionCheckClassMap.put(getCityAction, new GetCityActionCheck());
+		actionCheckClassMap.put(getClazzAction, new GetClazzActionCheck());
+		actionCheckClassMap.put(getBankAction, new GetBankActionCheck());
+		actionCheckClassMap.put(getCouponAction, new GetCouponActionCheck());
+		actionCheckClassMap.put(getCouponBranchAction, new GetCouponBranchActionCheck());
+		actionCheckClassMap.put(chargePointsAction, new ChargePointsActionCheck());
+		actionCheckClassMap.put(getVipCardAction, new GetVipCardActionCheck());
+		actionCheckClassMap.put(getShopBranchAction, new GetShopbranchActionCheck());
+		actionCheckClassMap.put(shopImpressionAction, new ShopImpressionActionCheck());
+		actionCheckClassMap.put(getShopCouponAction, new GetShopCouponActionCheck());
+		actionCheckClassMap.put(getShopImageAction, new GetShopImageActionCheck());
+		actionCheckClassMap.put(getShopCommentAction, new GetShopCommentActionCheck());
+		actionCheckClassMap.put(shopInfoAction, new ShopInfoActionCheck());
+		actionCheckClassMap.put(addVipCardAction, new AddVipCardActionCheck());
+		actionCheckClassMap.put(userVipCardAction, new UserVipCardActionCheck());
+		actionCheckClassMap.put(getUserCouponAction, new GetUserCouponActionCheck());
+		actionCheckClassMap.put(addVipCardAction, new AddVipCardActionCheck());
+		actionCheckClassMap.put(addCouponAction, new AddCouponActionCheck());
+	}
 }

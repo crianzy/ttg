@@ -12,11 +12,11 @@ public class TestAuthorize {
 
 	@Test
 	public void testCheckCardno() {
-		p.put(ParaUtil.action, ActionUtil.checkCardonNoAction);
+		p.put(ParaUtil.action, ActionUtil.checkCardNoAction);
 		p.put(ParaUtil.cardno, ParaUtil.cardTestNo);
 		System.out.println(Authorize.checkCardno(p));
 	}
-	
+
 	@Test
 	public void testAuthorize() {
 		System.out.println(Authorize.checkAuthorize(p));

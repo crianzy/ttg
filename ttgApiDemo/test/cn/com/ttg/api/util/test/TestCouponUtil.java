@@ -35,6 +35,7 @@ public class TestCouponUtil {
 	public void testGetcouponbranch() {
 		p.put(ParaUtil.action, ActionUtil.getCouponBranchAction);
 		p.put(ParaUtil.couid, "111519");
+		//p.put(ParaUtil.svcid, "2342");
 		System.out.println(couponUtil.getCouponBranch(p));
 	}
 
