@@ -1,0 +1,14 @@
+0    DEBUG [2013-12-23 17:59:17]  Execute request: RennRequest [path=/coupon/v1, method=GET, textParams=sign=8b935d3f7dde10a88f9c4fadf06df8f7&timestamp=1387792757&action=checkcardno&appkey=10304]
+289  INFO  [2013-12-23 17:59:17]  Response body: {"ret":1,"msg":"\u94f6\u884c\u5361\u53f7\u4e0d\u80fd\u4e3a\u7a7a","errcode":0}
+0    DEBUG [2013-12-23 17:59:45]  Execute request: RennRequest [path=/coupon/v1, method=GET, textParams=sign=9f000bd727ea3210a9cf74657c12829c&timestamp=1387792785&action=checkcardno&appkey=10304]
+235  INFO  [2013-12-23 17:59:45]  Response body: {"ret":1,"msg":"\u94f6\u884c\u5361\u53f7\u4e0d\u80fd\u4e3a\u7a7a","errcode":0}
+0    DEBUG [2013-12-23 18:00:56]  Execute request: RennRequest [path=/coupon/v1, method=GET, textParams=sign=671dc9e05794eb2ff97487ff5e8e4c51&timestamp=1387792856&action=checkcardno&appkey=10304]
+292  INFO  [2013-12-23 18:00:57]  Response body: {"ret":1,"msg":"\u94f6\u884c\u5361\u53f7\u4e0d\u80fd\u4e3a\u7a7a","errcode":0}
+0    DEBUG [2013-12-23 18:01:41]  Execute request: RennRequest [path=/coupon/v1, method=GET, textParams=sign=286d147242415476ecd81cc372941725&timestamp=1387792901&action=checkcardno&appkey=10304&cardno=6227002022081063435]
+236  INFO  [2013-12-23 18:01:41]  Response body: {"ret":0,"msg":"ok","errcode":0,"data":[{"result":"2","bankid":"4","bankname":"\u5efa\u8bbe\u94f6\u884c"}]}
+0    DEBUG [2013-12-23 18:03:25]  Execute request: RennRequest [path=/coupon/v1, method=GET, textParams=sign=e0c3fe837c206e60f14ba7c25e779c54&timestamp=1387792931&action=checkcardno&appkey=10304&cardno=6227002022081063435]
+31092 INFO  [2013-12-23 18:03:56]  Response body: {"ret":0,"msg":"ok","errcode":0,"data":[{"result":"2","bankid":"4","bankname":"\u5efa\u8bbe\u94f6\u884c"}]}
+0    DEBUG [2013-12-23 18:12:57]  Execute request: RennRequest [path=/coupon/v1, method=GET, textParams=sign=9e0e91279be95d640873d27fbb6492d8&timestamp=1387793577&action=checkcardno&appkey=10304&cardno=6227002022081063435]
+224  INFO  [2013-12-23 18:12:57]  Response body: {"ret":0,"msg":"ok","errcode":0,"data":[{"result":"2","bankid":"4","bankname":"\u5efa\u8bbe\u94f6\u884c"}]}
+0    DEBUG [2013-12-23 18:14:47]  Execute request: RennRequest [path=/coupon/v1, method=GET, textParams=sign=b6ba8ccc054a01ae83215f2fd33a0a1a&timestamp=1387793687&action=checkcardno&appkey=10304&cardno=6227002022081063435]
+227  INFO  [2013-12-23 18:14:48]  Response body: {"ret":0,"msg":"ok","errcode":0,"data":[{"result":"2","bankid":"4","bankname":"\u5efa\u8bbe\u94f6\u884c"}]}

@@ -1,0 +1,11 @@
+package cn.com.ttg.api.mapper;
+
+
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+
+@Retention(RetentionPolicy.RUNTIME)
+public @interface JsonList {
+	
+	Class<?> clazz();
+}
