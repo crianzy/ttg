@@ -19,6 +19,7 @@ public class TestCouponUtil {
 		p.put(ParaUtil.shopcolumn, "abcdefghi");
 		p.put(ParaUtil.coucolumn, "abcdefghi");
 		p.put(ParaUtil.page, "2");
+		//Coupon p =  couponUtil.Coupon(p);
 		System.out.println(couponUtil.Coupon(p));
 	}
 
