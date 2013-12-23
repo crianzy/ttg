@@ -5,7 +5,7 @@ import org.junit.Test;
 import cn.com.ttg.Param.ActionUtil;
 import cn.com.ttg.Param.ParaUtil;
 import cn.com.ttg.Param.Param;
-import cn.com.ttg.api.util.VipUtil;
+import cn.com.ttg.api.service.VipUtil;
 
 public class TestVipUtil {
 	Param p = new Param();

@@ -5,7 +5,7 @@ import java.util.List;
 
 import cn.com.ttg.Param.ParaUtil;
 import cn.com.ttg.Param.Param;
-import cn.com.ttg.exception.CustomException;
+import cn.com.ttg.api.exception.CustomException;
 
 public abstract class ParamCheck {
 

@@ -4,7 +4,7 @@ import java.util.List;
 
 import cn.com.ttg.Param.ActionUtil;
 import cn.com.ttg.Param.ParaUtil;
-import cn.com.ttg.exception.CustomException;
+import cn.com.ttg.api.exception.CustomException;
 
 public class GetCouponBranchActionCheck extends ParamCheck {
 

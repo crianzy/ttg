@@ -1,6 +1,6 @@
 package cn.com.ttg.action;
 
-import cn.com.ttg.api.util.CityUtil;
+import cn.com.ttg.api.service.CityUtil;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;

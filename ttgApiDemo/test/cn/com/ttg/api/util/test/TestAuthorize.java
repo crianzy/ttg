@@ -5,7 +5,7 @@ import org.junit.Test;
 import cn.com.ttg.Param.ActionUtil;
 import cn.com.ttg.Param.ParaUtil;
 import cn.com.ttg.Param.Param;
-import cn.com.ttg.api.util.Authorize;
+import cn.com.ttg.api.service.Authorize;
 
 public class TestAuthorize {
 	Param p = new Param();
