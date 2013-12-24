@@ -1,7 +1,8 @@
 package cn.com.ttg.api;
 
+import org.codehaus.jackson.map.ObjectMapper;
+
 import cn.com.ttg.api.bean.service.AuthorizeService;
-import cn.com.ttg.api.mapper.ObjectMapper;
 
 public class TTGClient {
 
@@ -14,6 +15,8 @@ public class TTGClient {
      * JSON到对象映射策略对象
      */
     private ObjectMapper objectMapper;
+    
+    //参数验证器
 
 	private AuthorizeService authorizeService;
 	

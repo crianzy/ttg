@@ -19,14 +19,15 @@ public class DefaultTTGExecutor implements TTGExecutor {
 
 		String path = request.getPath();
 		TTGRequest.Method method = request.getMethod();
-		
+
 		if (logger.isDebugEnabled()) {
 			logger.debug("Execute request: " + request);
 		}
 
 		StringBuffer baseUrl = new StringBuffer();
 		// TODO seem should judge http or httpss
-		baseUrl.append(Config.getProperties(ConfigKey.http)).append(API_SERVER).append(path);
+		baseUrl.append(Config.getProperties(ConfigKey.http)).append(API_SERVER)
+				.append(path);
 		String query = request.getParam().toString();
 		StringBuffer url = new StringBuffer();
 		url.append(baseUrl);
@@ -61,13 +62,14 @@ public class DefaultTTGExecutor implements TTGExecutor {
 		try {
 			JSONObject respObj = new JSONObject(body);
 			if (HttpURLConnection.HTTP_OK == statusCode) {
-				if(respObj.getInt("ret") == 0){
+				if (respObj.getInt("ret") == 0) {
+					// TODO 存在 没有data的返回数据
 					Object resp = respObj.get("data");
 					return new TTGResponse(resp);
-				}else{
+				} else {
 					int code = respObj.getInt("errcode");
 					String message = respObj.getString("msg");
-					//TODO 拋服务器返回的错误异常
+					// TODO 拋服务器返回的错误异常
 					throw new TTGException(message);
 				}
 			} else {

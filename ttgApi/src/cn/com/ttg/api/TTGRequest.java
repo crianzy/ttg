@@ -2,7 +2,7 @@ package cn.com.ttg.api;
 
 import java.util.Map;
 
-import cn.com.ttg.api.param.Param;
+import cn.com.ttg.api.param.ParamMap;
 
 public class TTGRequest {
 
@@ -14,10 +14,10 @@ public class TTGRequest {
 
 	private Method method;
 
-	private Param param;
+	private ParamMap param;
 
 	// TODO param have some question seem to user Param like Map
-	public TTGRequest(String path, Method method, Param param ) {
+	public TTGRequest(String path, Method method, ParamMap param ) {
 		super();
 		this.path = path;
 		this.method = method;
@@ -48,7 +48,7 @@ public class TTGRequest {
 				+ ", textParams=" + param + "]";
 	}
 
-	public Param getParam() {
+	public ParamMap getParam() {
 		return param;
 	}
 	

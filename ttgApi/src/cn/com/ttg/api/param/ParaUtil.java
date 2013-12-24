@@ -1,6 +1,5 @@
 package cn.com.ttg.api.param;
 
-import cn.com.ttg.api.http.HttpRequest;
 import cn.com.ttg.api.util.Md5Util;
 
 /**
