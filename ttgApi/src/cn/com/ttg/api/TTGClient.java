@@ -1,14 +1,23 @@
 package cn.com.ttg.api;
 
+import java.text.SimpleDateFormat;
+
+import org.apache.log4j.Logger;
 import org.codehaus.jackson.map.ObjectMapper;
 
 import cn.com.ttg.api.bean.service.AuthorizeService;
+import cn.com.ttg.api.bean.service.CouponService;
+import cn.com.ttg.api.bean.service.DataDictionaryService;
+import cn.com.ttg.api.bean.service.ShopService;
+import cn.com.ttg.api.bean.service.VipService;
 import cn.com.ttg.api.param.ParamActionVerify;
 import cn.com.ttg.api.param.ParamActionVerifyInterface;
 import cn.com.ttg.api.param.ParamVerify;
 import cn.com.ttg.api.param.ParamVerifyInterface;
 
 public class TTGClient {
+	private static Logger logger = Logger.getLogger(TTGClient.class.getName());
+	private static String TAG = "TTGClient ";
 
 	/**
 	 * API执行器
@@ -31,10 +40,15 @@ public class TTGClient {
 	private ParamVerifyInterface paramVerify;
 
 	private AuthorizeService authorizeService;
+	private DataDictionaryService dataDictionaryService;
+	private CouponService couponService;
+	private VipService vipService;
+	private ShopService shopService;
 
 	public TTGClient() {
 		this.executor = new DefaultTTGExecutor();
 		this.objectMapper = new ObjectMapper();
+		objectMapper.setDateFormat(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"));
 	}
 
 	public TTGExecutor getExecutor() {
@@ -93,4 +107,53 @@ public class TTGClient {
 		this.authorizeService = authorizeService;
 	}
 
+
+	public DataDictionaryService getDataDictionaryService() {
+		if(dataDictionaryService == null){
+			dataDictionaryService =  new DataDictionaryService(executor, objectMapper);
+		}
+		return dataDictionaryService;
+	}
+
+	public void setDataDictionaryService(
+			DataDictionaryService dataDictionaryService) {
+		this.dataDictionaryService = dataDictionaryService;
+	}
+
+	public CouponService getCouponService() {
+		if(couponService == null){
+			couponService = new CouponService(executor, objectMapper);
+		}
+		return couponService;
+	}
+
+	public void setCouponService(CouponService couponService) {
+		this.couponService = couponService;
+	}
+
+	public VipService getVipService() {
+		if(vipService == null){
+			vipService = new VipService(executor, objectMapper);
+		}
+		return vipService;
+	}
+
+	public void setVipService(VipService vipService) {
+		this.vipService = vipService;
+	}
+
+	public ShopService getShopService() {
+		if(shopService == null){
+			shopService = new ShopService(executor, objectMapper);
+		}
+		return shopService;
+	}
+
+	public void setShopService(ShopService shopService) {
+		this.shopService = shopService;
+	}
+	
+	
+
+	
 }

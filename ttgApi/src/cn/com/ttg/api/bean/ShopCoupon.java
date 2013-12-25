@@ -31,6 +31,16 @@ public class ShopCoupon implements Serializable {
 	private Integer minamount;
 	private String maxamount;
 	private Integer r;
+	private String discount;
+
+	
+	public String getDiscount() {
+		return discount;
+	}
+
+	public void setDiscount(String discount) {
+		this.discount = discount;
+	}
 
 	public Integer getCouid() {
 		return couid;

@@ -6,8 +6,9 @@ import java.util.List;
 
 /**
  * 会员卡信息
+ * 
  * @author leon
- *
+ * 
  */
 public class VipCard implements Serializable {
 
@@ -52,16 +53,24 @@ public class VipCard implements Serializable {
 	private Date updatetime;
 	private Double range;
 	private Integer r;
-	
+	private int state ;
 	
 
-	private List<VipLevel> levels;
+	public int getState() {
+		return state;
+	}
 
-	public List<VipLevel> getLevels() {
+	public void setState(int state) {
+		this.state = state;
+	}
+
+	private VipLevel[] levels;
+
+	public VipLevel[] getLevels() {
 		return levels;
 	}
 
-	public void setLevels(List<VipLevel> levels) {
+	public void setLevels(VipLevel[] levels) {
 		this.levels = levels;
 	}
 

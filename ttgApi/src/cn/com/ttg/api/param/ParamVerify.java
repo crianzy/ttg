@@ -36,10 +36,10 @@ public class ParamVerify implements ParamVerifyInterface{
 	@Override
 	public void verify(String key, String value) {
 		List<Element> paramList = root.elements("param");
-		boolean have = false;
+		boolean isKnowParam = false;
 		for (Element param : paramList) {
 			if (param.attributeValue("name").equals(key)) {
-				have = true;
+				isKnowParam = true;
 				List<Element> propertys = param.elements("property");
 				for (Element propert : propertys) {
 					String name = propert.attributeValue("name");
@@ -55,7 +55,7 @@ public class ParamVerify implements ParamVerifyInterface{
 				}
 			}
 		}
-		if (!have) {
+		if (!isKnowParam) {//表示 该参数不再参数列表中 是不明参数
 			throw new TTGException(key + "  param not exist  ");
 		}
 		//System.out.println("yes");

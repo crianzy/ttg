@@ -12,42 +12,42 @@ import java.util.Date;
 public class CouponBackLog implements Serializable {
 
 	private static final long serialVersionUID = 1752634930595532341L;
-	private Integer unid;
-	private Double ratio;
+	private int unid;
+	private double ratio;
 	private Date addtime;
-	private Double settle;
-	private Integer settle_state;
+	private double settle;
+	private int settle_state;
 	private String order_id;
-	private Double order_money;
-	private Integer order_points;
+	private double order_money;
+	private int order_points;
 	private Date order_addtime;
 	private Date order_endtime;
-	private Integer order_state;
+	private int order_state;
 	private String union_notify_url;
 	private String union_extra;
 	private String union_extra2;
-	private Integer useshopid;
+	private int useshopid;
 	private String union_orderid;
 	private String cou_bdstate;
 	private String cou_bank;
 	private String cou_bankno;
 	private String cou_mobile;
-	private Integer uvcid;
-	private Integer r;
+	private int uvcid;
+	private int r;
 
-	public Integer getUnid() {
+	public int getUnid() {
 		return unid;
 	}
 
-	public void setUnid(Integer unid) {
+	public void setUnid(int unid) {
 		this.unid = unid;
 	}
 
-	public Double getRatio() {
+	public double getRatio() {
 		return ratio;
 	}
 
-	public void setRatio(Double ratio) {
+	public void setRatio(double ratio) {
 		this.ratio = ratio;
 	}
 
@@ -59,19 +59,19 @@ public class CouponBackLog implements Serializable {
 		this.addtime = addtime;
 	}
 
-	public Double getSettle() {
+	public double getSettle() {
 		return settle;
 	}
 
-	public void setSettle(Double settle) {
+	public void setSettle(double settle) {
 		this.settle = settle;
 	}
 
-	public Integer getSettle_state() {
+	public int getSettle_state() {
 		return settle_state;
 	}
 
-	public void setSettle_state(Integer settle_state) {
+	public void setSettle_state(int settle_state) {
 		this.settle_state = settle_state;
 	}
 
@@ -83,19 +83,19 @@ public class CouponBackLog implements Serializable {
 		this.order_id = order_id;
 	}
 
-	public Double getOrder_money() {
+	public double getOrder_money() {
 		return order_money;
 	}
 
-	public void setOrder_money(Double order_money) {
+	public void setOrder_money(double order_money) {
 		this.order_money = order_money;
 	}
 
-	public Integer getOrder_points() {
+	public int getOrder_points() {
 		return order_points;
 	}
 
-	public void setOrder_points(Integer order_points) {
+	public void setOrder_points(int order_points) {
 		this.order_points = order_points;
 	}
 
@@ -115,11 +115,11 @@ public class CouponBackLog implements Serializable {
 		this.order_endtime = order_endtime;
 	}
 
-	public Integer getOrder_state() {
+	public int getOrder_state() {
 		return order_state;
 	}
 
-	public void setOrder_state(Integer order_state) {
+	public void setOrder_state(int order_state) {
 		this.order_state = order_state;
 	}
 
@@ -147,11 +147,11 @@ public class CouponBackLog implements Serializable {
 		this.union_extra2 = union_extra2;
 	}
 
-	public Integer getUseshopid() {
+	public int getUseshopid() {
 		return useshopid;
 	}
 
-	public void setUseshopid(Integer useshopid) {
+	public void setUseshopid(int useshopid) {
 		this.useshopid = useshopid;
 	}
 
@@ -195,19 +195,19 @@ public class CouponBackLog implements Serializable {
 		this.cou_mobile = cou_mobile;
 	}
 
-	public Integer getUvcid() {
+	public int getUvcid() {
 		return uvcid;
 	}
 
-	public void setUvcid(Integer uvcid) {
+	public void setUvcid(int uvcid) {
 		this.uvcid = uvcid;
 	}
 
-	public Integer getR() {
+	public int getR() {
 		return r;
 	}
 
-	public void setR(Integer r) {
+	public void setR(int r) {
 		this.r = r;
 	}
 

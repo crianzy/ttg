@@ -14,7 +14,7 @@ public class DefaultTTGExecutor implements TTGExecutor {
 	private static Logger logger = Logger.getLogger(DefaultTTGExecutor.class
 			.getName());
 	
-	private static String TAG = "DefaultTTGExecutor";
+	private static String TAG = "DefaultTTGExecutor ";
 
 	@Override
 	public TTGResponse execute(TTGRequest request) throws TTGException {
@@ -36,7 +36,7 @@ public class DefaultTTGExecutor implements TTGExecutor {
 		if (query != null && query.length() > 0) {
 			url.append("?" + query);
 		}
-
+		logger.info(TAG+"url = "+url.toString());
 		HttpRequest httpRequest;
 		switch (method) {
 		case PUT:
@@ -58,7 +58,7 @@ public class DefaultTTGExecutor implements TTGExecutor {
 		String body = httpRequest.body();
 
 		if (logger.isInfoEnabled()) {
-			logger.info("Response body: " + body);
+			logger.info(TAG+"Response body: " + body);
 		}
 
 		try {
@@ -71,7 +71,7 @@ public class DefaultTTGExecutor implements TTGExecutor {
 				} else {
 					int code = respObj.getInt("errcode");
 					String message = respObj.getString("msg");
-					logger.error("api服务器返回错误 errcode = " + code + " , msg = "
+					logger.error(TAG+"api服务器返回错误 errcode = " + code + " , msg = "
 							+ message);
 					// TODO 拋服务器返回的错误异常
 					throw new TTGException(message);

@@ -44,7 +44,7 @@ public class ParamActionVerify implements ParamActionVerifyInterface {
 				List<Element> mustelems = actionelm.elements("mustParam");
 				for (Element mustelm : mustelems) {
 					String mustParm = mustelm.getStringValue();
-					System.out.println(mustParm);
+					//System.out.println(mustParm);
 					if (!param.containsKey(mustParm)) {
 						lackPs.add(mustParm);
 						lack = true;

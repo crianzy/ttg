@@ -9,5 +9,6 @@ public class ConfigKey {
 	public static String httpport = "httpport";
 	public static String useragent = "useragent";
 	public static String http = "http";
+	public static String debug = "debug";
 
 }

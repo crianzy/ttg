@@ -4,8 +4,9 @@ import java.io.Serializable;
 
 /**
  * 商户信息
+ * 
  * @author leon
- *
+ * 
  */
 public class Shop implements Serializable {
 
@@ -35,6 +36,15 @@ public class Shop implements Serializable {
 	private String intro;
 	private Integer headid;
 	private Integer r;
+	private Integer branchs;
+
+	public Integer getBranchs() {
+		return branchs;
+	}
+
+	public void setBranchs(Integer branchs) {
+		this.branchs = branchs;
+	}
 
 	public Integer getShopid() {
 		return shopid;
