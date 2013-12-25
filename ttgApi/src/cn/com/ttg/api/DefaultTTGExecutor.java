@@ -13,6 +13,8 @@ public class DefaultTTGExecutor implements TTGExecutor {
 
 	private static Logger logger = Logger.getLogger(DefaultTTGExecutor.class
 			.getName());
+	
+	private static String TAG = "DefaultTTGExecutor";
 
 	@Override
 	public TTGResponse execute(TTGRequest request) throws TTGException {
@@ -69,10 +71,13 @@ public class DefaultTTGExecutor implements TTGExecutor {
 				} else {
 					int code = respObj.getInt("errcode");
 					String message = respObj.getString("msg");
+					logger.error("api服务器返回错误 errcode = " + code + " , msg = "
+							+ message);
 					// TODO 拋服务器返回的错误异常
 					throw new TTGException(message);
 				}
 			} else {
+				logger.error(TAG+" 链接api 服务器异常 错误代码 "+statusCode);
 				// TODO 拋连接服务器失败的异常
 				throw new TTGException();
 			}

@@ -8,8 +8,8 @@ import cn.com.ttg.api.param.ParaUtil;
 import cn.com.ttg.api.param.ParamMap;
 
 public class TestAuthorizeService {
-	ParamMap param = new ParamMap();
 	TTGClient client = new TTGClient();
+	ParamMap param = new ParamMap(client.getParamActionVerify(),client.getParamVerify());
 
 	@Test
 	public void testcheckCardno() {

@@ -53,6 +53,9 @@ public class AuthorizeService {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		if(banks==null || banks.length==0){
+			throw new TTGException("银行卡参数错误 返回数据为空" );
+		}
 		return banks[0].getBankname() + ","
 				+ Bank.bankCardtype.get(banks[0].getResult());
 
@@ -60,10 +63,10 @@ public class AuthorizeService {
 
 	public static void main(String[] args) throws TTGException {
 		TTGClient client = new TTGClient();
-		ParamMap param = new ParamMap();
+		ParamMap param = new ParamMap(client.getParamActionVerify(),client.getParamVerify());
 		param.put(ParaUtil.action, ActionUtil.checkCardNoAction);
-		param.put(ParaUtil.cardno, ParaUtil.cardTestNo);
-		param.put("asd", ParaUtil.cardTestNo);
+//		param.put(ParaUtil.cardno, ParaUtil.cardTestNo);
+		param.put(ParaUtil.cardno, "123123123123");
 		String s = client.getAuthorizeService().checkCardno(param);
 		System.out.println(s);
 	}

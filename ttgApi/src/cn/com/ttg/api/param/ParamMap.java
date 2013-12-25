@@ -22,15 +22,19 @@ public class ParamMap extends HashMap<String, String> {
 	/**
 	 * Action 必选参数的验证
 	 */
-	private ParamVerifyInterface ationVerify;
+	private ParamActionVerifyInterface ationVerify;
 
-	private ParamVerify paramVerify;
+	/**
+	 * 参数类型 范围的 校验器
+	 */
+	private ParamVerifyInterface paramVerify;
 
 	// TODO 注入参数验证
-	public ParamMap() {
+	public ParamMap(ParamActionVerifyInterface ationVerify,
+			ParamVerifyInterface paramVerify) {
 		addAuthorize();
-		ationVerify = new ParamActionVerify();
-		paramVerify = new ParamVerify();
+		this.ationVerify = ationVerify;
+		this.paramVerify = paramVerify;
 	}
 
 	/**
@@ -47,6 +51,7 @@ public class ParamMap extends HashMap<String, String> {
 	 */
 	@Override
 	public String toString() {
+		// 校验 action 以及他的必备参数
 		ationVerify.verify(this);
 		StringBuffer paraString = new StringBuffer();
 		for (Iterator<Entry<String, String>> itr = this.entrySet().iterator(); itr
@@ -67,20 +72,23 @@ public class ParamMap extends HashMap<String, String> {
 		return paraString.toString();
 	}
 
-	public static void main(String[] args) {
-		ParamMap p = new ParamMap();
-		System.out.println(p);
-	}
-
 	public String getTimestamp() {
 		return timestamp;
 	}
 
-	public void setAtionVerify(ParamVerifyInterface ationVerify) {
+	public ParamActionVerifyInterface getAtionVerify() {
+		return ationVerify;
+	}
+
+	public void setAtionVerify(ParamActionVerifyInterface ationVerify) {
 		this.ationVerify = ationVerify;
 	}
 
-	public void setParamVerify(ParamVerify paramVerify) {
+	public ParamVerifyInterface getParamVerify() {
+		return paramVerify;
+	}
+
+	public void setParamVerify(ParamVerifyInterface paramVerify) {
 		this.paramVerify = paramVerify;
 	}
 

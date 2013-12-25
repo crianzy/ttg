@@ -18,7 +18,7 @@ import cn.com.ttg.api.json.JSONArray;
 import cn.com.ttg.api.json.JSONException;
 import cn.com.ttg.api.json.JSONObject;
 
-public class ParamVerify {
+public class ParamVerify implements ParamVerifyInterface{
 	private static final String filename = "paramCheck.xml";
 	private static Element root;
 	static {
@@ -33,6 +33,7 @@ public class ParamVerify {
 		}
 	}
 
+	@Override
 	public void verify(String key, String value) {
 		List<Element> paramList = root.elements("param");
 		boolean have = false;

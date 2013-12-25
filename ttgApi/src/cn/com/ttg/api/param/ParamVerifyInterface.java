@@ -1,14 +1,11 @@
 package cn.com.ttg.api.param;
 
-import java.util.List;
-
 public interface ParamVerifyInterface {
 
-	
 	/**
-	 * 返回错误参数列表
-	 * @param param 
-	 * @return
+	 *  验证 参数值 是否符合规范
+	 * @param key
+	 * @param value
 	 */
-	public List<String> verify(ParamMap param);
+	public void verify(String key, String value);
 }

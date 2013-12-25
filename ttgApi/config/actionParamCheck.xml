@@ -24,7 +24,6 @@
 		<mustParam>card</mustParam>
 		<mustParam>orderid</mustParam>
 	</actionName>
-	<!-- 有点问题 -->
 	<actionName name="getcouponbranch">
 		<!-- 下列参数中 仅需要1个 -->
 		<OneOfParam>
