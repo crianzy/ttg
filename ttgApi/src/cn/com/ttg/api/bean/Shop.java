@@ -37,6 +37,24 @@ public class Shop implements Serializable {
 	private Integer headid;
 	private Integer r;
 	private Integer branchs;
+	private Integer gifdred;
+	private Integer shopavg;
+
+	public Integer getGifdred() {
+		return gifdred;
+	}
+
+	public void setGifdred(Integer gifdred) {
+		this.gifdred = gifdred;
+	}
+
+	public Integer getShopavg() {
+		return shopavg;
+	}
+
+	public void setShopavg(Integer shopavg) {
+		this.shopavg = shopavg;
+	}
 
 	public Integer getBranchs() {
 		return branchs;

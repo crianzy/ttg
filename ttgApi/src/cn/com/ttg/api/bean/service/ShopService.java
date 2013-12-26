@@ -13,6 +13,7 @@ import cn.com.ttg.api.TTGRequest;
 import cn.com.ttg.api.TTGRequest.Method;
 import cn.com.ttg.api.TTGResponse;
 import cn.com.ttg.api.bean.Count;
+import cn.com.ttg.api.bean.Coupon;
 import cn.com.ttg.api.bean.Impression;
 import cn.com.ttg.api.bean.ImpressionCount;
 import cn.com.ttg.api.bean.Page;
@@ -20,8 +21,11 @@ import cn.com.ttg.api.bean.Shop;
 import cn.com.ttg.api.bean.ShopComment;
 import cn.com.ttg.api.bean.ShopCoupon;
 import cn.com.ttg.api.bean.ShopImage;
+import cn.com.ttg.api.bean.ShopInfo;
+import cn.com.ttg.api.bean.VipCard;
 import cn.com.ttg.api.exception.TTGException;
 import cn.com.ttg.api.json.JSONArray;
+import cn.com.ttg.api.json.JSONException;
 import cn.com.ttg.api.json.JSONObject;
 import cn.com.ttg.api.param.ParamMap;
 
@@ -61,9 +65,10 @@ public class ShopService extends BaseService {
 		page.setList(Arrays.asList(shops));
 		return page;
 	}
-	
+
 	/**
 	 * 返回商店 优惠劵
+	 * 
 	 * @param param
 	 * @return
 	 */
@@ -90,6 +95,7 @@ public class ShopService extends BaseService {
 
 	/**
 	 * 获得 商户口碑
+	 * 
 	 * @param param
 	 * @return
 	 */
@@ -107,10 +113,8 @@ public class ShopService extends BaseService {
 			JSONObject pages = data.getJSONObject("pages");
 			JSONArray list = data.getJSONArray("list");
 			counts = mapper.readValue(count.toString(), Count[].class);
-			impressions = mapper.readValue(list.toString(),
-					Impression[].class);
-			page = mapper.readValue(pages.toString(),
-					Page.class);
+			impressions = mapper.readValue(list.toString(), Impression[].class);
+			page = mapper.readValue(pages.toString(), Page.class);
 		} catch (Exception e) {
 			e.printStackTrace();
 			logger.error(TAG + "解析 josn 错误");
@@ -123,13 +127,14 @@ public class ShopService extends BaseService {
 		impressionCount.setList(Arrays.asList(impressions));
 		return impressionCount;
 	}
-	
+
 	/**
 	 * 返回商户的图片
+	 * 
 	 * @param param
 	 * @return
 	 */
-	public List<ShopImage> getshopimage(ParamMap param){
+	public List<ShopImage> getshopimage(ParamMap param) {
 		TTGRequest request = new TTGRequest(urlPath, Method.GET, param);
 		TTGResponse response = executor.execute(request);
 		ShopImage[] shopimgs = null;
@@ -143,9 +148,10 @@ public class ShopService extends BaseService {
 		}
 		return Arrays.asList(shopimgs);
 	}
-	
+
 	/**
 	 * 返回对商户评论
+	 * 
 	 * @param param
 	 * @return
 	 */
@@ -160,7 +166,8 @@ public class ShopService extends BaseService {
 			JSONObject pages = data.getJSONObject("pages");
 			JSONArray list = data.getJSONArray("list");
 			page = mapper.readValue(pages.toString(), Page.class);
-			shopcomments = mapper.readValue(list.toString(), ShopComment[].class);
+			shopcomments = mapper.readValue(list.toString(),
+					ShopComment[].class);
 		} catch (Exception e) {
 			e.printStackTrace();
 			logger.error(TAG + "解析 josn 错误");
@@ -168,5 +175,62 @@ public class ShopService extends BaseService {
 		}
 		page.setList(Arrays.asList(shopcomments));
 		return page;
+	}
+
+	public ShopInfo shopInfo(ParamMap param) {
+		TTGRequest request = new TTGRequest(urlPath, Method.GET, param);
+		TTGResponse response = executor.execute(request);
+		Shop shop = null;
+		Coupon[] coupons = null;
+		VipCard[] vipcards = null;
+		ShopComment[] comments = null;
+		Shop[] branchstore = null;
+		Count[] counts = null;
+		Impression[] impressions = null;
+
+		JSONObject data;
+		try {
+			data = new JSONObject(response.getResponse().toString());
+			shop = mapper.readValue(
+					data.getJSONArray("shop").getJSONObject(0).toString(),
+					Shop.class);
+			if (data.has("coupons")) {
+			coupons = mapper.readValue(data.getJSONArray("coupons").toString(),
+					Coupon[].class);
+			}
+			if (data.has("vipcards")) {
+			vipcards = mapper.readValue(data.getJSONArray("vipcards")
+					.toString(), VipCard[].class);
+			}
+			if (data.has("comments")) {
+			comments = mapper.readValue(data.getJSONArray("comments")
+					.toString(), ShopComment[].class);
+			}
+			if (data.has("branchstore")) {
+			branchstore = mapper.readValue(data.getJSONArray("branchstore")
+					.toString(), Shop[].class);
+			}
+			if (data.has("impression")) {
+			counts = mapper.readValue(data.getJSONObject("impression")
+					.getJSONArray("count").toString(), Count[].class);
+			impressions = mapper.readValue(data.getJSONObject("impression")
+					.getJSONArray("list").toString(), Impression[].class);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			logger.error(TAG + "解析 josn 错误");
+			throw new TTGException(TAG + "解析json 错误", e);
+		}
+		ImpressionCount<Impression> impression = new ImpressionCount<Impression>();
+		impression.setCounts(Arrays.asList(counts));
+		impression.setList(Arrays.asList(impressions));
+		ShopInfo shopInfo = new ShopInfo();
+		shopInfo.setBranchstore(branchstore);
+		shopInfo.setComments(comments);
+		shopInfo.setCoupons(coupons);
+		shopInfo.setImpression(impression);
+		shopInfo.setShop(shop);
+		shopInfo.setVipcards(vipcards);
+		return shopInfo;
 	}
 }

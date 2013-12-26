@@ -52,7 +52,9 @@ public class ParamMap extends HashMap<String, String> {
 	@Override
 	public String toString() {
 		// 校验 action 以及他的必备参数
-		ationVerify.verify(this);
+		if(this.containsKey(ParaUtil.action)){
+			ationVerify.verify(this);
+		}
 		StringBuffer paraString = new StringBuffer();
 		for (Iterator<Entry<String, String>> itr = this.entrySet().iterator(); itr
 				.hasNext();) {

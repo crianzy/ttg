@@ -50,13 +50,13 @@ public class ParamVerify implements ParamVerifyInterface{
 					Type type = Type.valueOf(Type.class, val);
 					if (!check(type, value, propert)) {
 						// TODO param exception
-						throw new TTGException(key + "  param value error  ");
+						throw new TTGException(key + " 该参数 值错误  ");
 					}
 				}
 			}
 		}
 		if (!isKnowParam) {//表示 该参数不再参数列表中 是不明参数
-			throw new TTGException(key + "  param not exist  ");
+			throw new TTGException(key + " 该参数不再参数列表中 是不明参数  ");
 		}
 		//System.out.println("yes");
 	}
@@ -148,7 +148,7 @@ public class ParamVerify implements ParamVerifyInterface{
 	}
 
 	public enum Type {
-		number, string, doubles, date, mobile, range
+		number, string, doubles, date, mobile, range ,json
 	}
 
 	public boolean check(Type type, String value, Element propert) {
@@ -163,6 +163,8 @@ public class ParamVerify implements ParamVerifyInterface{
 			return isDate(value, propert.attributeValue("format"));
 		case mobile:
 			return isMobile(value);
+		case json:
+			return isjson(value);
 		case range:
 			return isRange(value, propert.attributeValue("min"),
 					propert.attributeValue("max"));

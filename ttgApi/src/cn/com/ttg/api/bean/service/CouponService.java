@@ -1,6 +1,6 @@
 package cn.com.ttg.api.bean.service;
 
-
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.List;
 
@@ -19,7 +19,9 @@ import cn.com.ttg.api.bean.Page;
 import cn.com.ttg.api.bean.Shop;
 import cn.com.ttg.api.exception.TTGException;
 import cn.com.ttg.api.json.JSONArray;
+import cn.com.ttg.api.json.JSONException;
 import cn.com.ttg.api.json.JSONObject;
+import cn.com.ttg.api.param.ParaUtil;
 import cn.com.ttg.api.param.ParamMap;
 
 public class CouponService extends BaseService {
@@ -62,6 +64,7 @@ public class CouponService extends BaseService {
 
 	/**
 	 * 绑定优惠卷
+	 * 
 	 * @param param
 	 * @return
 	 */
@@ -85,6 +88,7 @@ public class CouponService extends BaseService {
 
 	/**
 	 * 获取与优惠卷相关的 shop
+	 * 
 	 * @param param
 	 * @return
 	 */
@@ -93,22 +97,24 @@ public class CouponService extends BaseService {
 		TTGResponse response = executor.execute(request);
 		Shop[] shops;
 		try {
-			shops = mapper.readValue(response.getResponse().toString(), Shop[].class);
+			shops = mapper.readValue(response.getResponse().toString(),
+					Shop[].class);
 		} catch (Exception e) {
 			e.printStackTrace();
 			logger.error(TAG + "解析 josn 错误");
 			throw new TTGException(TAG + "解析json 错误", e);
 		}
-		
+
 		return Arrays.asList(shops);
 	}
-	
+
 	/**
 	 * 用户下载的优惠卷
+	 * 
 	 * @param param
 	 * @return
 	 */
-	public Page<CouponBackLog> getUserCoupon(ParamMap param){
+	public Page<CouponBackLog> getUserCoupon(ParamMap param) {
 		TTGRequest request = new TTGRequest(urlPath, Method.GET, param);
 		TTGResponse response = executor.execute(request);
 		Page<CouponBackLog> page = null;
@@ -119,7 +125,8 @@ public class CouponService extends BaseService {
 			JSONObject pages = data.getJSONObject("pages");
 			JSONArray list = data.getJSONArray("list");
 			page = mapper.readValue(pages.toString(), Page.class);
-			couponBackLogs = mapper.readValue(list.toString(), CouponBackLog[].class);
+			couponBackLogs = mapper.readValue(list.toString(),
+					CouponBackLog[].class);
 		} catch (Exception e) {
 			e.printStackTrace();
 			logger.error(TAG + "解析 josn 错误");
@@ -128,7 +135,7 @@ public class CouponService extends BaseService {
 		page.setList(Arrays.asList(couponBackLogs));
 		return page;
 	}
-	
+
 	/**
 	 * 优惠券回调通知 post 发送 优惠卷 绑定/使用信息 json格式
 	 * 
@@ -138,7 +145,26 @@ public class CouponService extends BaseService {
 	 */
 	// TODO 关于 call bank post json 没有搞定
 	public void postcallback(CouponBackLog couponBackLog, ParamMap param) {
-		
+		JSONObject json = new JSONObject(couponBackLog);
+		try {
+			json.put("order_addtime", new SimpleDateFormat(
+					"yyyy-MM-dd HH:mm:ss").format(couponBackLog
+					.getOrder_addtime()));
+			json.put("order_endtime", new SimpleDateFormat(
+					"yyyy-MM-dd HH:mm:ss").format(couponBackLog
+					.getOrder_endtime()));
+			json.put("addtime", new SimpleDateFormat(
+					"yyyy-MM-dd HH:mm:ss").format(couponBackLog
+							.getAddtime()));
+		} catch (JSONException e) {
+			e.printStackTrace();
+			logger.error(TAG + "java 转换 json 错误");
+			throw new TTGException(TAG + "java 转换 json 错误", e);
+		}
+
+		param.put(ParaUtil.data, json.toString());
+		TTGRequest request = new TTGRequest(urlPath, Method.POST, param);
+		TTGResponse response = executor.execute(request);
 	}
 
 }

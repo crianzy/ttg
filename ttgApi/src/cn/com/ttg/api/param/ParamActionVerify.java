@@ -32,7 +32,7 @@ public class ParamActionVerify implements ParamActionVerifyInterface {
 		List<String> lackPs = new ArrayList<String>();
 		boolean lack = false;
 		String action = param.get(ParaUtil.action);
-		if(action==null){
+		if (action == null) {
 			throw new TTGException("参数错误  action 为空");
 		}
 		List<Element> actionelms = root.elements("actionName");

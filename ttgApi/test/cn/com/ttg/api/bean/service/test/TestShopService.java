@@ -46,5 +46,21 @@ public class TestShopService {
 		param.put(ParaUtil.comcolumn, "abcdefghijklmnopqrstuvw");
 		shopService.shopComment(param);
 	}
+	
+	@Test
+	public void testShopinfo() {
+		param.put(ParaUtil.action, ActionUtil.shopInfoAction);
+		param.put(ParaUtil.shopid, "106499");
+		param.put(ParaUtil.shopcolumn, "abcdefghijklmnopqrstuvwxyz");
+		param.put(ParaUtil.coupons, "5");
+		param.put(ParaUtil.coucolumn, "abcdefghijklmn");
+		param.put(ParaUtil.comments, "5");
+		param.put(ParaUtil.comcolumn, "abcdefgh");
+		param.put(ParaUtil.brcolumn, "5");
+		param.put(ParaUtil.branchstore, "8");
+		param.put(ParaUtil.impressions, "5");
+		param.put(ParaUtil.impcolumn, "abcdefgh");
+		shopService.shopInfo(param);;
+	}
 
 }
