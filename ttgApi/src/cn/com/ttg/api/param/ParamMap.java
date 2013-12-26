@@ -29,7 +29,6 @@ public class ParamMap extends HashMap<String, String> {
 	 */
 	private ParamVerifyInterface paramVerify;
 
-	// TODO 注入参数验证
 	public ParamMap(ParamActionVerifyInterface ationVerify,
 			ParamVerifyInterface paramVerify) {
 		addAuthorize();
@@ -52,7 +51,7 @@ public class ParamMap extends HashMap<String, String> {
 	@Override
 	public String toString() {
 		// 校验 action 以及他的必备参数
-		if(this.containsKey(ParaUtil.action)){
+		if (this.containsKey(ParaUtil.action)) {
 			ationVerify.verify(this);
 		}
 		StringBuffer paraString = new StringBuffer();

@@ -13,8 +13,10 @@ public class DefaultTTGExecutor implements TTGExecutor {
 
 	private static Logger logger = Logger.getLogger(DefaultTTGExecutor.class
 			.getName());
-	
+
 	private static String TAG = "DefaultTTGExecutor ";
+
+	private static final int TRY_COUNT = 3;
 
 	@Override
 	public TTGResponse execute(TTGRequest request) throws TTGException {
@@ -36,34 +38,42 @@ public class DefaultTTGExecutor implements TTGExecutor {
 		if (query != null && query.length() > 0) {
 			url.append("?" + query);
 		}
-		logger.info(TAG+"url = "+url.toString());
-		HttpRequest httpRequest;
-		switch (method) {
-		case PUT:
-			httpRequest = HttpRequest.put(url);
-			break;
-		case DELETE:
-			httpRequest = HttpRequest.delete(url);
-			break;
-		case POST:
-			httpRequest = HttpRequest.post(url);
-			break;
-		case GET:
-			httpRequest = HttpRequest.get(url);
-			break;
-		default:
-			httpRequest = HttpRequest.get(url);
-		}
-		int statusCode = httpRequest.code();
-		String body = httpRequest.body();
+		logger.info(TAG + "url = " + url.toString());
+		int trycount = 0;
+		String body ="";
+		int statusCode = 0 ;
+		while (trycount < TRY_COUNT) {
 
-		if (logger.isInfoEnabled()) {
-			logger.info(TAG+"Response body: " + body);
-		}
+			HttpRequest httpRequest;
+			switch (method) {
+			case PUT:
+				httpRequest = HttpRequest.put(url);
+				break;
+			case DELETE:
+				httpRequest = HttpRequest.delete(url);
+				break;
+			case POST:
+				httpRequest = HttpRequest.post(url);
+				break;
+			case GET:
+				httpRequest = HttpRequest.get(url);
+				break;
+			default:
+				httpRequest = HttpRequest.get(url);
+			}
+			statusCode = httpRequest.code();
+			body = httpRequest.body();
 
+			if (logger.isInfoEnabled()) {
+				logger.info(TAG + "StatusCode = "+statusCode+" Response body: " + body);
+			}
+			if (!"".equals(body)&&HttpURLConnection.HTTP_OK == statusCode) {
+				trycount+=TRY_COUNT;
+			}
+		}
 		try {
-			JSONObject respObj = new JSONObject(body);
-			if (HttpURLConnection.HTTP_OK == statusCode) {
+			if (HttpURLConnection.HTTP_OK == statusCode||"".equals(body)) {
+				JSONObject respObj = new JSONObject(body);
 				if (respObj.getInt("ret") == 0) {
 					// TODO 存在 没有data的返回数据
 					Object resp = respObj.get("data");
@@ -71,17 +81,18 @@ public class DefaultTTGExecutor implements TTGExecutor {
 				} else {
 					int code = respObj.getInt("errcode");
 					String message = respObj.getString("msg");
-					logger.error(TAG+"api服务器返回错误 errcode = " + code + " , msg = "
-							+ message);
+					logger.error(TAG + "api服务器返回错误 errcode = " + code
+							+ " , msg = " + message);
 					// TODO 拋服务器返回的错误异常
 					throw new TTGException(message);
 				}
 			} else {
-				logger.error(TAG+" 链接api 服务器异常 错误代码 "+statusCode);
+				logger.error(TAG + " 链接api 服务器异常 错误代码 " + statusCode);
 				// TODO 拋连接服务器失败的异常
 				throw new TTGException();
 			}
 		} catch (JSONException e) {
+			e.printStackTrace();
 			throw new RuntimeException(e.getMessage(), e);
 		}
 	}

@@ -1,6 +1,7 @@
 package cn.com.ttg.api.bean;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * 商户的信息
@@ -11,58 +12,47 @@ public class ShopInfo implements Serializable {
 
 	private static final long serialVersionUID = 5864818855828814823L;
 	private Shop shop;
-	private Coupon[] coupons;
-	private VipCard[] vipcards;
-	private ShopComment[] comments;
-	private Shop[] branchstore;
+	private List<Coupon> coupons;
+	private List<VipCard> vipcards;
+	private List<ShopComment> comments;
+	private List<Shop> branchstore;
 	private ImpressionCount<Impression> impression;
-
 	public Shop getShop() {
 		return shop;
 	}
-
 	public void setShop(Shop shop) {
 		this.shop = shop;
 	}
-
-	public Coupon[] getCoupons() {
+	public List<Coupon> getCoupons() {
 		return coupons;
 	}
-
-	public void setCoupons(Coupon[] coupons) {
+	public void setCoupons(List<Coupon> coupons) {
 		this.coupons = coupons;
 	}
-
-	public VipCard[] getVipcards() {
+	public List<VipCard> getVipcards() {
 		return vipcards;
 	}
-
-	public void setVipcards(VipCard[] vipcards) {
+	public void setVipcards(List<VipCard> vipcards) {
 		this.vipcards = vipcards;
 	}
-
-	public ShopComment[] getComments() {
+	public List<ShopComment> getComments() {
 		return comments;
 	}
-
-	public void setComments(ShopComment[] comments) {
+	public void setComments(List<ShopComment> comments) {
 		this.comments = comments;
 	}
-
-	public Shop[] getBranchstore() {
+	public List<Shop> getBranchstore() {
 		return branchstore;
 	}
-
-	public void setBranchstore(Shop[] branchstore) {
+	public void setBranchstore(List<Shop> branchstore) {
 		this.branchstore = branchstore;
 	}
-
 	public ImpressionCount<Impression> getImpression() {
 		return impression;
 	}
-
 	public void setImpression(ImpressionCount<Impression> impression) {
 		this.impression = impression;
 	}
+
 
 }

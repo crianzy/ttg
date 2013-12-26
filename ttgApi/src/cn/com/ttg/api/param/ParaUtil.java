@@ -36,6 +36,7 @@ public class ParaUtil {
 	public static String county = "county";
 
 	/**
+	 * 父级分类编号 为0时分主分类,不传值显示全部
 	 * 商户的id
 	 */
 	public static String clsid = "clsid";

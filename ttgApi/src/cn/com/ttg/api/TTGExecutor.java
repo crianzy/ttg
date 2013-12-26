@@ -11,4 +11,5 @@ public interface TTGExecutor {
 	public static final String USER_AGENT = Config.getProperties(ConfigKey.useragent);
 
 	public TTGResponse execute(TTGRequest request) throws TTGException;
+	
 }

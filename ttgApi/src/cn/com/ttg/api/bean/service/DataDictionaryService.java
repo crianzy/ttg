@@ -16,10 +16,11 @@ import cn.com.ttg.api.bean.Bank;
 import cn.com.ttg.api.bean.City;
 import cn.com.ttg.api.bean.Clazz;
 import cn.com.ttg.api.exception.TTGException;
+import cn.com.ttg.api.param.ActionUtil;
+import cn.com.ttg.api.param.ParaUtil;
 import cn.com.ttg.api.param.ParamMap;
 
 public class DataDictionaryService extends BaseService {
-
 
 	private static String urlPath = Config.getProperties(ConfigKey.urlpath);
 	private static Logger logger = Logger.getLogger(DataDictionaryService.class
@@ -48,6 +49,37 @@ public class DataDictionaryService extends BaseService {
 			throw new TTGException(TAG + "解析json 错误", e);
 		}
 		return Arrays.asList(clazzs);
+	}
+
+	/**
+	 * 获取所有已经 处理好父子关系的 商户类型
+	 * 
+	 * @return
+	 */
+	public Clazz getAllGradingClazzList(ParamMap param) {
+		param.put(ParaUtil.action, ActionUtil.getClazzAction);
+		// param.put(ParaUtil.cardno, "0");
+		Clazz allClazz = new Clazz();
+		allClazz.setClsname("全部");
+		allClazz.setClsid(0);
+		Clazz allClazzt = new Clazz();
+		allClazzt.setClsname("全部");
+		allClazzt.setClsid(0);
+		allClazz.getChildrenList().add(allClazzt);
+		
+		List<Clazz> allList = getClazzList(param);
+		for (Clazz clazz : allList) {
+			if(clazz.getPid() == allClazz.getClsid()){
+				allClazz.getChildrenList().add(clazz);
+				continue;
+			}
+			for (Clazz child : allClazz.getChildrenList()) {
+				if(clazz.getPid() == child.getClsid()){
+					child.getChildrenList().add(clazz);
+				}
+			}
+		}
+		return allClazz;
 	}
 
 	/**

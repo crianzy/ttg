@@ -180,6 +180,20 @@
 		<property name="type" value="number" />
 		<property name="range" max="10" min="1" />
 	</param>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<!-- test -->
+	<param name="orderby">
+		<property name="type" value="number" />
+	</param>
 
 
 

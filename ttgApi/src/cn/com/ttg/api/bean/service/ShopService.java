@@ -187,7 +187,7 @@ public class ShopService extends BaseService {
 		Shop[] branchstore = null;
 		Count[] counts = null;
 		Impression[] impressions = null;
-
+		ImpressionCount<Impression> impression = null;
 		JSONObject data;
 		try {
 			data = new JSONObject(response.getResponse().toString());
@@ -215,22 +215,23 @@ public class ShopService extends BaseService {
 					.getJSONArray("count").toString(), Count[].class);
 			impressions = mapper.readValue(data.getJSONObject("impression")
 					.getJSONArray("list").toString(), Impression[].class);
+			impression = new ImpressionCount<Impression>();
+			impression.setCounts(Arrays.asList(counts));
+			impression.setList(Arrays.asList(impressions));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 			logger.error(TAG + "解析 josn 错误");
 			throw new TTGException(TAG + "解析json 错误", e);
 		}
-		ImpressionCount<Impression> impression = new ImpressionCount<Impression>();
-		impression.setCounts(Arrays.asList(counts));
-		impression.setList(Arrays.asList(impressions));
+		
 		ShopInfo shopInfo = new ShopInfo();
-		shopInfo.setBranchstore(branchstore);
-		shopInfo.setComments(comments);
-		shopInfo.setCoupons(coupons);
+		shopInfo.setBranchstore(Arrays.asList(branchstore));
+		shopInfo.setComments(Arrays.asList(comments));
+		shopInfo.setCoupons(Arrays.asList(coupons));
 		shopInfo.setImpression(impression);
 		shopInfo.setShop(shop);
-		shopInfo.setVipcards(vipcards);
+		shopInfo.setVipcards(Arrays.asList(vipcards));
 		return shopInfo;
 	}
 }

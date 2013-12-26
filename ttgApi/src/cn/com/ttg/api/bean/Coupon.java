@@ -58,7 +58,18 @@ public class Coupon implements Serializable {
 	private Integer maxamount;
 	private String discount;
 	private Integer range;
+	private Integer transfer;
 	private Integer r;
+
+	
+	
+	public Integer getTransfer() {
+		return transfer;
+	}
+
+	public void setTransfer(Integer transfer) {
+		this.transfer = transfer;
+	}
 
 	private Date updatetime;
 

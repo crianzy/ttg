@@ -1,12 +1,13 @@
 package cn.com.ttg.api.bean.service.test;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.junit.Test;
 
 import cn.com.ttg.api.TTGClient;
+import cn.com.ttg.api.bean.Coupon;
 import cn.com.ttg.api.bean.CouponBackLog;
+import cn.com.ttg.api.bean.Page;
 import cn.com.ttg.api.bean.service.CouponService;
 import cn.com.ttg.api.param.ActionUtil;
 import cn.com.ttg.api.param.ParaUtil;
@@ -20,13 +21,22 @@ public class TestCouponService {
 
 	@Test
 	public void testGetCoupon() {
+		// param.put(ParaUtil.action, ActionUtil.getCouponAction);
+		// param.put(ParaUtil.state, "1");
+		// param.put(ParaUtil.clsid, "1");
+		// param.put(ParaUtil.shopcolumn, "abcdefghi");
+		// param.put(ParaUtil.coucolumn, "abcdefghi");
+		// param.put(ParaUtil.page, "2");
+		// couponService.getCoupon(param);
+		param.clear();
 		param.put(ParaUtil.action, ActionUtil.getCouponAction);
+		param.addAuthorize();
+		param.put(ParaUtil.province, "江西");
+		param.put(ParaUtil.city, "南昌");
 		param.put(ParaUtil.state, "1");
-		param.put(ParaUtil.clsid, "1");
-		param.put(ParaUtil.shopcolumn, "abcdefghi");
-		param.put(ParaUtil.coucolumn, "abcdefghi");
-		param.put(ParaUtil.page, "2");
-		couponService.getCoupon(param);
+		param.put(ParaUtil.pagesize, "30");
+		
+		Page<Coupon> page = couponService.getCoupon(param);
 
 	}
 

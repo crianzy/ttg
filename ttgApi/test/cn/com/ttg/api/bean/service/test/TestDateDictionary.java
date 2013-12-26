@@ -18,8 +18,14 @@ public class TestDateDictionary {
 	@Test
 	public void testGetClazzList() {
 		param.put(ParaUtil.action, ActionUtil.getClazzAction);
-		param.put(ParaUtil.clsid, "1");
+		param.put(ParaUtil.clsid, "0");
 		dataDictionaryService.getClazzList(param);
+	}
+	
+	@Test
+	public void getAllGradingClazzList() {
+		param.put(ParaUtil.action, ActionUtil.getClazzAction);
+		dataDictionaryService.getAllGradingClazzList(param);
 	}
 	
 	@Test

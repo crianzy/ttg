@@ -21,11 +21,17 @@ public class TestShopService {
 		param.put(ParaUtil.brcolumn, "abcdefghijklmnopqrstuvw");
 		shopService.getShopBranch(param);
 	}
+	@Test
+	public void testgetshopimage() {
+		param.put(ParaUtil.action, ActionUtil.getShopImageAction);
+		param.put(ParaUtil.shopid, "100068");
+		shopService.getshopimage(param);
+	}
 	
 	@Test
 	public void testShopImpression() {
 		param.put(ParaUtil.action, ActionUtil.shopImpressionAction);
-		param.put(ParaUtil.shopid, "100068");
+		param.put(ParaUtil.shopid, "110461");
 		param.put(ParaUtil.brcolumn, "abcdefghijklmn");
 		shopService.shopImpression(param);
 	}
@@ -50,17 +56,22 @@ public class TestShopService {
 	@Test
 	public void testShopinfo() {
 		param.put(ParaUtil.action, ActionUtil.shopInfoAction);
-		param.put(ParaUtil.shopid, "106499");
-		param.put(ParaUtil.shopcolumn, "abcdefghijklmnopqrstuvwxyz");
-		param.put(ParaUtil.coupons, "5");
-		param.put(ParaUtil.coucolumn, "abcdefghijklmn");
-		param.put(ParaUtil.comments, "5");
-		param.put(ParaUtil.comcolumn, "abcdefgh");
-		param.put(ParaUtil.brcolumn, "5");
-		param.put(ParaUtil.branchstore, "8");
-		param.put(ParaUtil.impressions, "5");
-		param.put(ParaUtil.impcolumn, "abcdefgh");
-		shopService.shopInfo(param);;
+		param.put(ParaUtil.shopid, "110461");
+		param.put(ParaUtil.coupons, "10");
+		param.put(ParaUtil.vipcards, "10");
+		param.put(ParaUtil.comments, "10");
+		param.put(ParaUtil.branchstore, "10");
+		param.put(ParaUtil.impressions, "10");
+//		param.put(ParaUtil.shopcolumn, "abcdefghijklmnopqrstuvwxyz");
+//		param.put(ParaUtil.coupons, "5");
+//		param.put(ParaUtil.coucolumn, "abcdefghijklmn");
+//		param.put(ParaUtil.comments, "5");
+//		param.put(ParaUtil.comcolumn, "abcdefgh");
+//		param.put(ParaUtil.brcolumn, "5");
+//		param.put(ParaUtil.branchstore, "8");
+//		param.put(ParaUtil.impressions, "5");
+//		param.put(ParaUtil.impcolumn, "abcdefgh");
+		shopService.shopInfo(param);
 	}
 
 }

@@ -55,6 +55,7 @@ public class CouponService extends BaseService {
 			page = mapper.readValue(pages.toString(), Page.class);
 			coupons = mapper.readValue(list.toString(), Coupon[].class);
 		} catch (Exception e) {
+			e.printStackTrace();
 			logger.error(TAG + "解析 josn 错误");
 			throw new TTGException(TAG + "解析json 错误", e);
 		}
