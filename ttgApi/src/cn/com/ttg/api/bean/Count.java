@@ -8,14 +8,14 @@ import java.io.Serializable;
  * @author leon
  * 
  */
-public class Count  implements Serializable{
+public class Count implements Serializable {
 
 	private static final long serialVersionUID = 179863910951184014L;
 	/**
 	 * 相对应的描述
 	 */
 	private String imp;
-	private Integer score;
+	private double score;
 
 	public String getImp() {
 		return imp;
@@ -25,11 +25,11 @@ public class Count  implements Serializable{
 		this.imp = imp;
 	}
 
-	public Integer getScore() {
+	public double getScore() {
 		return score;
 	}
 
-	public void setScore(Integer score) {
+	public void setScore(double score) {
 		this.score = score;
 	}
 

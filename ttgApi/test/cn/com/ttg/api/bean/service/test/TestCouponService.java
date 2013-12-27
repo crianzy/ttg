@@ -28,13 +28,22 @@ public class TestCouponService {
 		// param.put(ParaUtil.coucolumn, "abcdefghi");
 		// param.put(ParaUtil.page, "2");
 		// couponService.getCoupon(param);
+//		param.clear();
+//		param.put(ParaUtil.action, ActionUtil.getCouponAction);
+//		param.addAuthorize();
+//		param.put(ParaUtil.province, "江西");
+//		param.put(ParaUtil.city, "南昌");
+//		param.put(ParaUtil.state, "1");
+//		param.put(ParaUtil.pagesize, "30");
+		
 		param.clear();
-		param.put(ParaUtil.action, ActionUtil.getCouponAction);
 		param.addAuthorize();
-		param.put(ParaUtil.province, "江西");
-		param.put(ParaUtil.city, "南昌");
-		param.put(ParaUtil.state, "1");
-		param.put(ParaUtil.pagesize, "30");
+		//lat":"28.675714","lng":"115.896128"
+		//TODO 加入 了 经纬度和范围是 服务器返回空  DefaultTTGExecutor StatusCode = 200 Response body:
+		param.put(ParaUtil.lng,  "115.896128");
+		param.put(ParaUtil.lat,  "28.675714");
+		param.put(ParaUtil.range, "30");
+		param.put(ParaUtil.action, ActionUtil.getCouponAction);
 		
 		Page<Coupon> page = couponService.getCoupon(param);
 

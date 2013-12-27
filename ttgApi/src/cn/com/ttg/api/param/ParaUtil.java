@@ -70,7 +70,7 @@ public class ParaUtil {
 	/**
 	 * 纬度 只有当lat,lng,range三个参数同时存在，才会触发range公里范围内的商户优惠。
 	 */
-	public static String lat = "lng";
+	public static String lat = "lat";
 	/**
 	 * 范围公里(1->9) 只有当lat,lng,range三个参数同时存在，才会触发range公里范围内的商户优惠。
 	 */

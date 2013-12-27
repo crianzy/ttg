@@ -1,6 +1,8 @@
 package cn.com.ttg.api.bean;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -54,7 +56,21 @@ public class VipCard implements Serializable {
 	private Double range;
 	private Integer r;
 	private int state ;
+	private VipLevel[] levels;
+	private List<VipLevel> levleList = new ArrayList<VipLevel>();
 	
+	
+	
+	public List<VipLevel> getLevleList() {
+		if(levels!=null&&levels.length>0){
+			return Arrays.asList(levels);
+		}
+		return levleList;
+	}
+
+	public void setLevleList(List<VipLevel> levleList) {
+		this.levleList = levleList;
+	}
 
 	public int getState() {
 		return state;
@@ -64,7 +80,6 @@ public class VipCard implements Serializable {
 		this.state = state;
 	}
 
-	private VipLevel[] levels;
 
 	public VipLevel[] getLevels() {
 		return levels;

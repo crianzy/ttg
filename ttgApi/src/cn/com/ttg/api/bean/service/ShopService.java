@@ -181,12 +181,12 @@ public class ShopService extends BaseService {
 		TTGRequest request = new TTGRequest(urlPath, Method.GET, param);
 		TTGResponse response = executor.execute(request);
 		Shop shop = null;
-		Coupon[] coupons = null;
-		VipCard[] vipcards = null;
-		ShopComment[] comments = null;
-		Shop[] branchstore = null;
-		Count[] counts = null;
-		Impression[] impressions = null;
+		Coupon[] coupons = new Coupon[0] ;
+		VipCard[] vipcards = new VipCard[0];
+		ShopComment[] comments = new ShopComment[0];
+		Shop[] branchstore = new Shop[0];
+		Count[] counts = new Count[0];
+		Impression[] impressions = new Impression[0];
 		ImpressionCount<Impression> impression = null;
 		JSONObject data;
 		try {

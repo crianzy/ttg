@@ -19,6 +19,19 @@
 		</action> 
 	</package>
 	
+	<package name="vip" namespace="/vip" extends="struts-default">
+
+		<default-action-ref name="index" />
+
+		<action name="*" class="cn.com.ttg.action.VipAction" method="{1}">
+			<result name="index">/WEB-INF/vip/MyJsp.jsp</result>
+			<result name="test">/WEB-INF/coupon/test.jsp</result>
+			
+		</action> 
+	</package>
+	
+	
+	
 	<package name="default" namespace="/" extends="struts-default">
 	
 		<action name="shop" class="cn.com.ttg.action.ShopAction" method="shop">

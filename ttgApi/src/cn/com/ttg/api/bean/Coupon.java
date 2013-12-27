@@ -27,7 +27,7 @@ public class Coupon implements Serializable {
 	private Double lng;
 	private Double lat;
 	private Integer comments;
-	private Integer impressions;
+	private Double impressions;
 	private Integer coupons;
 	private Integer branchs;
 	private Integer clsid;
@@ -201,11 +201,12 @@ public class Coupon implements Serializable {
 		this.comments = comments;
 	}
 
-	public Integer getImpressions() {
+
+	public Double getImpressions() {
 		return impressions;
 	}
 
-	public void setImpressions(Integer impressions) {
+	public void setImpressions(Double impressions) {
 		this.impressions = impressions;
 	}
 

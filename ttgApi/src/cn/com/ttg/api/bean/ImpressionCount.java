@@ -16,6 +16,21 @@ public class ImpressionCount<T> implements Serializable {
 	private List<Count> counts;
 	private Page<T> page;
 	private List<T> list;
+	private Double average = null;
+
+	
+	public Double getAverage() {
+		if(counts.get(0).getScore() !=0.0){
+			average = counts.get(0).getScore();
+		}
+		// System.out.println("*********************************"+average);
+		// System.out.println("*********************************"+counts.get(0).getScore());
+		return average;
+	}
+
+	public void setAverage(Double average) {
+		this.average = average;
+	}
 
 	public List<Count> getCounts() {
 		return counts;

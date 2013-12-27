@@ -62,7 +62,7 @@
 	</param>
 	<param name="range">
 		<property name="type" value="number" />
-		<property name="range" max="9" min="1" />
+		<property name="range" max="100" min="1" />
 	</param>
 	<param name="coutype">
 		<property name="type" value="string" />

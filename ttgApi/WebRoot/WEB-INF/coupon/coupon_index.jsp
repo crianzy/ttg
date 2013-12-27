@@ -375,20 +375,20 @@ DD_belatedPNG.fix('background-image,ul,li,p,input,b,i,a,span,.mobile_a,.hover,.n
 										<b></b>
 										<div class="shadow">
 										<div class="mod">
-										<a class="imgbg" href="/shop/shop${shopid }/"></a>
+										<a class="imgbg" href="shop?shopid=${shopid }"></a>
 										<div class="img"><img src="${pic }" /></div>
 										<p class="w170">
-										<s:if test="comments==0">
+										<s:if test="impressions==0.0">
 												<span class="right ">
 												暂无评论
 												</span>
 										</s:if>
 										<s:else>
 											<span class="right red3">
-													${comments }分
+													${impressions }分
 											</span>
 										</s:else>
-										<span class="bold green2"><a href="/shop/shop${shopid }/">${shopname }</a></span></p>
+										<span class="bold green2"><a href="shop?shopid=${shopid }">${shopname }</a></span></p>
 										<p>优惠：<span class="red3 bold">${discount }</span></p>
 										<p class="add">人均消费：${shopavg } 元</p>
 										<p class="add">有效期：<s:date name="effect" format="yyyy-MM-dd" />
@@ -408,9 +408,10 @@ DD_belatedPNG.fix('background-image,ul,li,p,input,b,i,a,span,.mobile_a,.hover,.n
 							<div class="page">
 								<!--分页开始-->
 								<% 
-									int totalPage = ((Page)ActionContext.getContext().get("page")).getTotalpage();
-									int curPage = ((Page)ActionContext.getContext().get("page")).getPage();
-									int pagesize = ((Page)ActionContext.getContext().get("page")).getPagesize();
+									Page pages = (Page)ActionContext.getContext().get("page");
+									int totalPage = pages.getTotalpage();
+									int curPage = pages.getPage();
+									int pagesize = pages.getPagesize();
 									int qian = 0;
 									int hou = 0;
 									int appratPageSize = 11;

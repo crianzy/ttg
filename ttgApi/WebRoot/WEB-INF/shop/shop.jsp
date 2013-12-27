@@ -7,28 +7,24 @@
 			+ path + "/";
 %>
 
+<base href="<%=basePath%>">
 <!doctype html>
 <html>
 <head>
-<base href="<%=basePath%>">
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-<title>伊静藤日本料理 - U联生活</title>
-<link type="text/css" rel="stylesheet"
-	href="http://www.ulpos.com/css/common.css">
-<link type="text/css" rel="stylesheet"
-	href="http://www.ulpos.com/css/shop.css">
-<script type="text/javascript">var shopid=103898;</script>
+<title>${shopInfo.shop.shopname } - U联生活</title>
+<link type="text/css" rel="stylesheet" href="http://www.ulpos.com/css/common.css">
+<link type="text/css" rel="stylesheet" href="http://www.ulpos.com/css/shop.css">
+<script type="text/javascript">var shopid=${shopInfo.shop.shopid };</script>
 <script src="http://www.ulpos.com/js/jquery.js" type="text/javascript"></script>
 <script src="http://www.ulpos.com/js/common.js" type="text/javascript"></script>
 <script src="http://www.ulpos.com/js/shop.js" type="text/javascript"></script>
 <script src="http://www.ulpos.com/js/miaov.js" type="text/javascript"></script>
-<script src="http://www.ulpos.com/js/jquery.slide.js"
-	type="text/javascript"></script>
+<script src="http://www.ulpos.com/js/jquery.slide.js" type="text/javascript"></script>
 <script src="http://www.ulpos.com/js/wbox.js" type="text/javascript"></script>
 <script src="http://www.ulpos.com/js/yiyaface.js" type="text/javascript"></script>
-<script type="text/javascript"
-	src="http://app.mapabc.com/apis?&t=ajaxmap&v=2.1.2&key=849d7df9dc3c81d962bfc05fbedf4c61984d806d6277ca5fb4e724ac9e82c9c94348715b9fabc658"></script>
+<script type="text/javascript" src="http://app.mapabc.com/apis?&t=ajaxmap&v=2.1.2&key=849d7df9dc3c81d962bfc05fbedf4c61984d806d6277ca5fb4e724ac9e82c9c94348715b9fabc658"></script>
 <!--[if IE 6]>
 <script type="text/javascript" src="/js/DD_belatedPNG.js"></script>
 <script>
@@ -58,10 +54,13 @@ DD_belatedPNG.fix('background-image,ul,li,p,input,b,i,a,span,.mobile_a,.hover,.n
 					<ul id="usertips">
 						<li>欢迎您！</li>
 						<li><span class="red2 bold"><a href="/user/">crianzy(1175982)</a>
-						</span></li>
-						<li><i class="gray4">|</i></li>
+						</span>
+						</li>
+						<li><i class="gray4">|</i>
+						</li>
 						<li><span class="hz_login p_re2"><i><a
-									href="/user/">我的U联</a><b></b> </i>
+									href="/user/">我的U联</a><b></b>
+							</i>
 								<div class="hz_login_list" id="u_list">
 									<div>
 										<a href="/user/coupons/">我的优惠券</a>
@@ -84,10 +83,11 @@ DD_belatedPNG.fix('background-image,ul,li,p,input,b,i,a,span,.mobile_a,.hover,.n
 									<div class="last">
 										<a href="/user/">查看更多</a>
 									</div>
-								</div> </span>
+								</div> </span></li>
+						<li><i class="gray4">|</i>
 						</li>
-						<li><i class="gray4">|</i></li>
-						<li><a href="/user/logout/">退出</a></li>
+						<li><a href="/user/logout/">退出</a>
+						</li>
 					</ul>
 				</div>
 
@@ -99,13 +99,15 @@ DD_belatedPNG.fix('background-image,ul,li,p,input,b,i,a,span,.mobile_a,.hover,.n
 		<div class="nav">
 			<div class="main3">
 				<h1>
-					<a href="/"><img src="/images/logo.jpg" alt="U联生活" /> </a>
+					<a href="/"><img src="http://www.ulpos.com/images/logo.jpg" alt="U联生活" />
+					</a>
 				</h1>
 
 
 				<div class="city">
 					<p>南昌</p>
-					<i><a href="/city/">[切换城市]</a> </i>
+					<i><a href="/city/">[切换城市]</a>
+					</i>
 				</div>
 
 				<form action="/query/" method="get"
@@ -208,7 +210,8 @@ DD_belatedPNG.fix('background-image,ul,li,p,input,b,i,a,span,.mobile_a,.hover,.n
 			<div class="shop_coupon">
 				<div class="hd">
 					<b></b> <span class="right"><a class="hide_bnt"
-						href="javascript:void(0)">显示过期优惠</a> </span>
+						href="javascript:void(0)">显示过期优惠</a>
+					</span>
 					<h3>
 						商户<span class=" size_24">优惠</span>
 					</h3>
@@ -216,41 +219,114 @@ DD_belatedPNG.fix('background-image,ul,li,p,input,b,i,a,span,.mobile_a,.hover,.n
 				<div class="clear"></div>
 				<div class="s_c_list">
 					<ul>
-						<s:iterator value="shopInfo.coupons">
-						<li id="img01"><b></b>
-							<div class="l">
-								<a href=""><img
-									src="${pic }"
-									width="194" height="150" /> </a>
-							</div>
-							<div class="c">
-								<div class="t">
-									<span class="left">${discount }</span>
+						<s:iterator value="#shopInfo.coupons">
+							<%//TODO 关于 优惠券的类型 有问题 显示错误  
+							  //api返回类型 1定额优惠，2：折扣优惠，3赠品券，4积分返利券，5固定金额优惠券
+							  //  下面 id 1:优惠券 2:返积分 3:会员卡 4:团购 %>
+							<li id="img0${coutype }"><b></b>
+								<div class="l">
+									<a href=""><img
+										src="${pic }"
+										width="194" height="150" /> </a>
+								</div>
+								<div class="c">
+									<div class="t">
+										<span class="left">${discount }</span>
+									</div>
+									<div class="clear"></div>
+	
+									<p>
+										<span>说明：</span>${couname }
+									</p>
+									<p>
+										<span>有效期：</span>
+										<s:date name="effect" format="yyyy-MM-dd" /> 至 <s:date name="expired" format="yyyy-MM-dd" />
+									</p>
+									<p>
+										<span>地址：</span>${shopInfo.shop.address } <br> <span>电话：</span>${shopInfo.shop.tel }
+									</p>
+								</div>
+								<div class="r">
+									<div>
+										<a class="bnt s_bnt" href="javascript:addcou(104555)">放入银行卡</a>
+									</div>
+									<!--<div>放入银行卡，刷卡消费自动享优惠</div>-->
 								</div>
 								<div class="clear"></div>
-
+							</li>
+						</s:iterator>	
+						<!-- 会员卡 -->
+						<s:iterator value="#shopInfo.vipcards">
+							<li id="img03"><b></b>
+							<div class="l">
+								<div class="mod m_card_1">
+									<a href="javascript:addvipcard(2161)"></a>
+									<div class="tit">${svcshopname }</div>
+									<div class="img">
+										<div align="center">
+											<img
+												src="${svclogo }"/ >
+										</div>
+									</div>
+									<div class="txt card_txt">
+										<span class="right">最高可享全单${discount }</span>
+									</div>
+									<div class="show_mod hover">
+										<p>
+											<span class="right gray4">有效期：
+											<s:date name="stime" format="yyyy-MM-dd" />
+											-
+											<s:date name="etime" format="yyyy-MM-dd" />
+											</span><span
+												class="bold white">会员卡等级</span>
+										</p>
+										<s:iterator value="levleList" status="status">
+											<s:if test="status.first">
+												<p class="top10">
+											</s:if>
+											<s:else>
+												<p>
+											</s:else>
+											<span class="bold gray">${seqname }：</span> <span class="gray3">${upgrade }元≤累计消费＜${degrade }元，享</span><span
+												class="red2">${seqdiscount }</span>
+											</p>
+										</s:iterator>
+										
+									</div>
+								</div>
+							</div>
+							<div class="c">
 								<p>
-									<span>说明：</span>把该优惠券放入您的银行卡，刷卡消费享全单9折优惠。活动不支持店内折扣同时享受。
+									<span>地址：</span>${shopInfo.shop.address }<br>
+									<span>电话：</span>${shopInfo.shop.tel }
+								<p class="top20">
+									<span>说明：</span>银行卡升级为会员卡后，刷卡消费自动享会员特惠。累计消费越高，会员等级越高，享受的优惠即越高。
 								</p>
-								<p>
-									<span>有效期：</span>
-									<s:date name="effect" format="yyyy-MM-dd" /> 至 <s:date name="expired" format="yyyy-MM-dd" />
-								</p>
-								<p>
-									<span>地址：</span>${shopInfo.shop.address } <br> <span>电话：</span>${shopInfo.shop.tel }
-								</p>
+								<!--
+<div class="zhifu2">
+    <span>支持积分支付</span>
+    <p><s></s>该优惠活动同时支持积分支付。将积分绑定银行卡后，刷卡消费积分自动抵扣现金，不足资金再从银行卡中扣除。积分支付比例最高为**%，即消费**元，积分最多支付**元。<a href="">>> 我的积分</a></p>
+</div>
+-->
 							</div>
 							<div class="r">
 								<div>
-									<a class="bnt s_bnt" href="javascript:addcou(104555)">放入银行卡</a>
+									<a class="bnt s_bnt" href="javascript:addvipcard(2161)">升级银行卡</a>
 								</div>
-								<!--<div>放入银行卡，刷卡消费自动享优惠</div>-->
+								<div>
+									<%//TODO 领取截至： 时间相减 没写 %>
+									领取截至：<i class="red3 right10"><strong>271</strong>天<strong>14</strong>小时</i><br />剩余张数：<i
+										class="red3">${blance  }张卡</i>
+								</div>
 							</div>
-							<div class="clear"></div>
-						</li>
+							<div class="clear"></div></li>
 						</s:iterator>
+
 						<div class="clear"></div>
 					</ul>
+					<p class="gray3 lh_34 left20">
+						<strong>温馨提示：</strong>一张银行卡已升级为同一商户的多种优惠凭证时，刷卡消费时将自动使用最近升级的。
+					</p>
 				</div>
 			</div>
 		</div>
@@ -267,7 +343,9 @@ DD_belatedPNG.fix('background-image,ul,li,p,input,b,i,a,span,.mobile_a,.hover,.n
 				<div class="clear"></div>
 				<div class="s_a_mod">
 					<h4>商户简介</h4>
-					<p class="top16">伊静藤就是一家正宗的日本料理店，位于南昌市榕门路127号，装修风格采用了日本原汁原味的装修风格，一点一滴透入出日本料理店的博大精深，木制结构的桌椅和摆设，带你走进日本饮食文化的天堂，其主食以米饭，面条为主，日本人比较喜欢吃面食，当然清酒也是一大特色，伊静藤最出名就是和食，将烹调时尽量保持材料本身的原味注重“色、香、味、器”四者合一，视觉也是一种享受。</p>
+					<p class="top16">
+						${shopInfo.shop.intro }
+					</p>
 				</div>
 				<div class="s_a_line"></div>
 				<div class="s_a_mod">
@@ -275,31 +353,44 @@ DD_belatedPNG.fix('background-image,ul,li,p,input,b,i,a,span,.mobile_a,.hover,.n
 						商户印象<span class="gray3 size_14 simsun left20">(点击下面标签添加印象)</span>
 					</h4>
 					<div id="yx">
-						<table class="w" width="940" border="0" cellspacing="0"
-							cellpadding="0" id="appraise">
-							<tr>
-								<td width="176"><a href="javascript:;">有WiFi</a><i></i></td>
-								<td width="176"><a href="javascript:;">无线上网</a><i></i></td>
-								<td width="176"><a href="javascript:;">免费停车位</a><i></i></td>
-								<td width="176"><a href="javascript:;">收费停车位</a><i></i></td>
-							</tr>
-							<tr>
-								<td width="176"><a href="javascript:;">有包房</a><i></i></td>
-								<td width="176"><a href="javascript:;">大型宴会</a><i></i></td>
-								<td width="176"><a href="javascript:;">有表演</a><i></i></td>
-								<td width="176"><a href="javascript:;">休闲静谧</a><i></i></td>
-							</tr>
-							<tr>
-								<td width="176"><a href="javascript:;">情侣约会</a><i></i></td>
-								<td width="176"><a href="javascript:;">朋友聚餐</a><i></i></td>
-								<td width="176"><a href="javascript:;">家庭聚会</a><i></i></td>
-								<td width="176"><a href="javascript:;">有游乐区</a><i></i></td>
-							</tr>
-							<tr></tr>
+						<table class="w" id="appraise" border="0" cellpadding="0"
+							cellspacing="0" width="940">
+							<tbody>
+								<tr>
+									<td class="" width="176"><a href="javascript:;">有WiFi</a><i></i>
+									</td>
+									<td class="" width="176"><a href="javascript:;">无线上网</a><i></i>
+									</td>
+									<td class="" width="176"><a href="javascript:;">免费停车位</a><i></i>
+									</td>
+									<td class="" width="176"><a href="javascript:;">收费停车位</a><i></i>
+									</td>
+								</tr>
+								<tr>
+									<td class="" width="176"><a href="javascript:;">有包房</a><i></i>
+									</td>
+									<td class="" width="176"><a href="javascript:;">大型宴会</a><i></i>
+									</td>
+									<td width="176"><a href="javascript:;">有表演</a><i></i>
+									</td>
+									<td class="" width="176"><a href="javascript:;">休闲静谧</a><i></i>
+									</td>
+								</tr>
+								<tr>
+									<td class="" width="176"><a href="javascript:;">情侣约会</a><i></i>
+									</td>
+									<td class="" width="176"><a href="javascript:;">朋友聚餐</a><i></i>
+									</td>
+									<td class="" width="176"><a href="javascript:;">家庭聚会</a><i></i>
+									</td>
+									<td class="" width="176"><a href="javascript:;">有游乐区</a><i></i>
+									</td>
+								</tr>
+								<tr></tr>
+							</tbody>
 						</table>
 					</div>
 				</div>
-				<div class="s_a_line"></div>
 				<div class="s_a_mod pb">
 					<h4>参与门店</h4>
 					<div class="p_re">
@@ -320,7 +411,7 @@ DD_belatedPNG.fix('background-image,ul,li,p,input,b,i,a,span,.mobile_a,.hover,.n
 					</div>
 
 					<script type="text/javascript">
-var jsonshop=[{"lat":"28.677655","lng":"115.883081","ShopID":"103898","ShopName":"伊静藤日本料理","ShopAddress":"榕门路127号(独一处寿福城对面) ","ShopTel":"0791-6709983","ShopBus":"公交：省农业银行站下车，向北200米即到","TagCoupon":1,"TagPoint":0,"TagVipCard":0,"ShopHours":"11:00-21:00"}];var mapObj;
+var jsonshop=[{"lat":"${shopInfo.shop.lat}","lng":"${shopInfo.shop.lat}","ShopID":"${shopInfo.shop.shopid}","ShopName":"${shopInfo.shop.shopname}","ShopAddress":"${shopInfo.shop.address} ","ShopTel":"${shop.ShopInfo.tel}","ShopBus":"公交：${shopInfo.shop.bus}","TagCoupon":1,"TagPoint":0,"TagVipCard":0,"ShopHours":"${shopInfo.shop.openhours}"}];var mapObj;
 var lng=0;
 var lat=0;
 $(function(){
@@ -464,44 +555,43 @@ function closeTip(){
 					<div class="clear"></div>
 					<div class="a_mod">
 						<div class="top10 ceat">
-							<span>综合评分：</span> <span class="shop_pingfen"><i
-								style="width:97.6%"></i> </span><span class="red3"><b
-								class="size_16">4.88</b>分</span>
+							<span>综合评分：</span>
+							<s:if test="#shopInfo.impression.average == null">
+								暂无评价
+							</s:if>
+							<s:else>
+								${shopInfo.impression.average }
+							<span class="shop_pingfen"><i style="width:${shopInfo.impression.average/5.0*100 }%"></i></span><span class="red3"><b class="size_16">${shopInfo.impression.average }</b>分</span>
+							</s:else>
+						
 						</div>
 						<div class="p_re2">
 							<span>投诉记录：</span> <b class="red3">0</b><i class=" green2 left10"><a
-								href="javascript:;" onclick="addcomplain(shopid)">[投诉]</a> </i>
+								href="javascript:;" onclick="addcomplain(shopid)">[投诉]</a>
+							</i>
 							<!--投诉记录弹出-->
 							<div class="shows show_cm">
 								<b></b> <a href="javascript:void(0);" class="close_cm"></a>
 								<div class="size_24 yahe lh_28 bottom20">
-									伊静藤日本料理 投诉纪录<span class="size_16">（共被投诉 <i class="red3">0</i>
-										次）</span>
+									<% //TODO 投诉貌似没有数据 %>
+									${shopInfo.shop.shopname } 投诉纪录<span class="size_16">（共被投诉 <i
+										class="red3">0</i> 次）</span>
 								</div>
 								<div class="cm_box" align="center">无投诉记录</div>
 							</div>
 						</div>
-						<div class="gray3">说明：评分由口味、环境、服务、人气及投诉综合计算得出。</div>
+						<div class="gray3">说明：评分由环境、服务、人气、性价比及投诉综合计算得出。</div>
 					</div>
 				</div>
 				<div class="app_r">
 					<div class="a_mod">
-						<div class="ceat">
-							<span class="t">口味：</span><span class="shop_pingfen2"><i
-								style="width:100%"></i> </span><span class="left20">5</span>
-						</div>
-						<div class="ceat">
-							<span class="t">环境：</span><span class="shop_pingfen2"><i
-								style="width:100%"></i> </span><span class="left20">5</span>
-						</div>
-						<div class="ceat">
-							<span class="t">服务：</span><span class="shop_pingfen2"><i
-								style="width:95%"></i> </span><span class="left20">4.75</span>
-						</div>
-						<div class="ceat">
-							<span class="t">人气：</span><span class="shop_pingfen2"><i
-								style="width:95%"></i> </span><span class="left20">4.75</span>
-						</div>
+						<s:iterator value="#shopInfo.impression.counts" status="status" begin="2" end="5">
+								<div class="ceat">
+									<span class="t">${imp }：</span><span class="shop_pingfen2"><i
+										style="width:${(score/5.0) *100}%"></i>
+									</span><span class="left20">${score }</span>
+								</div>
+						</s:iterator>
 						<div class="ts">
 							<span>很差</span><span>差</span><span>一般</span><span>好</span><span>很好</span>
 						</div>
@@ -516,36 +606,40 @@ function closeTip(){
 						<!--评价弹出-->
 						<div class="show_pj shows">
 							<b></b> <a href="javascript:void(0);" class="close_pj cancel"></a>
-							<div class="size_24 yahe lh_28 bottom20">关于伊静藤日本料理</div>
+							<div class="size_24 yahe lh_28 bottom20">关于美之臣国际美容养生会所</div>
 							<div class="a_mod">
 								<div class="left">
-									<div class="ceat2">
-										<span class="t">口味：</span><span class="shop_pingfen2"><input
-											type="button" title="1"><input type="button"
-											title="2"><input type="button" title="3"><input
-											type="button" title="4"><input type="button"
-											title="5"> </span><span class="left20">5</span>
-									</div>
 									<div class="ceat2">
 										<span class="t">环境：</span><span class="shop_pingfen2"><input
 											type="button" title="1"><input type="button"
 											title="2"><input type="button" title="3"><input
 											type="button" title="4"><input type="button"
-											title="5"> </span><span class="left20">5</span>
+											title="5">
+										</span><span class="left20">5</span>
 									</div>
 									<div class="ceat2">
 										<span class="t">服务：</span><span class="shop_pingfen2"><input
 											type="button" title="1"><input type="button"
 											title="2"><input type="button" title="3"><input
 											type="button" title="4"><input type="button"
-											title="5"> </span><span class="left20">5</span>
+											title="5">
+										</span><span class="left20">5</span>
 									</div>
 									<div class="ceat2">
 										<span class="t">人气：</span><span class="shop_pingfen2"><input
 											type="button" title="1"><input type="button"
 											title="2"><input type="button" title="3"><input
 											type="button" title="4"><input type="button"
-											title="5"> </span><span class="left20">5</span>
+											title="5">
+										</span><span class="left20">5</span>
+									</div>
+									<div class="ceat2">
+										<span class="t">性价比：</span><span class="shop_pingfen2"><input
+											type="button" title="1"><input type="button"
+											title="2"><input type="button" title="3"><input
+											type="button" title="4"><input type="button"
+											title="5">
+										</span><span class="left20">5</span>
 									</div>
 									<div class="ts">
 										<span>很差</span><span>差</span><span>一般</span><span>好</span><span>很好</span>
@@ -580,7 +674,7 @@ function closeTip(){
 												type="hidden" name="weibo_sina" id="weibo_sina" value="0" />
 											<input type="hidden" name="weibo_tencent" id="weibo_tencent"
 												value="0" /> <input type="hidden" name="shopid" id="shopid"
-												value="103898" />
+												value="109807" />
 										</div>
 									</div>
 								</form>
@@ -589,6 +683,7 @@ function closeTip(){
 					</div>
 					<div class="pj_tab_menu">
 						<span class="size_18 green2 yahe">大家在说…</span>
+						<%//TODO  ajax 获取评论信息 %>
 						<ul id="con_pj_t">
 							<a href="javascript:void(0)" onclick="ajaxcomment(1,1)" id="pj1"
 								class="hover"><b></b>全部(0)</a>
@@ -624,47 +719,132 @@ function closeTip(){
 					<a href="javascript:void(0);" id="prev"></a>
 					<div id="marquee">
 						<ul>
+							<s:iterator value="#arroundCoupon">
+								<li>
+									<div class="mod">
+										<a class="imgbg" href="shop?shopid=${shopid }"></a>
+										<div class="ico">
+											<img src="http://www.ulpos.com/images/icon/juan_01.gif">
+										</div>
+										<div class="img">
+											<img src="${pic }" >
+										</div>
+										<div class="txt">
+											<div>
+												<span class="km">${range }m</span><span class="left10 bold"><a
+													class="t_link" href="shop?shopid=${shopid }">${shopname }</a>
+												</span>
+											</div>
+											<div class="red4">优惠：${discount }</div>
+										</div>
+									</div></li>
+							</s:iterator>
+							
+						</ul>
+					</div>
+					<a href="javascript:void(0);" id="next"></a>
+				</div>
+				<h4 class="left20 top20">同类好评商户</h4>
+				<div class="pp_box_list">
+					<a href="javascript:void(0);" id="prev2"></a>
+					<div id="marquee2">
+						<ul>
+						<%//TODO 同类好评商户 %>
 							<li>
 								<div class="mod">
-									<a class="imgbg" href="/shop109807/"></a>
+									<a class="imgbg" href="/shop105481/"></a>
 									<div class="ico">
-										<img src="/images/icon/juan_01.gif"><img
-											src="/images/icon/juan_02.gif"><img
-											src="/images/icon/juan_03.gif">
+										<img src="/images/icon/juan_01.gif">
 									</div>
 									<div class="img">
 										<img
-											src="http://upload.ulpos.com/upload/201312/20131210103937.jpg"/ >
+											src="http://upload.ulpos.com/upload/201307/20130705154519.jpg"/ >
 									</div>
 									<div class="txt">
 										<div>
-											<span class="km">321m</span><span class="left10 bold"><a
-												class="t_link" href="/shop109807/">美之臣国际美容养生会所</a> </span>
+											<span class="right right10"></span><span class="left10 bold"><a
+												class="t_link" href="/shop105481/">苹果宝贝美发沙龙</a>
+											</span>
 										</div>
-										<div class="red4">优惠：全单7折</div>
+										<div class="red4">优惠：全单5.5折</div>
 									</div>
-								</div>
-							</li>
+								</div></li>
 							<li>
 								<div class="mod">
-									<a class="imgbg" href="/shop109489/"></a>
+									<a class="imgbg" href="/shop104269/"></a>
 									<div class="ico">
-										<img src="/images/icon/juan_01.gif"><img
-											src="/images/icon/juan_02.gif">
+										<img src="/images/icon/juan_01.gif">
 									</div>
 									<div class="img">
 										<img
-											src="http://upload.ulpos.com/upload/201312/20131205093321.jpg"/ >
+											src="http://upload.ulpos.com/upload/201305/20130527173123.jpg"/ >
 									</div>
 									<div class="txt">
 										<div>
-											<span class="km">381m</span><span class="left10 bold"><a
-												class="t_link" href="/shop109489/">吧嗒映像</a> </span>
+											<span class="right right10"></span><span class="left10 bold"><a
+												class="t_link" href="/shop104269/">MING&LEE创意美发工作室</a>
+											</span>
 										</div>
-										<div class="red4">优惠：全单7.5折</div>
+										<div class="red4">优惠：满200元减50元</div>
 									</div>
-								</div>
-							</li>
+								</div></li>
+							<li>
+								<div class="mod">
+									<a class="imgbg" href="/shop104267/"></a>
+									<div class="ico">
+										<img src="/images/icon/juan_01.gif">
+									</div>
+									<div class="img">
+										<img
+											src="http://upload.ulpos.com/upload/201305/20130527174222.jpg"/ >
+									</div>
+									<div class="txt">
+										<div>
+											<span class="right right10"></span><span class="left10 bold"><a
+												class="t_link" href="/shop104267/">59°CFN儿童摄影</a>
+											</span>
+										</div>
+										<div class="red4">优惠：全单9折</div>
+									</div>
+								</div></li>
+							<li>
+								<div class="mod">
+									<a class="imgbg" href="/shop104262/"></a>
+									<div class="ico">
+										<img src="/images/icon/juan_01.gif">
+									</div>
+									<div class="img">
+										<img
+											src="http://upload.ulpos.com/upload/201305/20130527172547.jpg"/ >
+									</div>
+									<div class="txt">
+										<div>
+											<span class="right right10"></span><span class="left10 bold"><a
+												class="t_link" href="/shop104262/">今视觉摄影工作室</a>
+											</span>
+										</div>
+										<div class="red4">优惠：全单8.8折</div>
+									</div>
+								</div></li>
+							<li>
+								<div class="mod">
+									<a class="imgbg" href="/shop104260/"></a>
+									<div class="ico">
+										<img src="/images/icon/juan_01.gif">
+									</div>
+									<div class="img">
+										<img
+											src="http://upload.ulpos.com/upload/201305/20130528095209.jpg"/ >
+									</div>
+									<div class="txt">
+										<div>
+											<span class="right right10"></span><span class="left10 bold"><a
+												class="t_link" href="/shop104260/">印像美发店</a>
+											</span>
+										</div>
+										<div class="red4">优惠：满100元减30元</div>
+									</div>
+								</div></li>
 							<li>
 								<div class="mod">
 									<a class="imgbg" href="/shop103890/"></a>
@@ -677,197 +857,13 @@ function closeTip(){
 									</div>
 									<div class="txt">
 										<div>
-											<span class="km">402m</span><span class="left10 bold"><a
-												class="t_link" href="/shop103890/">美宝造型</a> </span>
+											<span class="right right10"></span><span class="left10 bold"><a
+												class="t_link" href="/shop103890/">美宝造型</a>
+											</span>
 										</div>
 										<div class="red4">优惠：全单8折</div>
 									</div>
-								</div>
-							</li>
-							<li>
-								<div class="mod">
-									<a class="imgbg" href="/shop107512/"></a>
-									<div class="ico">
-										<img src="/images/icon/juan_01.gif"><img
-											src="/images/icon/juan_02.gif">
-									</div>
-									<div class="img">
-										<img
-											src="http://upload.ulpos.com/upload/201310/20131014135206.jpg"/ >
-									</div>
-									<div class="txt">
-										<div>
-											<span class="km">470m</span><span class="left10 bold"><a
-												class="t_link" href="/shop107512/">美人纪婚纱礼服定制</a> </span>
-										</div>
-										<div class="red4">优惠：全单7折</div>
-									</div>
-								</div>
-							</li>
-							<li>
-								<div class="mod">
-									<a class="imgbg" href="/shop109474/"></a>
-									<div class="ico">
-										<img src="/images/icon/juan_01.gif"><img
-											src="/images/icon/juan_02.gif">
-									</div>
-									<div class="img">
-										<img
-											src="http://upload.ulpos.com/upload/201312/20131204160902.jpg"/ >
-									</div>
-									<div class="txt">
-										<div>
-											<span class="km">470m</span><span class="left10 bold"><a
-												class="t_link" href="/shop109474/">唯度婚礼庆典中心</a> </span>
-										</div>
-										<div class="red4">优惠：全单8.8折</div>
-									</div>
-								</div>
-							</li>
-							<li>
-								<div class="mod">
-									<a class="imgbg" href="/shop103899/"></a>
-									<div class="ico">
-										<img src="/images/icon/juan_01.gif">
-									</div>
-									<div class="img">
-										<img
-											src="http://upload.ulpos.com/upload/201305/20130510131930.jpg"/ >
-									</div>
-									<div class="txt">
-										<div>
-											<span class="km">487m</span><span class="left10 bold"><a
-												class="t_link" href="/shop103899/">美国星舞蹈瑜珈培训学校</a> </span>
-										</div>
-										<div class="red4">优惠：全单8.5折</div>
-									</div>
-								</div>
-							</li>
-						</ul>
-					</div>
-					<a href="javascript:void(0);" id="next"></a>
-				</div>
-				<h4 class="left20 top20">同类好评商户</h4>
-				<div class="pp_box_list">
-					<a href="javascript:void(0);" id="prev2"></a>
-					<div id="marquee2">
-						<ul>
-							<li>
-								<div class="mod">
-									<a class="imgbg" href="/shop108435/"></a>
-									<div class="ico">
-										<img src="/images/icon/juan_01.gif">
-									</div>
-									<div class="img">
-										<img
-											src="http://upload.ulpos.com/upload/201311/20131112113137.jpg"/ >
-									</div>
-									<div class="txt">
-										<div>
-											<span class="right right10">东湖区</span><span
-												class="left10 bold"><a class="t_link"
-												href="/shop108435/">思必客麻辣香锅</a> </span>
-										</div>
-										<div class="red4">优惠：全单8.8折</div>
-									</div>
-								</div>
-							</li>
-							<li>
-								<div class="mod">
-									<a class="imgbg" href="/shop105415/"></a>
-									<div class="ico">
-										<img src="/images/icon/juan_01.gif">
-									</div>
-									<div class="img">
-										<img
-											src="http://upload.ulpos.com/upload/201307/20130703145437.jpg"/ >
-									</div>
-									<div class="txt">
-										<div>
-											<span class="right right10"></span><span class="left10 bold"><a
-												class="t_link" href="/shop105415/">小猴子音乐主题餐厅</a> </span>
-										</div>
-										<div class="red4">优惠：全单9折</div>
-									</div>
-								</div>
-							</li>
-							<li>
-								<div class="mod">
-									<a class="imgbg" href="/shop105482/"></a>
-									<div class="ico">
-										<img src="/images/icon/juan_01.gif">
-									</div>
-									<div class="img">
-										<img
-											src="http://upload.ulpos.com/upload/201307/20130705154649.jpg"/ >
-									</div>
-									<div class="txt">
-										<div>
-											<span class="right right10"></span><span class="left10 bold"><a
-												class="t_link" href="/shop105482/">德庄火锅动壹店</a> </span>
-										</div>
-										<div class="red4">优惠：全单9折</div>
-									</div>
-								</div>
-							</li>
-							<li>
-								<div class="mod">
-									<a class="imgbg" href="/shop103589/"></a>
-									<div class="ico">
-										<img src="/images/icon/juan_01.gif">
-									</div>
-									<div class="img">
-										<img
-											src="http://upload.ulpos.com/upload/201305/20130527151731.jpg"/ >
-									</div>
-									<div class="txt">
-										<div>
-											<span class="right right10"></span><span class="left10 bold"><a
-												class="t_link" href="/shop103589/">重庆刘一手火锅</a> </span>
-										</div>
-										<div class="red4">优惠：全单9折</div>
-									</div>
-								</div>
-							</li>
-							<li>
-								<div class="mod">
-									<a class="imgbg" href="/shop104264/"></a>
-									<div class="ico">
-										<img src="/images/icon/juan_01.gif">
-									</div>
-									<div class="img">
-										<img
-											src="http://upload.ulpos.com/upload/201305/20130527173422.jpg"/ >
-									</div>
-									<div class="txt">
-										<div>
-											<span class="right right10">2店通用</span><span
-												class="left10 bold"><a class="t_link"
-												href="/shop104264/">御乐记焖锅</a> </span>
-										</div>
-										<div class="red4">优惠：全单9折</div>
-									</div>
-								</div>
-							</li>
-							<li>
-								<div class="mod">
-									<a class="imgbg" href="/shop104261/"></a>
-									<div class="ico">
-										<img src="/images/icon/juan_01.gif">
-									</div>
-									<div class="img">
-										<img
-											src="http://upload.ulpos.com/upload/201305/20130527172337.jpg"/ >
-									</div>
-									<div class="txt">
-										<div>
-											<span class="right right10"></span><span class="left10 bold"><a
-												class="t_link" href="/shop104261/">Mr.cake西点屋</a> </span>
-										</div>
-										<div class="red4">优惠：全单8.8折</div>
-									</div>
-								</div>
-							</li>
+								</div></li>
 
 						</ul>
 					</div>
@@ -897,6 +893,6 @@ function closeTip(){
 			<a title="返回顶部" href="#top"></a>
 		</p>
 	</div>
-	<!-- 0.14891791343689 -->
+	<!-- 0.24072909355164 -->
 </body>
 </html>

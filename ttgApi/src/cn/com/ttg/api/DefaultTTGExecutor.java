@@ -40,8 +40,8 @@ public class DefaultTTGExecutor implements TTGExecutor {
 		}
 		logger.info(TAG + "url = " + url.toString());
 		int trycount = 0;
-		String body ="";
-		int statusCode = 0 ;
+		String body = "";
+		int statusCode = 0;
 		while (trycount < TRY_COUNT) {
 
 			HttpRequest httpRequest;
@@ -64,15 +64,15 @@ public class DefaultTTGExecutor implements TTGExecutor {
 			statusCode = httpRequest.code();
 			body = httpRequest.body();
 
-			if (logger.isInfoEnabled()) {
-				logger.info(TAG + "StatusCode = "+statusCode+" Response body: " + body);
+			logger.info(TAG + "StatusCode = " + statusCode + " Response body: "
+					+ body);
+			if (!"".equals(body) && HttpURLConnection.HTTP_OK == statusCode) {
+				trycount += TRY_COUNT;
 			}
-			if (!"".equals(body)&&HttpURLConnection.HTTP_OK == statusCode) {
-				trycount+=TRY_COUNT;
-			}
+			trycount ++;
 		}
 		try {
-			if (HttpURLConnection.HTTP_OK == statusCode||"".equals(body)) {
+			if (HttpURLConnection.HTTP_OK == statusCode && !"".equals(body)) {
 				JSONObject respObj = new JSONObject(body);
 				if (respObj.getInt("ret") == 0) {
 					// TODO 存在 没有data的返回数据
@@ -87,7 +87,7 @@ public class DefaultTTGExecutor implements TTGExecutor {
 					throw new TTGException(message);
 				}
 			} else {
-				logger.error(TAG + " 链接api 服务器异常 错误代码 " + statusCode);
+				logger.error(TAG + " 链接api 服务器异常 错误代码 " + statusCode +"返回数据 body="+body);
 				// TODO 拋连接服务器失败的异常
 				throw new TTGException();
 			}

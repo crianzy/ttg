@@ -31,7 +31,7 @@ public class TestShopService {
 	@Test
 	public void testShopImpression() {
 		param.put(ParaUtil.action, ActionUtil.shopImpressionAction);
-		param.put(ParaUtil.shopid, "110461");
+		param.put(ParaUtil.shopid, "105482");
 		param.put(ParaUtil.brcolumn, "abcdefghijklmn");
 		shopService.shopImpression(param);
 	}
@@ -48,7 +48,7 @@ public class TestShopService {
 	@Test
 	public void testShopComment() {
 		param.put(ParaUtil.action, ActionUtil.getShopCommentAction);
-		param.put(ParaUtil.shopid, "100068");
+		param.put(ParaUtil.shopid, "103589");
 		param.put(ParaUtil.comcolumn, "abcdefghijklmnopqrstuvw");
 		shopService.shopComment(param);
 	}
@@ -56,7 +56,7 @@ public class TestShopService {
 	@Test
 	public void testShopinfo() {
 		param.put(ParaUtil.action, ActionUtil.shopInfoAction);
-		param.put(ParaUtil.shopid, "110461");
+		param.put(ParaUtil.shopid, "103589");
 		param.put(ParaUtil.coupons, "10");
 		param.put(ParaUtil.vipcards, "10");
 		param.put(ParaUtil.comments, "10");
