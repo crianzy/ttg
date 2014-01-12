@@ -39,6 +39,44 @@ public class Shop implements Serializable {
 	private Integer branchs;
 	private Integer gifdred;
 	private Integer shopavg;
+	private Integer num_points;
+	private Integer num_coupons;
+
+	public Integer getNum_coupons() {
+		return num_coupons;
+	}
+
+	public void setNum_coupons(Integer num_coupons) {
+		this.num_coupons = num_coupons;
+	}
+
+	private Integer num_vipcards;
+
+	private Integer num_tuangous;
+
+	public Integer getNum_vipcards() {
+		return num_vipcards;
+	}
+
+	public void setNum_vipcards(Integer num_vipcards) {
+		this.num_vipcards = num_vipcards;
+	}
+
+	public Integer getNum_tuangous() {
+		return num_tuangous;
+	}
+
+	public void setNum_tuangous(Integer num_tuangous) {
+		this.num_tuangous = num_tuangous;
+	}
+
+	public Integer getNum_points() {
+		return num_points;
+	}
+
+	public void setNum_points(Integer num_points) {
+		this.num_points = num_points;
+	}
 
 	public Integer getGifdred() {
 		return gifdred;

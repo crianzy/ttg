@@ -36,15 +36,15 @@ public class ParamActionVerify implements ParamActionVerifyInterface {
 			throw new TTGException("参数错误  action 为空");
 		}
 		List<Element> actionelms = root.elements("actionName");
-		//用于检测action 的值是否是对的指
+		// 用于检测action 的值是否是对的指
 		boolean haveAction = false;
-		for (Element actionelm : actionelms) {//遍历所有的 Action
+		for (Element actionelm : actionelms) {// 遍历所有的 Action
 			if (actionelm.attributeValue("name").equals(action)) {
 				haveAction = true;
 				List<Element> mustelems = actionelm.elements("mustParam");
 				for (Element mustelm : mustelems) {
 					String mustParm = mustelm.getStringValue();
-					//System.out.println(mustParm);
+					// System.out.println(mustParm);
 					if (!param.containsKey(mustParm)) {
 						lackPs.add(mustParm);
 						lack = true;
@@ -60,7 +60,7 @@ public class ParamActionVerify implements ParamActionVerifyInterface {
 					for (Element element : oneOfs) {
 						String para = element.getStringValue();
 						lackPs.add(para);
-						if (!have && param.containsKey(para)) {//如果没有 且刚好发现一个
+						if (!have && param.containsKey(para)) {// 如果没有 且刚好发现一个
 							isnull = false;
 							have = true;
 							continue;
@@ -70,7 +70,7 @@ public class ParamActionVerify implements ParamActionVerifyInterface {
 							continue;
 						}
 					}
-					if (error || isnull) {// 多余一个  或者一个都没有
+					if (error || isnull) {// 多余一个 或者一个都没有
 						throw new TTGException(action + " 的（多选一）参数列表 "
 								+ lackPs.toString() + " 必选且只能选其中一个参数");
 					}
@@ -81,18 +81,18 @@ public class ParamActionVerify implements ParamActionVerifyInterface {
 		if (lack) {
 			throw new TTGException(action + "的必须参数" + lackPs.toString() + "缺失");
 		}
-		if(!haveAction){
-			throw new TTGException( "action 的参数值" + action + "错误");
+		if (!haveAction) {
+			throw new TTGException("action 的参数值" + action + "错误");
 		}
 		return lackPs;
 	}
 
 	public static void main(String[] args) {
-		//param.put(ParaUtil.action, ActionUtil.getCouponBranchAction);
+		// param.put(ParaUtil.action, ActionUtil.getCouponBranchAction);
 		// param.put(ParaUtil.couid, "12123");
 		// param.put(ParaUtil.svcid, "24234");
 		// param.put("asdasd", "24234");
 		// param.put(ParaUtil.cardno, ParaUtil.cardTestNo);
-		//new ParamActionVerify().verify(param);
+		// new ParamActionVerify().verify(param);
 	}
 }

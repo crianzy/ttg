@@ -3,6 +3,8 @@ package cn.com.ttg.api.bean;
 import java.io.Serializable;
 import java.util.Date;
 
+import cn.com.ttg.api.bean.service.ShopService;
+
 /**
  * 优惠券信息
  * 
@@ -60,9 +62,17 @@ public class Coupon implements Serializable {
 	private Integer range;
 	private Integer transfer;
 	private Integer r;
+	private PointScale point_scale[];
 
-	
-	
+
+	public PointScale[] getPoint_scale() {
+		return point_scale;
+	}
+
+	public void setPoint_scale(PointScale[] point_scale) {
+		this.point_scale = point_scale;
+	}
+
 	public Integer getTransfer() {
 		return transfer;
 	}
@@ -200,7 +210,6 @@ public class Coupon implements Serializable {
 	public void setComments(Integer comments) {
 		this.comments = comments;
 	}
-
 
 	public Double getImpressions() {
 		return impressions;

@@ -18,7 +18,7 @@ import cn.com.ttg.api.json.JSONArray;
 import cn.com.ttg.api.json.JSONException;
 import cn.com.ttg.api.json.JSONObject;
 
-public class ParamVerify implements ParamVerifyInterface{
+public class ParamVerify implements ParamVerifyInterface {
 	private static final String filename = "paramCheck.xml";
 	private static Element root;
 	static {
@@ -55,10 +55,10 @@ public class ParamVerify implements ParamVerifyInterface{
 				}
 			}
 		}
-		if (!isKnowParam) {//表示 该参数不再参数列表中 是不明参数
+		if (!isKnowParam) {// 表示 该参数不再参数列表中 是不明参数
 			throw new TTGException(key + " 该参数不再参数列表中 是不明参数  ");
 		}
-		//System.out.println("yes");
+		// System.out.println("yes");
 	}
 
 	public static boolean isEmpty(String value) {
@@ -148,7 +148,7 @@ public class ParamVerify implements ParamVerifyInterface{
 	}
 
 	public enum Type {
-		number, string, doubles, date, mobile, range ,json
+		number, string, doubles, date, mobile, range, json
 	}
 
 	public boolean check(Type type, String value, Element propert) {

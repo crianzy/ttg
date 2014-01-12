@@ -34,17 +34,17 @@ public class CouponAction extends BaseAction {
 		param.clear();
 		param.addAuthorize();
 		param.put(ParaUtil.action, ActionUtil.getCouponAction);
-		param.put(ParaUtil.province, "江西");
-		param.put(ParaUtil.city, "南昌");
-		param.put(ParaUtil.state, "1");
+//		param.put(ParaUtil.province, "江西");
+//		param.put(ParaUtil.city, "南昌");
+//		param.put(ParaUtil.state, "1");
 		param.put(ParaUtil.pagesize, "30");
-		param.put("orderby", "4");
-		if(pageno>0){
-			param.put(ParaUtil.page, pageno+"");
+		//param.put("orderby", "4");
+		if (pageno > 0) {
+			param.put(ParaUtil.page, pageno + "");
 		}
 
 		Page<Coupon> page = couponService.getCoupon(param);
-		
+
 		ActionContext.getContext().put("page", page);
 		return "index";
 	}

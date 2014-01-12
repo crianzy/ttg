@@ -455,10 +455,10 @@ DD_belatedPNG.fix('background-image,ul,li,p,input,b,i,a,span,.mobile_a,.hover,.n
 										}
 									%>
 									<s:if test="#page.page == #page.totalpage">
-										<a href="coupon/index?pageno=<%=curPage+1 %>#dblist" class="last no" >下一页</a>
+										<a href="javascript:void(0)" class="last no" >下一页</a>
 									</s:if>
 									<s:else>
-										<a href="javascript:void(0)" class="last" >下一页</a>
+										<a href="coupon/index?pageno=<%=curPage+1 %>#dblist" class="last" >下一页</a>
 									</s:else>
 							</div>
 						</div>

@@ -12,7 +12,7 @@ import cn.com.ttg.api.exception.TTGException;
 public class Config {
 	private static Logger logger = Logger.getLogger(Config.class.getName());
 	private static String TAG = "Config ";
-	
+
 	public static final Properties prop = new Properties();
 	private static final String filename = "config.properties";
 	static {
@@ -21,7 +21,7 @@ public class Config {
 			classpath = URLDecoder.decode(Config.class.getResource("/")
 					.getPath(), "UTF-8");
 			FileInputStream fin = new FileInputStream(classpath + filename);
-			logger.info(TAG+"读取配置文件"+classpath + filename);
+			logger.info(TAG + "读取配置文件" + classpath + filename);
 			prop.load(fin);
 			FileOutputStream fos = new FileOutputStream(classpath + filename);
 			prop.store(fos, "");

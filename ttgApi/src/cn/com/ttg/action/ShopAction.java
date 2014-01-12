@@ -50,8 +50,8 @@ public class ShopAction extends BaseAction {
 		// param.put(ParaUtil.lng, shopInfo.getShop().getLng()+"");
 		// param.put(ParaUtil.lat, shopInfo.getShop().getLat()+"");
 		// param.put(ParaUtil.range, "9");
-		param.put(ParaUtil.action, ActionUtil.getCouponAction);
-		List<Coupon> arroundCoupon = couponService.getCoupon(param).getList();
+		 param.put(ParaUtil.action, ActionUtil.getCouponAction);
+		 List<Coupon> arroundCoupon = couponService.getCoupon(param).getList();
 		ActionContext.getContext().put("arroundCoupon", arroundCoupon);
 		
 		return SUCCESS;

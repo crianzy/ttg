@@ -17,7 +17,7 @@ public class TestShopService {
 	@Test
 	public void testGetShopBranch() {
 		param.put(ParaUtil.action, ActionUtil.getShopBranchAction);
-		param.put(ParaUtil.shopid, "100068");
+		param.put(ParaUtil.shopid, "105482");
 		param.put(ParaUtil.brcolumn, "abcdefghijklmnopqrstuvw");
 		shopService.getShopBranch(param);
 	}
